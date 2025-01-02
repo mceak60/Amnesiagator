@@ -1,14 +1,14 @@
-[gd_scene load_steps=13 format=4 uid="uid://btsdfk3w6ejf7"]
+[gd_scene load_steps=13 format=4 uid="uid://b5xkx805g0kxj"]
 
-[ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://scenes/arena/tileset.tres" id="1_64ph8"]
-[ext_resource type="Script" path="res://scenes/arena/arena.gd" id="1_p34ty"]
-[ext_resource type="Texture2D" uid="uid://mbxv0ayrsu3d" path="res://assets/sprites/star_particle.png" id="2_3p7kb"]
-[ext_resource type="Script" path="res://components/arena/play_area.gd" id="4_23ts0"]
-[ext_resource type="PackedScene" uid="uid://dctbclookhob7" path="res://scenes/unit/unit.tscn" id="4_d4agj"]
-[ext_resource type="Script" path="res://components/arena/unit_grid.gd" id="5_nwa0c"]
-[ext_resource type="Script" path="res://components/arena/tile_highlighter.gd" id="6_ot8o4"]
-[ext_resource type="Resource" uid="uid://cxt8jraate1vr" path="res://data/units/arthur.tres" id="8_nctb4"]
-[ext_resource type="Script" path="res://components/arena/unit_mover.gd" id="9_hxa64"]
+[ext_resource type="Script" path="res://scenes/bar/bar.gd" id="1_5m26e"]
+[ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://scenes/arena/tileset.tres" id="2_8n37m"]
+[ext_resource type="Texture2D" uid="uid://mbxv0ayrsu3d" path="res://assets/sprites/star_particle.png" id="3_u2pxk"]
+[ext_resource type="Script" path="res://components/ingredient_area.gd" id="4_nb8bd"]
+[ext_resource type="Script" path="res://components/ingredient_grid.gd" id="5_80xpi"]
+[ext_resource type="Script" path="res://components/tile_highlighter2.gd" id="6_lytro"]
+[ext_resource type="PackedScene" uid="uid://dk2w3c34ae7yp" path="res://scenes/ingredient/ingredient.tscn" id="7_e32e7"]
+[ext_resource type="Resource" uid="uid://dhsk6revjjlpx" path="res://data/ingredients/red_jar.tres" id="8_31uu5"]
+[ext_resource type="Script" path="res://components/ingredient_mover.gd" id="9_r2njs"]
 
 [sub_resource type="Curve" id="Curve_gxqt7"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.204482, 1), 0.0, 0.0, 0, 0, Vector2(0.795518, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -32,8 +32,8 @@ scale_max = 0.2
 scale_curve = SubResource("CurveTexture_5sum6")
 color = Color(1, 1, 1, 0.494118)
 
-[node name="Arena" type="Node2D"]
-script = ExtResource("1_p34ty")
+[node name="Bar" type="Node2D"]
+script = ExtResource("1_5m26e")
 metadata/_edit_lock_ = true
 
 [node name="Visuals" type="Node2D" parent="."]
@@ -42,86 +42,84 @@ metadata/_edit_lock_ = true
 
 [node name="Background" type="TileMapLayer" parent="Visuals"]
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAYAAAAAAAEAAAAAAAYAAAAAAAIAAAAAAAYAAAAAAAMAAAAAAAYAAAAAAAQAAAAAAAYAAAAAAAUAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAcAAAAAAAYAAAAAAAgAAAAAAAYAAAAAAAkAAAAAAAYAAAAAAAoAAAAAAAYAAAABAAAAAAAAAAYAAAABAAEAAAAAAAYAAAABAAIAAAAAAAYAAAABAAMAAAAAAAYAAAABAAQAAAAAAAYAAAABAAUAAAAAAAYAAAABAAYAAAAAAAYAAAABAAcAAAAAAAYAAAABAAgAAAAAAAYAAAABAAkAAAAAAAYAAAABAAoAAAAAAAYAAAACAAAAAAAAAAYAAAACAAEAAAAAAAYAAAACAAIAAAAAAAYAAAACAAMAAAAAAAYAAAACAAQAAAAAAAYAAAACAAUAAAAAAAYAAAACAAYAAAAAAAYAAAACAAcAAAAAAAYAAAACAAgAAAAAAAYAAAACAAkAAAAAAAYAAAACAAoAAAAAAAYAAAADAAAAAAAAAAYAAAADAAEAAAAAAAYAAAADAAIAAAAAAAYAAAADAAMAAAAAAAYAAAADAAQAAAAAAAYAAAADAAUAAAAAAAYAAAADAAYAAAAAAAYAAAADAAcAAAAAAAYAAAADAAgAAAAAAAYAAAADAAkAAAAAAAYAAAADAAoAAAAAAAYAAAAEAAAAAAAAAAYAAAAEAAEAAAAAAAYAAAAEAAIAAAAAAAYAAAAEAAMAAAAAAAYAAAAEAAQAAAAAAAYAAAAEAAUAAAAAAAYAAAAEAAYAAAAAAAYAAAAEAAcAAAAAAAYAAAAEAAgAAAAAAAYAAAAEAAkAAAAAAAYAAAAEAAoAAAAAAAYAAAAFAAAAAAAAAAYAAAAFAAEAAAAAAAYAAAAFAAIAAAAAAAYAAAAFAAMAAAAAAAYAAAAFAAQAAAAAAAYAAAAFAAUAAAAAAAYAAAAFAAYAAAAAAAYAAAAFAAcAAAAAAAYAAAAFAAgAAAAAAAYAAAAFAAkAAAAAAAYAAAAFAAoAAAAAAAYAAAAGAAAAAAAAAAYAAAAGAAEAAAAAAAYAAAAGAAIAAAAAAAYAAAAGAAMAAAAAAAYAAAAGAAQAAAAAAAYAAAAGAAUAAAAAAAYAAAAGAAYAAAAAAAYAAAAGAAcAAAAAAAYAAAAGAAgAAAAAAAYAAAAGAAkAAAAAAAYAAAAGAAoAAAAAAAYAAAAHAAAAAAAAAAYAAAAHAAEAAAAAAAYAAAAHAAIAAAAAAAYAAAAHAAMAAAAAAAYAAAAHAAQAAAAAAAYAAAAHAAUAAAAAAAYAAAAHAAYAAAAAAAYAAAAHAAcAAAAAAAYAAAAHAAgAAAAAAAYAAAAHAAkAAAAAAAYAAAAHAAoAAAAAAAYAAAAIAAAAAAAAAAYAAAAIAAEAAAAAAAYAAAAIAAIAAAAAAAYAAAAIAAMAAAAAAAYAAAAIAAQAAAAAAAYAAAAIAAUAAAAAAAYAAAAIAAYAAAAAAAYAAAAIAAcAAAAAAAYAAAAIAAgAAAAAAAYAAAAIAAkAAAAAAAYAAAAIAAoAAAAAAAYAAAAJAAAAAAAAAAYAAAAJAAEAAAAAAAYAAAAJAAIAAAAAAAYAAAAJAAMAAAAAAAYAAAAJAAQAAAAAAAYAAAAJAAUAAAAAAAYAAAAJAAYAAAAAAAYAAAAJAAcAAAAAAAYAAAAJAAgAAAAAAAYAAAAJAAkAAAAAAAYAAAAJAAoAAAAAAAYAAAAKAAAAAAAAAAYAAAAKAAEAAAAAAAYAAAAKAAIAAAAAAAYAAAAKAAMAAAAAAAYAAAAKAAQAAAAAAAYAAAAKAAUAAAAAAAYAAAAKAAYAAAAAAAYAAAAKAAcAAAAAAAYAAAAKAAgAAAAAAAYAAAAKAAkAAAAAAAYAAAAKAAoAAAAAAAYAAAALAAAAAAAAAAYAAAALAAEAAAAAAAYAAAALAAIAAAAAAAYAAAALAAMAAAAAAAYAAAALAAQAAAAAAAYAAAALAAUAAAAAAAYAAAALAAYAAAAAAAYAAAALAAcAAAAAAAYAAAALAAgAAAAAAAYAAAALAAkAAAAAAAYAAAALAAoAAAAAAAYAAAAMAAAAAAAAAAYAAAAMAAEAAAAAAAYAAAAMAAIAAAAAAAYAAAAMAAMAAAAAAAYAAAAMAAQAAAAAAAYAAAAMAAUAAAAAAAYAAAAMAAYAAAAAAAYAAAAMAAcAAAAAAAYAAAAMAAgAAAAAAAYAAAAMAAkAAAAAAAYAAAAMAAoAAAAAAAYAAAANAAAAAAAAAAYAAAANAAEAAAAAAAYAAAANAAIAAAAAAAYAAAANAAMAAAAAAAYAAAANAAQAAAAAAAYAAAANAAUAAAAAAAYAAAANAAYAAAAAAAYAAAANAAcAAAAAAAYAAAANAAgAAAAAAAYAAAANAAkAAAAAAAYAAAANAAoAAAAAAAYAAAAOAAAAAAAAAAYAAAAOAAEAAAAAAAYAAAAOAAIAAAAAAAYAAAAOAAMAAAAAAAYAAAAOAAQAAAAAAAYAAAAOAAUAAAAAAAYAAAAOAAYAAAAAAAYAAAAOAAcAAAAAAAYAAAAOAAgAAAAAAAYAAAAOAAkAAAAAAAYAAAAOAAoAAAAAAAYAAAAPAAAAAAAAAAYAAAAPAAEAAAAAAAYAAAAPAAIAAAAAAAYAAAAPAAMAAAAAAAYAAAAPAAQAAAAAAAYAAAAPAAUAAAAAAAYAAAAPAAYAAAAAAAYAAAAPAAcAAAAAAAYAAAAPAAgAAAAAAAYAAAAPAAkAAAAAAAYAAAAPAAoAAAAAAAYAAAAQAAAAAAAAAAYAAAAQAAEAAAAAAAYAAAAQAAIAAAAAAAYAAAAQAAMAAAAAAAYAAAAQAAQAAAAAAAYAAAAQAAUAAAAAAAYAAAAQAAYAAAAAAAYAAAAQAAcAAAAAAAYAAAAQAAgAAAAAAAYAAAAQAAkAAAAAAAYAAAAQAAoAAAAAAAYAAAARAAAAAAAAAAYAAAARAAEAAAAAAAYAAAARAAIAAAAAAAYAAAARAAMAAAAAAAYAAAARAAQAAAAAAAYAAAARAAUAAAAAAAYAAAARAAYAAAAAAAYAAAARAAcAAAAAAAYAAAARAAgAAAAAAAYAAAARAAkAAAAAAAYAAAARAAoAAAAAAAYAAAASAAAAAAAAAAYAAAASAAEAAAAAAAYAAAASAAIAAAAAAAYAAAASAAMAAAAAAAYAAAASAAQAAAAAAAYAAAASAAUAAAAAAAYAAAASAAYAAAAAAAYAAAASAAcAAAAAAAYAAAASAAgAAAAAAAYAAAASAAkAAAAAAAYAAAASAAoAAAAAAAYAAAATAAAAAAAAAAYAAAATAAEAAAAAAAYAAAATAAIAAAAAAAYAAAATAAMAAAAAAAYAAAATAAQAAAAAAAYAAAATAAUAAAAAAAYAAAATAAYAAAAAAAYAAAATAAcAAAAAAAYAAAATAAgAAAAAAAYAAAATAAkAAAAAAAYAAAATAAoAAAAAAAYAAAAAAAsAAAAAAAYAAAABAAsAAAAAAAYAAAACAAsAAAAAAAYAAAADAAsAAAAAAAYAAAAEAAsAAAAAAAYAAAAFAAsAAAAAAAYAAAAGAAsAAAAAAAYAAAAHAAsAAAAAAAYAAAAIAAsAAAAAAAYAAAAJAAsAAAAAAAYAAAAKAAsAAAAAAAYAAAALAAsAAAAAAAYAAAAMAAsAAAAAAAYAAAANAAsAAAAAAAYAAAAOAAsAAAAAAAYAAAAPAAsAAAAAAAYAAAAQAAsAAAAAAAYAAAARAAsAAAAAAAYAAAASAAsAAAAAAAYAAAATAAsAAAAAAAYAAAA=")
-tile_set = ExtResource("1_64ph8")
+tile_set = ExtResource("2_8n37m")
 
 [node name="Props" type="TileMapLayer" parent="Visuals"]
 modulate = Color(1, 1, 1, 0.392157)
 tile_map_data = PackedByteArray("AAAAAAAAAAAMABMAAAABAAIAAAADABMAAAABAAQAAAABABMAAAABAAUAAAABABMAAAABAAkAAAAAABMAAAABAAoAAAAKABMAAAAQAAMAAAAJABMAAAAQAAQAAAAKABMAAAARAAkAAAAGABMAAAASAAEAAAAJABMAAAASAAgAAAAGABMAAAATAAAAAAANABMAAAATAAgAAAAHABMAAAA=")
-tile_set = ExtResource("1_64ph8")
+tile_set = ExtResource("2_8n37m")
 
 [node name="Walls" type="TileMapLayer" parent="Visuals"]
 tile_map_data = PackedByteArray("AAAEAAAAAAAAAAEAAAAFAAAAAAABAAEAAAAIAAAAAAABAAEAAAAGAAAAAAABAAEAAAAHAAAAAAABAAEAAAAJAAAAAAABAAEAAAAKAAAAAAABAAEAAAALAAAAAAABAAEAAAAMAAAAAAABAAEAAAANAAAAAAABAAEAAAAOAAAAAAABAAEAAAAPAAAAAAAAAAEAAAAEAAEAAAAAAAEAAAAEAAIAAAAAAAEAAAAEAAMAAAAAAAEAAAAEAAQAAAAAAAEAAAAEAAUAAAAAAAEAAAAEAAYAAAAAAAEAAAAEAAcAAAAAAAEAAAAEAAgAAAABAAEAAAAPAAEAAAAAAAEAAAAPAAIAAAAAAAEAAAAPAAMAAAAAAAEAAAAPAAQAAAAAAAEAAAAPAAUAAAAAAAEAAAAPAAYAAAAAAAEAAAAPAAcAAAAAAAEAAAAPAAgAAAABAAEAAAAFAAgAAAABAAEAAAAGAAgAAAABAAEAAAAHAAgAAAABAAEAAAAIAAgAAAABAAEAAAAJAAgAAAABAAEAAAAKAAgAAAABAAEAAAALAAgAAAABAAEAAAAMAAgAAAABAAEAAAANAAgAAAABAAEAAAAOAAgAAAABAAEAAAAEAAsAAAABAAAAAAAFAAsAAAABAAAAAAAGAAsAAAABAAAAAAAHAAsAAAABAAAAAAAJAAsAAAABAAAAAAAIAAsAAAABAAAAAAAKAAsAAAABAAAAAAALAAsAAAABAAAAAAAMAAsAAAABAAAAAAANAAsAAAABAAAAAAAOAAsAAAABAAAAAAAPAAsAAAABAAAAAAAEAAoAAAAAAAAAAAAPAAoAAAAAAAAAAAA=")
-tile_set = ExtResource("1_64ph8")
+tile_set = ExtResource("2_8n37m")
 
 [node name="DustParticles" type="GPUParticles2D" parent="Visuals"]
 z_index = 99
 position = Vector2(320, 180)
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_v1x5q")
-texture = ExtResource("2_3p7kb")
+texture = ExtResource("3_u2pxk")
 lifetime = 6.0
 
-[node name="GameArea" type="TileMapLayer" parent="." node_paths=PackedStringArray("unit_grid", "tile_highlighter")]
+[node name="Shelf" type="TileMapLayer" parent="." node_paths=PackedStringArray("ingredient_grid", "tile_highlighter")]
 position = Vector2(160, 32)
 tile_map_data = PackedByteArray("AAABAAAAAAACAAwAAAABAAIAAAAAAAwAAAABAAQAAAAAAAwAAAABAAYAAAAAAAwAAAAAAAEAAAAAAAwAAAAAAAMAAAAAAAwAAAAAAAUAAAABAAwAAAACAAEAAAAAAAwAAAACAAMAAAADAAwAAAACAAUAAAAAAAwAAAADAAAAAAAAAAwAAAADAAIAAAAAAAwAAAADAAQAAAAAAAwAAAADAAYAAAAAAAwAAAAEAAEAAAAAAAwAAAAEAAMAAAAAAAwAAAAEAAUAAAAAAAwAAAAFAAAAAAAAAAwAAAAFAAIAAAAAAAwAAAAFAAQAAAAAAAwAAAAFAAYAAAACAAwAAAAGAAEAAAADAAwAAAAGAAMAAAAAAAwAAAAGAAUAAAADAAwAAAAHAAAAAAAAAAwAAAAHAAIAAAAAAAwAAAAHAAQAAAAAAAwAAAAHAAYAAAAAAAwAAAAIAAEAAAAAAAwAAAAIAAMAAAABAAwAAAAIAAUAAAAAAAwAAAAJAAAAAAAAAAwAAAAJAAIAAAAAAAwAAAAJAAQAAAAAAAwAAAAJAAYAAAADAAwAAAA=")
-tile_set = ExtResource("1_64ph8")
-script = ExtResource("4_23ts0")
-unit_grid = NodePath("ArenaUnitGrid")
+tile_set = ExtResource("2_8n37m")
+script = ExtResource("4_nb8bd")
+ingredient_grid = NodePath("ShelfIngredientGrid")
 tile_highlighter = NodePath("TileHighlighter")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="Decor" type="TileMapLayer" parent="GameArea"]
+[node name="Decor" type="TileMapLayer" parent="Shelf"]
 modulate = Color(1, 1, 1, 0.431373)
 tile_map_data = PackedByteArray("AAAGAAAAAAABABUAAAAJAAEAAAAAABYAAAAIAAQAAAABABYAAAA=")
-tile_set = ExtResource("1_64ph8")
+tile_set = ExtResource("2_8n37m")
 
-[node name="Highlight" type="TileMapLayer" parent="GameArea"]
-tile_set = ExtResource("1_64ph8")
+[node name="Highlight" type="TileMapLayer" parent="Shelf"]
+tile_set = ExtResource("2_8n37m")
 
-[node name="ArenaUnitGrid" type="Node2D" parent="GameArea"]
-script = ExtResource("5_nwa0c")
+[node name="ShelfIngredientGrid" type="Node2D" parent="Shelf"]
+script = ExtResource("5_80xpi")
 size = Vector2i(4, 7)
 
-[node name="TileHighlighter" type="Node" parent="GameArea" node_paths=PackedStringArray("play_area", "highlight_layer")]
-script = ExtResource("6_ot8o4")
-play_area = NodePath("..")
-highlight_layer = NodePath("../Highlight")
-
-[node name="Bench" type="TileMapLayer" parent="." node_paths=PackedStringArray("unit_grid", "tile_highlighter")]
-position = Vector2(160, 320)
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAsAAAABAAAAAAAAAAcAAAACAAAAAAAAAAsAAAADAAAAAAAAAAcAAAAEAAAAAAAAAAsAAAAFAAAAAAAAAAcAAAAGAAAAAAAAAAsAAAAHAAAAAAAAAAcAAAAIAAAAAAAAAAsAAAAJAAAAAAAAAAcAAAA=")
-tile_set = ExtResource("1_64ph8")
-script = ExtResource("4_23ts0")
-unit_grid = NodePath("BenchUnitGrid")
-tile_highlighter = NodePath("TileHighlighter")
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
-
-[node name="Highlight" type="TileMapLayer" parent="Bench"]
-tile_set = ExtResource("1_64ph8")
-
-[node name="Unit" parent="Bench" instance=ExtResource("4_d4agj")]
-position = Vector2(32, -160)
-
-[node name="Unit2" parent="Bench" instance=ExtResource("4_d4agj")]
-position = Vector2(64, -160)
-
-[node name="Unit3" parent="Bench" instance=ExtResource("4_d4agj")]
-position = Vector2(128, -160)
-stats = ExtResource("8_nctb4")
-
-[node name="BenchUnitGrid" type="Node2D" parent="Bench"]
-script = ExtResource("5_nwa0c")
-size = Vector2i(10, 1)
-
-[node name="TileHighlighter" type="Node" parent="Bench" node_paths=PackedStringArray("play_area", "highlight_layer")]
-script = ExtResource("6_ot8o4")
-enabled = false
-play_area = NodePath("..")
+[node name="TileHighlighter" type="Node" parent="Shelf" node_paths=PackedStringArray("ingredient_area", "highlight_layer")]
+script = ExtResource("6_lytro")
+ingredient_area = NodePath("..")
 highlight_layer = NodePath("../Highlight")
 tile = Vector2i(3, 0)
 
-[node name="UnitMover" type="Node" parent="." node_paths=PackedStringArray("play_areas")]
-script = ExtResource("9_hxa64")
-play_areas = [NodePath("../GameArea"), NodePath("../Bench")]
+[node name="Counter" type="TileMapLayer" parent="." node_paths=PackedStringArray("ingredient_grid", "tile_highlighter")]
+position = Vector2(160, 320)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAsAAAABAAAAAAAAAAcAAAACAAAAAAAAAAsAAAADAAAAAAAAAAcAAAAEAAAAAAAAAAsAAAAFAAAAAAAAAAcAAAAGAAAAAAAAAAsAAAAHAAAAAAAAAAcAAAAIAAAAAAAAAAsAAAAJAAAAAAAAAAcAAAA=")
+tile_set = ExtResource("2_8n37m")
+script = ExtResource("4_nb8bd")
+ingredient_grid = NodePath("CounterIngredientGrid")
+tile_highlighter = NodePath("TileHighlighter")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Highlight" type="TileMapLayer" parent="Counter"]
+tile_set = ExtResource("2_8n37m")
+
+[node name="Ingredient" parent="Counter" instance=ExtResource("7_e32e7")]
+position = Vector2(128, -128)
+details = ExtResource("8_31uu5")
+
+[node name="Ingredient2" parent="Counter" instance=ExtResource("7_e32e7")]
+position = Vector2(96, -128)
+details = ExtResource("8_31uu5")
+
+[node name="CounterIngredientGrid" type="Node2D" parent="Counter"]
+script = ExtResource("5_80xpi")
+size = Vector2i(10, 1)
+
+[node name="TileHighlighter" type="Node" parent="Counter" node_paths=PackedStringArray("ingredient_area", "highlight_layer")]
+script = ExtResource("6_lytro")
+ingredient_area = NodePath("..")
+highlight_layer = NodePath("../Highlight")
+tile = Vector2i(3, 0)
+
+[node name="IngredientMover" type="Node" parent="." node_paths=PackedStringArray("ingredient_areas")]
+script = ExtResource("9_r2njs")
+ingredient_areas = [NodePath("../Shelf"), NodePath("../Counter")]

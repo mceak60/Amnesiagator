@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="IngredientDetails" load_steps=2 format=3 uid="uid://dhsk6revjjlpx"]
+
+[ext_resource type="Script" path="res://data/ingredients/ingredient_details.gd" id="1_il8bc"]
+
+[resource]
+script = ExtResource("1_il8bc")
+name = "Red Jar"
+quality = 0
+gold_cost = 1
+trait_list = Array[String](["warm", "spicy"])
+skin_coordinates = Vector2i(0, 0)
