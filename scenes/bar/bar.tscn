@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://b5xkx805g0kxj"]
+[gd_scene load_steps=14 format=4 uid="uid://b5xkx805g0kxj"]
 
 [ext_resource type="Script" path="res://scenes/bar/bar.gd" id="1_5m26e"]
 [ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://scenes/arena/tileset.tres" id="2_8n37m"]
@@ -7,7 +7,8 @@
 [ext_resource type="Script" path="res://components/draggable_grid.gd" id="5_80xpi"]
 [ext_resource type="Script" path="res://components/tile_highlighter2.gd" id="6_lytro"]
 [ext_resource type="PackedScene" uid="uid://dk2w3c34ae7yp" path="res://scenes/ingredient/ingredient.tscn" id="7_e32e7"]
-[ext_resource type="Resource" uid="uid://dhsk6revjjlpx" path="res://data/ingredients/red_jar.tres" id="8_31uu5"]
+[ext_resource type="PackedScene" uid="uid://b3f52ph83f31m" path="res://scenes/drink/drink.tscn" id="9_8ypaw"]
+[ext_resource type="Resource" uid="uid://bmidkeyqjvsna" path="res://data/ingredients/blue_jar.tres" id="9_800i4"]
 [ext_resource type="Script" path="res://components/draggable_mover.gd" id="9_r2njs"]
 
 [sub_resource type="Curve" id="Curve_gxqt7"]
@@ -105,11 +106,13 @@ tile_set = ExtResource("2_8n37m")
 
 [node name="Ingredient" parent="Counter" instance=ExtResource("7_e32e7")]
 position = Vector2(128, -128)
-details = ExtResource("8_31uu5")
 
 [node name="Ingredient2" parent="Counter" instance=ExtResource("7_e32e7")]
 position = Vector2(96, -128)
-details = ExtResource("8_31uu5")
+details = ExtResource("9_800i4")
+
+[node name="Drink" parent="Counter" instance=ExtResource("9_8ypaw")]
+position = Vector2(64, 0)
 
 [node name="CounterGrid" type="Node2D" parent="Counter"]
 script = ExtResource("5_80xpi")

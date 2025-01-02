@@ -13,4 +13,4 @@ attribute_list = {
 "Hot": 0,
 "Tangy": 0
 }
-skin_coordinates = Vector2i(0, 0)
+skin_coordinates = Vector2i(4, 0)

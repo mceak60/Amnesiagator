@@ -2,9 +2,7 @@
 class_name Draggable
 extends Area2D
 
-@export var details : IngredientDetails : set = set_details
 
-@onready var skin: Sprite2D = $Visuals/Skin
 @onready var drag_and_drop: DragAndDrop = $DragAndDrop
 @onready var velocity_based_rotation: VelocityBasedRotation = $VelocityBasedRotation
 @onready var outline_highlighter: OutlineHighlighter = $OutlineHighlighter
@@ -15,16 +13,6 @@ func _ready() -> void:
 		drag_and_drop.drag_canceled.connect(_on_drag_canceled)
 
 
-func set_details(value: IngredientDetails) -> void:
-	details = value
-	
-	if value == null:
-		return
-	
-	if not is_node_ready():
-		await ready
-	
-	skin.region_rect.position = Vector2(details.skin_coordinates) * Arena.CELL_SIZE
 
 
 func reset_after_dragging(starting_position: Vector2) -> void:
