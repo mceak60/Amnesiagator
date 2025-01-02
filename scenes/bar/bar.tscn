@@ -54,6 +54,7 @@ tile_map_data = PackedByteArray("AAAEAAAAAAAAAAEAAAAFAAAAAAABAAEAAAAIAAAAAAABAAE
 tile_set = ExtResource("2_8n37m")
 
 [node name="DustParticles" type="GPUParticles2D" parent="Visuals"]
+visible = false
 z_index = 99
 position = Vector2(320, 180)
 amount = 20

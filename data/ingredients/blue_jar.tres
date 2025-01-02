@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="IngredientDetails" load_steps=2 format=3 uid="uid://bmidkeyqjvsna"]
+
+[ext_resource type="Script" path="res://data/ingredients/ingredient_details.gd" id="1_1dmbc"]
+
+[resource]
+script = ExtResource("1_1dmbc")
+name = "Blue Jar"
+quality = 0
+ingredient_type = 0
+gold_cost = 1
+attribute_list = {
+"Cold": 2,
+"Hot": 0,
+"Tangy": 0
+}
+skin_coordinates = Vector2i(0, 0)
