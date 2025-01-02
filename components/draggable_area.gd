@@ -1,14 +1,14 @@
-class_name IngredientArea
+class_name DraggableArea
 extends TileMapLayer
 
-@export var ingredient_grid: IngredientGrid
+@export var draggable_grid: DraggableGrid
 @export var tile_highlighter: TileHighlighter2
 
 var bounds: Rect2i
 
 
 func _ready() -> void:
-	bounds = Rect2i(Vector2.ZERO, ingredient_grid.size)
+	bounds = Rect2i(Vector2.ZERO, draggable_grid.size)
 
 
 func get_tile_from_global(global: Vector2) -> Vector2i:

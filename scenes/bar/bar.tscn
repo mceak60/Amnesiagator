@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://scenes/bar/bar.gd" id="1_5m26e"]
 [ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://scenes/arena/tileset.tres" id="2_8n37m"]
 [ext_resource type="Texture2D" uid="uid://mbxv0ayrsu3d" path="res://assets/sprites/star_particle.png" id="3_u2pxk"]
-[ext_resource type="Script" path="res://components/ingredient_area.gd" id="4_nb8bd"]
-[ext_resource type="Script" path="res://components/ingredient_grid.gd" id="5_80xpi"]
+[ext_resource type="Script" path="res://components/draggable_area.gd" id="4_nb8bd"]
+[ext_resource type="Script" path="res://components/draggable_grid.gd" id="5_80xpi"]
 [ext_resource type="Script" path="res://components/tile_highlighter2.gd" id="6_lytro"]
 [ext_resource type="PackedScene" uid="uid://dk2w3c34ae7yp" path="res://scenes/ingredient/ingredient.tscn" id="7_e32e7"]
 [ext_resource type="Resource" uid="uid://dhsk6revjjlpx" path="res://data/ingredients/red_jar.tres" id="8_31uu5"]
-[ext_resource type="Script" path="res://components/ingredient_mover.gd" id="9_r2njs"]
+[ext_resource type="Script" path="res://components/draggable_mover.gd" id="9_r2njs"]
 
 [sub_resource type="Curve" id="Curve_gxqt7"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.204482, 1), 0.0, 0.0, 0, 0, Vector2(0.795518, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -62,12 +62,12 @@ process_material = SubResource("ParticleProcessMaterial_v1x5q")
 texture = ExtResource("3_u2pxk")
 lifetime = 6.0
 
-[node name="Shelf" type="TileMapLayer" parent="." node_paths=PackedStringArray("ingredient_grid", "tile_highlighter")]
+[node name="Shelf" type="TileMapLayer" parent="." node_paths=PackedStringArray("draggable_grid", "tile_highlighter")]
 position = Vector2(160, 32)
 tile_map_data = PackedByteArray("AAABAAAAAAACAAwAAAABAAIAAAAAAAwAAAABAAQAAAAAAAwAAAABAAYAAAAAAAwAAAAAAAEAAAAAAAwAAAAAAAMAAAAAAAwAAAAAAAUAAAABAAwAAAACAAEAAAAAAAwAAAACAAMAAAADAAwAAAACAAUAAAAAAAwAAAADAAAAAAAAAAwAAAADAAIAAAAAAAwAAAADAAQAAAAAAAwAAAADAAYAAAAAAAwAAAAEAAEAAAAAAAwAAAAEAAMAAAAAAAwAAAAEAAUAAAAAAAwAAAAFAAAAAAAAAAwAAAAFAAIAAAAAAAwAAAAFAAQAAAAAAAwAAAAFAAYAAAACAAwAAAAGAAEAAAADAAwAAAAGAAMAAAAAAAwAAAAGAAUAAAADAAwAAAAHAAAAAAAAAAwAAAAHAAIAAAAAAAwAAAAHAAQAAAAAAAwAAAAHAAYAAAAAAAwAAAAIAAEAAAAAAAwAAAAIAAMAAAABAAwAAAAIAAUAAAAAAAwAAAAJAAAAAAAAAAwAAAAJAAIAAAAAAAwAAAAJAAQAAAAAAAwAAAAJAAYAAAADAAwAAAA=")
 tile_set = ExtResource("2_8n37m")
 script = ExtResource("4_nb8bd")
-ingredient_grid = NodePath("ShelfIngredientGrid")
+draggable_grid = NodePath("ShelfGrid")
 tile_highlighter = NodePath("TileHighlighter")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
@@ -80,22 +80,22 @@ tile_set = ExtResource("2_8n37m")
 [node name="Highlight" type="TileMapLayer" parent="Shelf"]
 tile_set = ExtResource("2_8n37m")
 
-[node name="ShelfIngredientGrid" type="Node2D" parent="Shelf"]
+[node name="ShelfGrid" type="Node2D" parent="Shelf"]
 script = ExtResource("5_80xpi")
 size = Vector2i(4, 7)
 
-[node name="TileHighlighter" type="Node" parent="Shelf" node_paths=PackedStringArray("ingredient_area", "highlight_layer")]
+[node name="TileHighlighter" type="Node" parent="Shelf" node_paths=PackedStringArray("draggable_area", "highlight_layer")]
 script = ExtResource("6_lytro")
-ingredient_area = NodePath("..")
+draggable_area = NodePath("..")
 highlight_layer = NodePath("../Highlight")
 tile = Vector2i(3, 0)
 
-[node name="Counter" type="TileMapLayer" parent="." node_paths=PackedStringArray("ingredient_grid", "tile_highlighter")]
+[node name="Counter" type="TileMapLayer" parent="." node_paths=PackedStringArray("draggable_grid", "tile_highlighter")]
 position = Vector2(160, 320)
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAsAAAABAAAAAAAAAAcAAAACAAAAAAAAAAsAAAADAAAAAAAAAAcAAAAEAAAAAAAAAAsAAAAFAAAAAAAAAAcAAAAGAAAAAAAAAAsAAAAHAAAAAAAAAAcAAAAIAAAAAAAAAAsAAAAJAAAAAAAAAAcAAAA=")
 tile_set = ExtResource("2_8n37m")
 script = ExtResource("4_nb8bd")
-ingredient_grid = NodePath("CounterIngredientGrid")
+draggable_grid = NodePath("CounterGrid")
 tile_highlighter = NodePath("TileHighlighter")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
@@ -111,16 +111,16 @@ details = ExtResource("8_31uu5")
 position = Vector2(96, -128)
 details = ExtResource("8_31uu5")
 
-[node name="CounterIngredientGrid" type="Node2D" parent="Counter"]
+[node name="CounterGrid" type="Node2D" parent="Counter"]
 script = ExtResource("5_80xpi")
 size = Vector2i(10, 1)
 
-[node name="TileHighlighter" type="Node" parent="Counter" node_paths=PackedStringArray("ingredient_area", "highlight_layer")]
+[node name="TileHighlighter" type="Node" parent="Counter" node_paths=PackedStringArray("draggable_area", "highlight_layer")]
 script = ExtResource("6_lytro")
-ingredient_area = NodePath("..")
+draggable_area = NodePath("..")
 highlight_layer = NodePath("../Highlight")
 tile = Vector2i(3, 0)
 
-[node name="IngredientMover" type="Node" parent="." node_paths=PackedStringArray("ingredient_areas")]
+[node name="DraggableMover" type="Node" parent="." node_paths=PackedStringArray("draggable_areas")]
 script = ExtResource("9_r2njs")
-ingredient_areas = [NodePath("../Shelf"), NodePath("../Counter")]
+draggable_areas = [NodePath("../Shelf"), NodePath("../Counter")]

@@ -1,5 +1,5 @@
 @tool
-class_name Ingredient
+class_name Draggable
 extends Area2D
 
 @export var details : IngredientDetails : set = set_details

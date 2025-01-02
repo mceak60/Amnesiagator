@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dk2w3c34ae7yp"]
 
-[ext_resource type="Script" path="res://scenes/ingredient/ingredient.gd" id="1_7eimf"]
+[ext_resource type="Script" path="res://scenes/ingredient/draggable.gd" id="1_7eimf"]
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://assets/shaders/2d_outline_shader.tres" id="1_cfepo"]
 [ext_resource type="Texture2D" uid="uid://cx1ivjobggp8n" path="res://assets/sprites/rogues.png" id="2_ogv8i"]
 [ext_resource type="Script" path="res://components/outline_highlighter.gd" id="3_75pbe"]

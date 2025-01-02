@@ -2,20 +2,20 @@ class_name TileHighlighter2
 extends Node
 
 @export var enabled: bool = true : set = _set_enabled
-@export var ingredient_area: IngredientArea
+@export var draggable_area: DraggableArea
 @export var highlight_layer: TileMapLayer
 @export var tile: Vector2i
 
-@onready var source_id := ingredient_area.tile_set.get_source_id(0)
+@onready var source_id := draggable_area.tile_set.get_source_id(0)
 
 
 func _process(_delta: float) -> void:
 	if not enabled:
 		return
 
-	var selected_tile := ingredient_area.get_hovered_tile()
+	var selected_tile := draggable_area.get_hovered_tile()
 	
-	if not ingredient_area.is_tile_in_bounds(selected_tile):
+	if not draggable_area.is_tile_in_bounds(selected_tile):
 		highlight_layer.clear()
 		return
 
@@ -25,7 +25,7 @@ func _process(_delta: float) -> void:
 func _set_enabled(new_value: bool) -> void:
 	enabled = new_value
 	
-	if not enabled and ingredient_area:
+	if not enabled and draggable_area:
 		highlight_layer.clear()
 
 
