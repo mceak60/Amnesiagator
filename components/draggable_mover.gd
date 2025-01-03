@@ -73,27 +73,35 @@ func _on_draggable_drag_canceled(starting_position: Vector2, draggable: Draggabl
 
 func _on_ingredient_dropped(starting_position: Vector2, ingredient: Draggable) -> void:
 	var drop_area_index := _get_draggable_area_for_position(ingredient.get_global_mouse_position())
-	if drop_area_index == -1:
-		_reset_draggable_to_starting_position(starting_position, ingredient)
+	if drop_area_index == 0:
+		on_draggable_dropped(starting_position, ingredient, drop_area_index)
 		return
 		
 	elif drop_area_index == 1:
-			var tile := draggable_areas[drop_area_index].get_hovered_tile()
-			if draggable_areas[drop_area_index].draggable_grid.is_tile_occupied(tile):
-				var drink : Draggable = draggable_areas[drop_area_index].draggable_grid.draggables[tile]
-				drink.ingredient_list.append(ingredient)
-				for attribute in ingredient.details.attribute_list:
-					drink.attribute_list[attribute] += ingredient.details.attribute_list[attribute]
+		var tile := draggable_areas[drop_area_index].get_hovered_tile()
+		if draggable_areas[drop_area_index].draggable_grid.is_tile_occupied(tile):
+			var drink : Draggable = draggable_areas[drop_area_index].draggable_grid.draggables[tile]
+			drink.ingredient_list.append(ingredient)
+			for attribute in ingredient.details.attribute_list:
+				drink.attribute_list[attribute] += ingredient.details.attribute_list[attribute]
 			
-			_reset_draggable_to_starting_position(starting_position, ingredient)
-			return
+		_reset_draggable_to_starting_position(starting_position, ingredient)
+		return
 	
-	on_draggable_dropped(starting_position, ingredient, drop_area_index)
+	_reset_draggable_to_starting_position(starting_position, ingredient)
 
 
 func _on_drink_dropped(starting_position: Vector2, drink: Draggable) -> void:
 	var drop_area_index := _get_draggable_area_for_position(drink.get_global_mouse_position())
 	if drop_area_index == -1 || drop_area_index == 0:
+		_reset_draggable_to_starting_position(starting_position, drink)
+		return
+	
+	elif drop_area_index == 2:
+		drink.ingredient_list.clear()
+		for attribute in drink.attribute_list:
+			drink.attribute_list[attribute] = 0
+		
 		_reset_draggable_to_starting_position(starting_position, drink)
 		return
 	
