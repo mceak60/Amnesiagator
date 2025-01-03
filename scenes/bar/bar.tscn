@@ -113,6 +113,7 @@ details = ExtResource("9_800i4")
 
 [node name="Drink" parent="Counter" instance=ExtResource("9_8ypaw")]
 position = Vector2(64, 0)
+skin_coordinates = Vector2i(0, 0)
 
 [node name="CounterGrid" type="Node2D" parent="Counter"]
 script = ExtResource("5_80xpi")

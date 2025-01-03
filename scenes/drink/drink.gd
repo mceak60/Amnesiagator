@@ -2,18 +2,31 @@
 class_name Drink
 extends Draggable
 
-@export var details : DrinkDetails : set = set_details
+@export var ingredient_list : Array[Ingredient]
+var attribute_list = {
+	"Hot": 0,
+	"Cold" : 0,
+	"Tangy" : 0
+}
 
 @onready var skin: Sprite2D = $Visuals/Skin
 
 
-func set_details(value: DrinkDetails) -> void:
-	details = value
+@export_category("Visuals")
+@export var skin_coordinates: Vector2i : set = set_skin
+
+func set_skin(coords: Vector2i) -> void:
+	skin_coordinates = coords
 	
-	if value == null:
+	if coords == null:
 		return
 	
 	if not is_node_ready():
 		await ready
 	
-	skin.region_rect.position = Vector2(details.skin_coordinates) * Arena.CELL_SIZE
+	skin.region_rect.position = Vector2(skin_coordinates) * Arena.CELL_SIZE
+
+
+
+func _to_string() -> String:
+	return name
