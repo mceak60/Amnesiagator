@@ -1,4 +1,3 @@
-
 Character: Doug
 
 Animal: Penguin 
@@ -14,47 +13,52 @@ FAILURE	- Contains any “Heat”
 
 Drinks:
 •	Fireball Whisky (flame bottle, thin, tall, red, fireball motif)
-•	Attribute: Heat
+•		Attribute: Heat
 •	Frost Vodka (short, stout, blue bottle)
-•	Attribute: Cold
+•		Attribute: Cold
 •	Berry Brew (moderate, purple, heart shaped)
-•	Attribute: Fruity
+•		Attribute: Fruity
 •	Molten Metal (deep gray, boxy)
-•	Attribute: Metallic
+•		Attribute: Metallic
 
 Mixers
 •	Ice (ice cubes)
-•	Attribute: Cold
+•		Attribute: Cold
 •	Spark Syrup (very tall and thin yellow bottle with a grey stopper, neon)
-•	Attribute: Electricity
+•		Attribute: Electricity
 •	Bubbly Water (overflowing bottle shaped like a bubble)
-•	Attribute: Fizzy
+•		Attribute: Fizzy
 •	Lava Lamp (a lava lamp)
-•	Attribute: Weird
+•		Attribute: Weird
 
 Garnishes
 •	Stardust Sprinkles (little stars)
-•	Attribute: Sweet
+•		Attribute: Sweet
 •	Red Pepper Flakes (like a diner style canister)
-•	Attribute: Heat
+•		Attribute: Heat
 •	Blossom Petals - (flowers)
-•	Attribute: Flora
+•		Attribute: Flora
 •	Hickory (shaved tree bark like a cheese grater)
-•	Attribute: Earthy
+•		Attribute: Earthy
 
 GREAT SUCCESS (Two Cold Items): 
 •	This is exactly what I needed - double the chill, double the thrill! You really know how to keep a penguin happy, Stu. Same time tomorrow?"
+
 SUCCESS (One Cold Item):
 •	Not bad, not bad! Has that Arctic bite, though my usual's typically got an extra dose of polar power. But hey - I'm not complaining!"
+
 EHHHH (No Temperature Items):
 •	 "Welp... it's not bad, but something's missing. Not exactly what I usually get, but at least it didn't melt my beak off!"
+
 FAILURE (Any Heat):
 •	With Fireball Whisky: 
-o	“SQUAWK! What in the Emperor's name-- Stu! My usual is supposed to remind me of home, not turn me into a puddle!”
+o		“SQUAWK! What in the Emperor's name-- Stu! My usual is supposed to remind me of home, not turn me into a puddle!”
 •	With Red Pepper: 
-o	“ACK! Not even my grandfather’s feathers could handle this spice! Time to go stick my head in a snowbank..."
+o		“ACK! Not even my grandfather’s feathers could handle this spice! Time to go stick my head in a snowbank..."
 •	With Both Heat Items: 
-o	"Sweet frozen fish sticks! Did you mistake me for a dragon?! I'll... uh... come back tomorrow. Maybe try something more polar-friendly next time?"
+o		"Sweet frozen fish sticks! Did you mistake me for a dragon?! I'll... uh... come back tomorrow. Maybe try something more polar-friendly next time?"
+
+
 
 Additional reaction lines if EHHHH
 
