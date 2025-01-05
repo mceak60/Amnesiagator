@@ -4,9 +4,16 @@ extends Draggable
 
 @export var ingredient_list : Array[Ingredient]
 var attribute_list = {
-	"Hot": 0,
+	"Heat": 0,
 	"Cold" : 0,
-	"Tangy" : 0
+	"Fruity" : 0,
+	"Metallic" : 0,
+	"Electricity" : 0,
+	"Fizzy" : 0,
+	"Weird" : 0,
+	"Sweet" : 0,
+	"Flora" : 0,
+	"Earthy" : 0,
 }
 
 @onready var skin: Sprite2D = $Visuals/Skin

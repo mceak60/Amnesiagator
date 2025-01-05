@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="IngredientDetails" load_steps=2 format=3 uid="uid://clotptjvnql3y"]
+
+[ext_resource type="Script" path="res://data/ingredients/ingredient_details.gd" id="1_t7s0v"]
+
+[resource]
+script = ExtResource("1_t7s0v")
+name = "Red Pepper Flakes"
+quality = 0
+ingredient_type = 2
+gold_cost = 1
+attribute_list = {
+"Cold": 0,
+"Earthy": 0,
+"Electricity": 0,
+"Fizzy": 0,
+"Flora": 0,
+"Fruity": 0,
+"Heat": 1,
+"Metallic": 0,
+"Sweet": 0,
+"Weird": 0
+}
+skin_coordinates = Vector2i(1, 4)

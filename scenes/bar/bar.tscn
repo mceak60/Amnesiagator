@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://b5xkx805g0kxj"]
+[gd_scene load_steps=24 format=4 uid="uid://b5xkx805g0kxj"]
 
 [ext_resource type="Script" path="res://scenes/bar/bar.gd" id="1_5m26e"]
 [ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://scenes/arena/tileset.tres" id="2_8n37m"]
@@ -7,9 +7,19 @@
 [ext_resource type="Script" path="res://components/draggable_grid.gd" id="5_80xpi"]
 [ext_resource type="Script" path="res://components/tile_highlighter2.gd" id="6_lytro"]
 [ext_resource type="PackedScene" uid="uid://dk2w3c34ae7yp" path="res://scenes/ingredient/ingredient.tscn" id="7_e32e7"]
+[ext_resource type="Resource" uid="uid://wca2sic46svr" path="res://data/ingredients/bases/berry_brew.tres" id="7_ueodf"]
+[ext_resource type="Resource" uid="uid://pm2fpv484bh2" path="res://data/ingredients/bases/molten_metal.tres" id="8_svd31"]
 [ext_resource type="PackedScene" uid="uid://b3f52ph83f31m" path="res://scenes/drink/drink.tscn" id="9_8ypaw"]
-[ext_resource type="Resource" uid="uid://bmidkeyqjvsna" path="res://data/ingredients/blue_jar.tres" id="9_800i4"]
+[ext_resource type="Resource" uid="uid://bmidkeyqjvsna" path="res://data/ingredients/bases/frost_vodka.tres" id="9_800i4"]
+[ext_resource type="Resource" uid="uid://k0gmsq77ek8n" path="res://data/ingredients/mixers/ice.tres" id="9_81278"]
 [ext_resource type="Script" path="res://components/draggable_mover.gd" id="9_r2njs"]
+[ext_resource type="Resource" uid="uid://h8ckrc3qhp1s" path="res://data/ingredients/mixers/spark_syrup.tres" id="10_s4srp"]
+[ext_resource type="Resource" uid="uid://1k3bytuqvil2" path="res://data/ingredients/mixers/bubbly_water.tres" id="11_p6hkh"]
+[ext_resource type="Resource" uid="uid://d06df0ppixm2w" path="res://data/ingredients/mixers/lava_lamp.tres" id="12_01dsp"]
+[ext_resource type="Resource" uid="uid://dxm47sdx706d8" path="res://data/ingredients/garnishes/stardust_sprinkles.tres" id="13_iy2dq"]
+[ext_resource type="Resource" uid="uid://clotptjvnql3y" path="res://data/ingredients/garnishes/red_pepper_flakes.tres" id="14_k5j75"]
+[ext_resource type="Resource" uid="uid://dr6qb475c51fj" path="res://data/ingredients/garnishes/blossom_petals.tres" id="15_36fyq"]
+[ext_resource type="Resource" uid="uid://b2or6aqa4g1n6" path="res://data/ingredients/garnishes/hickory.tres" id="16_aniqh"]
 
 [sub_resource type="Curve" id="Curve_gxqt7"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.204482, 1), 0.0, 0.0, 0, 0, Vector2(0.795518, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -81,6 +91,52 @@ tile_set = ExtResource("2_8n37m")
 [node name="Highlight" type="TileMapLayer" parent="Shelf"]
 tile_set = ExtResource("2_8n37m")
 
+[node name="Ingredient" parent="Shelf" instance=ExtResource("7_e32e7")]
+
+[node name="Ingredient2" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(32, 0)
+details = ExtResource("9_800i4")
+
+[node name="Ingredient3" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(64, 0)
+details = ExtResource("7_ueodf")
+
+[node name="Ingredient4" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(96, 0)
+details = ExtResource("8_svd31")
+
+[node name="Ingredient5" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(0, 64)
+details = ExtResource("9_81278")
+
+[node name="Ingredient6" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(32, 64)
+details = ExtResource("10_s4srp")
+
+[node name="Ingredient7" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(64, 64)
+details = ExtResource("11_p6hkh")
+
+[node name="Ingredient8" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(96, 64)
+details = ExtResource("12_01dsp")
+
+[node name="Ingredient9" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(0, 128)
+details = ExtResource("13_iy2dq")
+
+[node name="Ingredient10" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(32, 128)
+details = ExtResource("14_k5j75")
+
+[node name="Ingredient11" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(64, 128)
+details = ExtResource("15_36fyq")
+
+[node name="Ingredient12" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(96, 128)
+details = ExtResource("16_aniqh")
+
 [node name="ShelfGrid" type="Node2D" parent="Shelf"]
 script = ExtResource("5_80xpi")
 size = Vector2i(4, 7)
@@ -104,15 +160,9 @@ metadata/_edit_group_ = true
 [node name="Highlight" type="TileMapLayer" parent="Counter"]
 tile_set = ExtResource("2_8n37m")
 
-[node name="Ingredient" parent="Counter" instance=ExtResource("7_e32e7")]
-position = Vector2(128, -128)
-
-[node name="Ingredient2" parent="Counter" instance=ExtResource("7_e32e7")]
-position = Vector2(96, -128)
-details = ExtResource("9_800i4")
-
 [node name="Drink" parent="Counter" instance=ExtResource("9_8ypaw")]
 position = Vector2(64, 0)
+skin_coordinates = Vector2i(3, 4)
 
 [node name="CounterGrid" type="Node2D" parent="Counter"]
 script = ExtResource("5_80xpi")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/ingredient/ingredient.gd" id="1_0dcoo"]
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://assets/shaders/2d_outline_shader.tres" id="1_cfepo"]
-[ext_resource type="Resource" uid="uid://dhsk6revjjlpx" path="res://data/ingredients/red_jar.tres" id="2_3o12t"]
+[ext_resource type="Resource" uid="uid://dhsk6revjjlpx" path="res://data/ingredients/bases/fireball_whiskey.tres" id="2_3o12t"]
 [ext_resource type="Texture2D" uid="uid://cx1ivjobggp8n" path="res://assets/sprites/rogues.png" id="2_ogv8i"]
 [ext_resource type="Script" path="res://components/outline_highlighter.gd" id="3_75pbe"]
 [ext_resource type="Script" path="res://components/drag_and_drop.gd" id="4_ohuqy"]

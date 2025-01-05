@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="IngredientDetails" load_steps=2 format=3 uid="uid://h8ckrc3qhp1s"]
+
+[ext_resource type="Script" path="res://data/ingredients/ingredient_details.gd" id="1_76cie"]
+
+[resource]
+script = ExtResource("1_76cie")
+name = "Spark Syrup"
+quality = 0
+ingredient_type = 1
+gold_cost = 1
+attribute_list = {
+"Cold": 0,
+"Earthy": 0,
+"Electricity": 1,
+"Fizzy": 0,
+"Flora": 0,
+"Fruity": 0,
+"Heat": 0,
+"Metallic": 0,
+"Sweet": 0,
+"Weird": 0
+}
+skin_coordinates = Vector2i(1, 0)

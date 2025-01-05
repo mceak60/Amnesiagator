@@ -6,9 +6,16 @@ enum Quality {CHEAP, AVERAGE, EXQUISITE}
 enum Ingredient_Type {BASE, MIXER, GARNISH}
 
 const DEFAULT_ATTRIBUTES := {
-	"Hot": 0,
+	"Heat": 0,
 	"Cold" : 0,
-	"Tangy" : 0
+	"Fruity" : 0,
+	"Metallic" : 0,
+	"Electricity" : 0,
+	"Fizzy" : 0,
+	"Weird" : 0,
+	"Sweet" : 0,
+	"Flora" : 0,
+	"Earthy" : 0,
 }
 
 const QUALITY_COLORS := {
