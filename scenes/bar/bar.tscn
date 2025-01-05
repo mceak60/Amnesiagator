@@ -1,0 +1,228 @@
+[gd_scene load_steps=24 format=4 uid="uid://b5xkx805g0kxj"]
+
+[ext_resource type="Script" path="res://scenes/bar/bar.gd" id="1_5m26e"]
+[ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://scenes/arena/tileset.tres" id="2_8n37m"]
+[ext_resource type="Texture2D" uid="uid://mbxv0ayrsu3d" path="res://assets/sprites/star_particle.png" id="3_u2pxk"]
+[ext_resource type="Script" path="res://components/draggable_area.gd" id="4_nb8bd"]
+[ext_resource type="Script" path="res://components/draggable_grid.gd" id="5_80xpi"]
+[ext_resource type="Script" path="res://components/tile_highlighter2.gd" id="6_lytro"]
+[ext_resource type="PackedScene" uid="uid://dk2w3c34ae7yp" path="res://scenes/ingredient/ingredient.tscn" id="7_e32e7"]
+[ext_resource type="Resource" uid="uid://wca2sic46svr" path="res://data/ingredients/bases/berry_brew.tres" id="7_ueodf"]
+[ext_resource type="Resource" uid="uid://pm2fpv484bh2" path="res://data/ingredients/bases/molten_metal.tres" id="8_svd31"]
+[ext_resource type="PackedScene" uid="uid://b3f52ph83f31m" path="res://scenes/drink/drink.tscn" id="9_8ypaw"]
+[ext_resource type="Resource" uid="uid://bmidkeyqjvsna" path="res://data/ingredients/bases/frost_vodka.tres" id="9_800i4"]
+[ext_resource type="Resource" uid="uid://k0gmsq77ek8n" path="res://data/ingredients/mixers/ice.tres" id="9_81278"]
+[ext_resource type="Script" path="res://components/draggable_mover.gd" id="9_r2njs"]
+[ext_resource type="Resource" uid="uid://h8ckrc3qhp1s" path="res://data/ingredients/mixers/spark_syrup.tres" id="10_s4srp"]
+[ext_resource type="Resource" uid="uid://1k3bytuqvil2" path="res://data/ingredients/mixers/bubbly_water.tres" id="11_p6hkh"]
+[ext_resource type="Resource" uid="uid://d06df0ppixm2w" path="res://data/ingredients/mixers/lava_lamp.tres" id="12_01dsp"]
+[ext_resource type="Resource" uid="uid://dxm47sdx706d8" path="res://data/ingredients/garnishes/stardust_sprinkles.tres" id="13_iy2dq"]
+[ext_resource type="Resource" uid="uid://clotptjvnql3y" path="res://data/ingredients/garnishes/red_pepper_flakes.tres" id="14_k5j75"]
+[ext_resource type="Resource" uid="uid://dr6qb475c51fj" path="res://data/ingredients/garnishes/blossom_petals.tres" id="15_36fyq"]
+[ext_resource type="Resource" uid="uid://b2or6aqa4g1n6" path="res://data/ingredients/garnishes/hickory.tres" id="16_aniqh"]
+
+[sub_resource type="Curve" id="Curve_gxqt7"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.204482, 1), 0.0, 0.0, 0, 0, Vector2(0.795518, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_5sum6"]
+curve = SubResource("Curve_gxqt7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v1x5q"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(320, 1, 1)
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
+angular_velocity_min = 20.0
+angular_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_5sum6")
+color = Color(1, 1, 1, 0.494118)
+
+[node name="Bar" type="Node2D"]
+script = ExtResource("1_5m26e")
+metadata/_edit_lock_ = true
+
+[node name="Visuals" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Background" type="TileMapLayer" parent="Visuals"]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAYAAAAAAAEAAAAAAAYAAAAAAAIAAAAAAAYAAAAAAAMAAAAAAAYAAAAAAAQAAAAAAAYAAAAAAAUAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAcAAAAAAAYAAAAAAAgAAAAAAAYAAAAAAAkAAAAAAAYAAAAAAAoAAAAAAAYAAAABAAAAAAAAAAYAAAABAAEAAAAAAAYAAAABAAIAAAAAAAYAAAABAAMAAAAAAAYAAAABAAQAAAAAAAYAAAABAAUAAAAAAAYAAAABAAYAAAAAAAYAAAABAAcAAAAAAAYAAAABAAgAAAAAAAYAAAABAAkAAAAAAAYAAAABAAoAAAAAAAYAAAACAAAAAAAAAAYAAAACAAEAAAAAAAYAAAACAAIAAAAAAAYAAAACAAMAAAAAAAYAAAACAAQAAAAAAAYAAAACAAUAAAAAAAYAAAACAAYAAAAAAAYAAAACAAcAAAAAAAYAAAACAAgAAAAAAAYAAAACAAkAAAAAAAYAAAACAAoAAAAAAAYAAAADAAAAAAAAAAYAAAADAAEAAAAAAAYAAAADAAIAAAAAAAYAAAADAAMAAAAAAAYAAAADAAQAAAAAAAYAAAADAAUAAAAAAAYAAAADAAYAAAAAAAYAAAADAAcAAAAAAAYAAAADAAgAAAAAAAYAAAADAAkAAAAAAAYAAAADAAoAAAAAAAYAAAAEAAAAAAAAAAYAAAAEAAEAAAAAAAYAAAAEAAIAAAAAAAYAAAAEAAMAAAAAAAYAAAAEAAQAAAAAAAYAAAAEAAUAAAAAAAYAAAAEAAYAAAAAAAYAAAAEAAcAAAAAAAYAAAAEAAgAAAAAAAYAAAAEAAkAAAAAAAYAAAAEAAoAAAAAAAYAAAAFAAAAAAAAAAYAAAAFAAEAAAAAAAYAAAAFAAIAAAAAAAYAAAAFAAMAAAAAAAYAAAAFAAQAAAAAAAYAAAAFAAUAAAAAAAYAAAAFAAYAAAAAAAYAAAAFAAcAAAAAAAYAAAAFAAgAAAAAAAYAAAAFAAkAAAAAAAYAAAAFAAoAAAAAAAYAAAAGAAAAAAAAAAYAAAAGAAEAAAAAAAYAAAAGAAIAAAAAAAYAAAAGAAMAAAAAAAYAAAAGAAQAAAAAAAYAAAAGAAUAAAAAAAYAAAAGAAYAAAAAAAYAAAAGAAcAAAAAAAYAAAAGAAgAAAAAAAYAAAAGAAkAAAAAAAYAAAAGAAoAAAAAAAYAAAAHAAAAAAAAAAYAAAAHAAEAAAAAAAYAAAAHAAIAAAAAAAYAAAAHAAMAAAAAAAYAAAAHAAQAAAAAAAYAAAAHAAUAAAAAAAYAAAAHAAYAAAAAAAYAAAAHAAcAAAAAAAYAAAAHAAgAAAAAAAYAAAAHAAkAAAAAAAYAAAAHAAoAAAAAAAYAAAAIAAAAAAAAAAYAAAAIAAEAAAAAAAYAAAAIAAIAAAAAAAYAAAAIAAMAAAAAAAYAAAAIAAQAAAAAAAYAAAAIAAUAAAAAAAYAAAAIAAYAAAAAAAYAAAAIAAcAAAAAAAYAAAAIAAgAAAAAAAYAAAAIAAkAAAAAAAYAAAAIAAoAAAAAAAYAAAAJAAAAAAAAAAYAAAAJAAEAAAAAAAYAAAAJAAIAAAAAAAYAAAAJAAMAAAAAAAYAAAAJAAQAAAAAAAYAAAAJAAUAAAAAAAYAAAAJAAYAAAAAAAYAAAAJAAcAAAAAAAYAAAAJAAgAAAAAAAYAAAAJAAkAAAAAAAYAAAAJAAoAAAAAAAYAAAAKAAAAAAAAAAYAAAAKAAEAAAAAAAYAAAAKAAIAAAAAAAYAAAAKAAMAAAAAAAYAAAAKAAQAAAAAAAYAAAAKAAUAAAAAAAYAAAAKAAYAAAAAAAYAAAAKAAcAAAAAAAYAAAAKAAgAAAAAAAYAAAAKAAkAAAAAAAYAAAAKAAoAAAAAAAYAAAALAAAAAAAAAAYAAAALAAEAAAAAAAYAAAALAAIAAAAAAAYAAAALAAMAAAAAAAYAAAALAAQAAAAAAAYAAAALAAUAAAAAAAYAAAALAAYAAAAAAAYAAAALAAcAAAAAAAYAAAALAAgAAAAAAAYAAAALAAkAAAAAAAYAAAALAAoAAAAAAAYAAAAMAAAAAAAAAAYAAAAMAAEAAAAAAAYAAAAMAAIAAAAAAAYAAAAMAAMAAAAAAAYAAAAMAAQAAAAAAAYAAAAMAAUAAAAAAAYAAAAMAAYAAAAAAAYAAAAMAAcAAAAAAAYAAAAMAAgAAAAAAAYAAAAMAAkAAAAAAAYAAAAMAAoAAAAAAAYAAAANAAAAAAAAAAYAAAANAAEAAAAAAAYAAAANAAIAAAAAAAYAAAANAAMAAAAAAAYAAAANAAQAAAAAAAYAAAANAAUAAAAAAAYAAAANAAYAAAAAAAYAAAANAAcAAAAAAAYAAAANAAgAAAAAAAYAAAANAAkAAAAAAAYAAAANAAoAAAAAAAYAAAAOAAAAAAAAAAYAAAAOAAEAAAAAAAYAAAAOAAIAAAAAAAYAAAAOAAMAAAAAAAYAAAAOAAQAAAAAAAYAAAAOAAUAAAAAAAYAAAAOAAYAAAAAAAYAAAAOAAcAAAAAAAYAAAAOAAgAAAAAAAYAAAAOAAkAAAAAAAYAAAAOAAoAAAAAAAYAAAAPAAAAAAAAAAYAAAAPAAEAAAAAAAYAAAAPAAIAAAAAAAYAAAAPAAMAAAAAAAYAAAAPAAQAAAAAAAYAAAAPAAUAAAAAAAYAAAAPAAYAAAAAAAYAAAAPAAcAAAAAAAYAAAAPAAgAAAAAAAYAAAAPAAkAAAAAAAYAAAAPAAoAAAAAAAYAAAAQAAAAAAAAAAYAAAAQAAEAAAAAAAYAAAAQAAIAAAAAAAYAAAAQAAMAAAAAAAYAAAAQAAQAAAAAAAYAAAAQAAUAAAAAAAYAAAAQAAYAAAAAAAYAAAAQAAcAAAAAAAYAAAAQAAgAAAAAAAYAAAAQAAkAAAAAAAYAAAAQAAoAAAAAAAYAAAARAAAAAAAAAAYAAAARAAEAAAAAAAYAAAARAAIAAAAAAAYAAAARAAMAAAAAAAYAAAARAAQAAAAAAAYAAAARAAUAAAAAAAYAAAARAAYAAAAAAAYAAAARAAcAAAAAAAYAAAARAAgAAAAAAAYAAAARAAkAAAAAAAYAAAARAAoAAAAAAAYAAAASAAAAAAAAAAYAAAASAAEAAAAAAAYAAAASAAIAAAAAAAYAAAASAAMAAAAAAAYAAAASAAQAAAAAAAYAAAASAAUAAAAAAAYAAAASAAYAAAAAAAYAAAASAAcAAAAAAAYAAAASAAgAAAAAAAYAAAASAAkAAAAAAAYAAAASAAoAAAAAAAYAAAATAAAAAAAAAAYAAAATAAEAAAAAAAYAAAATAAIAAAAAAAYAAAATAAMAAAAAAAYAAAATAAQAAAAAAAYAAAATAAUAAAAAAAYAAAATAAYAAAAAAAYAAAATAAcAAAAAAAYAAAATAAgAAAAAAAYAAAATAAkAAAAAAAYAAAATAAoAAAAAAAYAAAAAAAsAAAAAAAYAAAABAAsAAAAAAAYAAAACAAsAAAAAAAYAAAADAAsAAAAAAAYAAAAEAAsAAAAAAAYAAAAFAAsAAAAAAAYAAAAGAAsAAAAAAAYAAAAHAAsAAAAAAAYAAAAIAAsAAAAAAAYAAAAJAAsAAAAAAAYAAAAKAAsAAAAAAAYAAAALAAsAAAAAAAYAAAAMAAsAAAAAAAYAAAANAAsAAAAAAAYAAAAOAAsAAAAAAAYAAAAPAAsAAAAAAAYAAAAQAAsAAAAAAAYAAAARAAsAAAAAAAYAAAASAAsAAAAAAAYAAAATAAsAAAAAAAYAAAA=")
+tile_set = ExtResource("2_8n37m")
+
+[node name="Props" type="TileMapLayer" parent="Visuals"]
+modulate = Color(1, 1, 1, 0.392157)
+tile_map_data = PackedByteArray("AAAAAAAAAAAMABMAAAABAAIAAAADABMAAAABAAQAAAABABMAAAABAAUAAAABABMAAAABAAkAAAAAABMAAAABAAoAAAAKABMAAAAQAAMAAAAJABMAAAAQAAQAAAAKABMAAAARAAkAAAAGABMAAAASAAEAAAAJABMAAAASAAgAAAAGABMAAAATAAAAAAANABMAAAATAAgAAAAHABMAAAA=")
+tile_set = ExtResource("2_8n37m")
+
+[node name="Walls" type="TileMapLayer" parent="Visuals"]
+tile_map_data = PackedByteArray("AAAEAAAAAAAAAAEAAAAFAAAAAAABAAEAAAAIAAAAAAABAAEAAAAGAAAAAAABAAEAAAAHAAAAAAABAAEAAAAJAAAAAAABAAEAAAAKAAAAAAABAAEAAAALAAAAAAABAAEAAAAMAAAAAAABAAEAAAANAAAAAAABAAEAAAAOAAAAAAABAAEAAAAPAAAAAAAAAAEAAAAEAAEAAAAAAAEAAAAEAAIAAAAAAAEAAAAEAAMAAAAAAAEAAAAEAAQAAAAAAAEAAAAEAAUAAAAAAAEAAAAEAAYAAAAAAAEAAAAEAAcAAAAAAAEAAAAEAAgAAAABAAEAAAAPAAEAAAAAAAEAAAAPAAIAAAAAAAEAAAAPAAMAAAAAAAEAAAAPAAQAAAAAAAEAAAAPAAUAAAAAAAEAAAAPAAYAAAAAAAEAAAAPAAcAAAAAAAEAAAAPAAgAAAABAAEAAAAFAAgAAAABAAEAAAAGAAgAAAABAAEAAAAHAAgAAAABAAEAAAAIAAgAAAABAAEAAAAJAAgAAAABAAEAAAAKAAgAAAABAAEAAAALAAgAAAABAAEAAAAMAAgAAAABAAEAAAANAAgAAAABAAEAAAAOAAgAAAABAAEAAAAEAAsAAAABAAAAAAAFAAsAAAABAAAAAAAGAAsAAAABAAAAAAAHAAsAAAABAAAAAAAJAAsAAAABAAAAAAAIAAsAAAABAAAAAAAKAAsAAAABAAAAAAALAAsAAAABAAAAAAAMAAsAAAABAAAAAAANAAsAAAABAAAAAAAOAAsAAAABAAAAAAAPAAsAAAABAAAAAAAEAAoAAAADABAAAAAPAAoAAAAFABAAAAA=")
+tile_set = ExtResource("2_8n37m")
+
+[node name="DustParticles" type="GPUParticles2D" parent="Visuals"]
+visible = false
+z_index = 99
+position = Vector2(320, 180)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_v1x5q")
+texture = ExtResource("3_u2pxk")
+lifetime = 6.0
+
+[node name="Shelf" type="TileMapLayer" parent="." node_paths=PackedStringArray("draggable_grid", "tile_highlighter")]
+position = Vector2(160, 32)
+tile_map_data = PackedByteArray("AAABAAAAAAACAAwAAAABAAIAAAAAAAwAAAABAAQAAAAAAAwAAAABAAYAAAAAAAwAAAAAAAEAAAAAAAwAAAAAAAMAAAAAAAwAAAAAAAUAAAABAAwAAAACAAEAAAAAAAwAAAACAAMAAAADAAwAAAACAAUAAAAAAAwAAAADAAAAAAAAAAwAAAADAAIAAAAAAAwAAAADAAQAAAAAAAwAAAADAAYAAAAAAAwAAAAEAAEAAAAAAAwAAAAEAAMAAAAAAAwAAAAEAAUAAAAAAAwAAAAFAAAAAAAAAAwAAAAFAAIAAAAAAAwAAAAFAAQAAAAAAAwAAAAFAAYAAAACAAwAAAAGAAEAAAADAAwAAAAGAAMAAAAAAAwAAAAGAAUAAAADAAwAAAAHAAAAAAAAAAwAAAAHAAIAAAAAAAwAAAAHAAQAAAAAAAwAAAAHAAYAAAAAAAwAAAAIAAEAAAAAAAwAAAAIAAMAAAABAAwAAAAIAAUAAAAAAAwAAAAJAAAAAAAAAAwAAAAJAAIAAAAAAAwAAAAJAAQAAAAAAAwAAAAJAAYAAAADAAwAAAA=")
+tile_set = ExtResource("2_8n37m")
+script = ExtResource("4_nb8bd")
+draggable_grid = NodePath("ShelfGrid")
+tile_highlighter = NodePath("TileHighlighter")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Decor" type="TileMapLayer" parent="Shelf"]
+modulate = Color(1, 1, 1, 0.431373)
+tile_map_data = PackedByteArray("AAAGAAAAAAABABUAAAAJAAEAAAAAABYAAAAIAAQAAAABABYAAAA=")
+tile_set = ExtResource("2_8n37m")
+
+[node name="Highlight" type="TileMapLayer" parent="Shelf"]
+tile_set = ExtResource("2_8n37m")
+
+[node name="Ingredient" parent="Shelf" instance=ExtResource("7_e32e7")]
+
+[node name="Ingredient2" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(32, 0)
+details = ExtResource("9_800i4")
+
+[node name="Ingredient3" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(64, 0)
+details = ExtResource("7_ueodf")
+
+[node name="Ingredient4" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(96, 0)
+details = ExtResource("8_svd31")
+
+[node name="Ingredient5" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(0, 64)
+details = ExtResource("9_81278")
+
+[node name="Ingredient6" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(32, 64)
+details = ExtResource("10_s4srp")
+
+[node name="Ingredient7" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(64, 64)
+details = ExtResource("11_p6hkh")
+
+[node name="Ingredient8" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(96, 64)
+details = ExtResource("12_01dsp")
+
+[node name="Ingredient9" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(0, 128)
+details = ExtResource("13_iy2dq")
+
+[node name="Ingredient10" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(32, 128)
+details = ExtResource("14_k5j75")
+
+[node name="Ingredient11" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(64, 128)
+details = ExtResource("15_36fyq")
+
+[node name="Ingredient12" parent="Shelf" instance=ExtResource("7_e32e7")]
+position = Vector2(96, 128)
+details = ExtResource("16_aniqh")
+
+[node name="ShelfGrid" type="Node2D" parent="Shelf"]
+script = ExtResource("5_80xpi")
+size = Vector2i(4, 7)
+
+[node name="TileHighlighter" type="Node" parent="Shelf" node_paths=PackedStringArray("draggable_area", "highlight_layer")]
+script = ExtResource("6_lytro")
+draggable_area = NodePath("..")
+highlight_layer = NodePath("../Highlight")
+tile = Vector2i(3, 0)
+
+[node name="Counter" type="TileMapLayer" parent="." node_paths=PackedStringArray("draggable_grid", "tile_highlighter")]
+position = Vector2(160, 320)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAsAAAABAAAAAAAAAAcAAAACAAAAAAAAAAsAAAADAAAAAAAAAAcAAAAEAAAAAAAAAAsAAAAFAAAAAAAAAAcAAAAGAAAAAAAAAAsAAAAHAAAAAAAAAAcAAAAIAAAAAAAAAAsAAAAJAAAAAAAAAAcAAAA=")
+tile_set = ExtResource("2_8n37m")
+script = ExtResource("4_nb8bd")
+draggable_grid = NodePath("CounterGrid")
+tile_highlighter = NodePath("TileHighlighter")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Highlight" type="TileMapLayer" parent="Counter"]
+tile_set = ExtResource("2_8n37m")
+
+[node name="Drink" parent="Counter" instance=ExtResource("9_8ypaw")]
+position = Vector2(64, 0)
+skin_coordinates = Vector2i(3, 4)
+
+[node name="CounterGrid" type="Node2D" parent="Counter"]
+script = ExtResource("5_80xpi")
+size = Vector2i(10, 1)
+
+[node name="TileHighlighter" type="Node" parent="Counter" node_paths=PackedStringArray("draggable_area", "highlight_layer")]
+script = ExtResource("6_lytro")
+draggable_area = NodePath("..")
+highlight_layer = NodePath("../Highlight")
+tile = Vector2i(3, 0)
+
+[node name="Sink" type="TileMapLayer" parent="." node_paths=PackedStringArray("draggable_grid", "tile_highlighter")]
+position = Vector2(480, 320)
+tile_set = ExtResource("2_8n37m")
+script = ExtResource("4_nb8bd")
+draggable_grid = NodePath("SinkGrid")
+tile_highlighter = NodePath("TileHighlighter")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Highlight" type="TileMapLayer" parent="Sink"]
+tile_set = ExtResource("2_8n37m")
+
+[node name="SinkGrid" type="Node2D" parent="Sink"]
+script = ExtResource("5_80xpi")
+size = Vector2i(1, 1)
+
+[node name="TileHighlighter" type="Node" parent="Sink" node_paths=PackedStringArray("draggable_area", "highlight_layer")]
+script = ExtResource("6_lytro")
+draggable_area = NodePath("..")
+highlight_layer = NodePath("../Highlight")
+tile = Vector2i(3, 0)
+
+[node name="Submit" type="TileMapLayer" parent="." node_paths=PackedStringArray("draggable_grid", "tile_highlighter")]
+position = Vector2(128, 320)
+tile_set = ExtResource("2_8n37m")
+script = ExtResource("4_nb8bd")
+draggable_grid = NodePath("SubmitGrid")
+tile_highlighter = NodePath("TileHighlighter2")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Highlight" type="TileMapLayer" parent="Submit"]
+tile_set = ExtResource("2_8n37m")
+
+[node name="SubmitGrid" type="Node2D" parent="Submit"]
+script = ExtResource("5_80xpi")
+size = Vector2i(1, 1)
+
+[node name="TileHighlighter2" type="Node" parent="Submit" node_paths=PackedStringArray("draggable_area", "highlight_layer")]
+script = ExtResource("6_lytro")
+draggable_area = NodePath("..")
+highlight_layer = NodePath("../Highlight")
+tile = Vector2i(3, 0)
+
+[node name="DraggableMover" type="Node" parent="." node_paths=PackedStringArray("draggable_areas")]
+script = ExtResource("9_r2njs")
+draggable_areas = [NodePath("../Shelf"), NodePath("../Counter"), NodePath("../Sink"), NodePath("../Submit")]
+
+[node name="Feedback" type="RichTextLabel" parent="."]
+offset_right = 128.0
+offset_bottom = 288.0
+metadata/_edit_lock_ = true

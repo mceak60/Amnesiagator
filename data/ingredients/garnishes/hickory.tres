@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="IngredientDetails" load_steps=2 format=3 uid="uid://b2or6aqa4g1n6"]
+
+[ext_resource type="Script" path="res://data/ingredients/ingredient_details.gd" id="1_kusla"]
+
+[resource]
+script = ExtResource("1_kusla")
+name = "Hickory"
+quality = 0
+ingredient_type = 2
+gold_cost = 1
+attribute_list = {
+"Cold": 0,
+"Earthy": 1,
+"Electricity": 0,
+"Fizzy": 0,
+"Flora": 0,
+"Fruity": 0,
+"Heat": 0,
+"Metallic": 0,
+"Sweet": 0,
+"Weird": 0
+}
+skin_coordinates = Vector2i(2, 1)
