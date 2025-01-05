@@ -18,7 +18,6 @@ var attribute_list = {
 
 @onready var skin: Sprite2D = $Visuals/Skin
 
-
 @export_category("Visuals")
 @export var skin_coordinates: Vector2i : set = set_skin
 

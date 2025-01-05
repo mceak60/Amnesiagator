@@ -1,9 +1,7 @@
 class_name Puzzle1
-extends Node
+extends Puzzle
 
-enum Result {GREAT_SUCCESS, SUCCESS, EHHH, FAILURE}
-
-func verify(drink: Drink) -> String:
+func verify(drink: Drink) -> Result:
 	var outcome: Result
 	if drink.attribute_list["Heat"] > 0:
 		outcome = Result.FAILURE
@@ -16,7 +14,12 @@ func verify(drink: Drink) -> String:
 	
 	else:
 		outcome = Result.EHHH
-	
+		
+	return outcome
+
+
+
+func feedback(drink: Drink, outcome: Result) -> String:
 	var feedback: String
 	match outcome:
 		Result.GREAT_SUCCESS:
@@ -50,5 +53,7 @@ func verify(drink: Drink) -> String:
 			
 			else:
 				feedback = "Too hot!"
+				#this is to catch if we add more "hot" ingredients that would not be caught by the other cases
+				#either "Solly-fy" this and leave it in, or delete it if no other hot ingredients get added
 	
 	return feedback

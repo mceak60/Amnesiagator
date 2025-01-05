@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://b5xkx805g0kxj"]
+[gd_scene load_steps=26 format=4 uid="uid://b5xkx805g0kxj"]
 
 [ext_resource type="Script" path="res://scenes/bar/bar.gd" id="1_5m26e"]
 [ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://scenes/arena/tileset.tres" id="2_8n37m"]
@@ -20,6 +20,8 @@
 [ext_resource type="Resource" uid="uid://clotptjvnql3y" path="res://data/ingredients/garnishes/red_pepper_flakes.tres" id="14_k5j75"]
 [ext_resource type="Resource" uid="uid://dr6qb475c51fj" path="res://data/ingredients/garnishes/blossom_petals.tres" id="15_36fyq"]
 [ext_resource type="Resource" uid="uid://b2or6aqa4g1n6" path="res://data/ingredients/garnishes/hickory.tres" id="16_aniqh"]
+[ext_resource type="Script" path="res://data/puzzles/puzzle.gd" id="21_vkexi"]
+[ext_resource type="Script" path="res://data/puzzles/puzzle_1.gd" id="22_m3gre"]
 
 [sub_resource type="Curve" id="Curve_gxqt7"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.204482, 1), 0.0, 0.0, 0, 0, Vector2(0.795518, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -221,6 +223,13 @@ tile = Vector2i(3, 0)
 [node name="DraggableMover" type="Node" parent="." node_paths=PackedStringArray("draggable_areas")]
 script = ExtResource("9_r2njs")
 draggable_areas = [NodePath("../Shelf"), NodePath("../Counter"), NodePath("../Sink"), NodePath("../Submit")]
+
+[node name="Puzzle" type="Node" parent="."]
+script = ExtResource("21_vkexi")
+change_puzzle = false
+puzzle_list = {
+1: ExtResource("22_m3gre")
+}
 
 [node name="Feedback" type="RichTextLabel" parent="."]
 offset_right = 128.0
