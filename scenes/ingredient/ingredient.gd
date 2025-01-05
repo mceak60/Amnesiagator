@@ -16,3 +16,6 @@ func set_details(value: IngredientDetails) -> void:
 		await ready
 	
 	skin.region_rect.position = Vector2(details.skin_coordinates) * Arena.CELL_SIZE
+
+func _to_string() -> String:
+	return name

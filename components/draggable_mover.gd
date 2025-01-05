@@ -1,8 +1,8 @@
 class_name DraggableMover
 extends Node
 
+@onready var feedback_label: RichTextLabel = $"../Feedback"
 @export var draggable_areas: Array[DraggableArea]
-
 
 func _ready() -> void:
 	var ingredients := get_tree().get_nodes_in_group("ingredients")
@@ -104,6 +104,11 @@ func _on_drink_dropped(starting_position: Vector2, drink: Draggable) -> void:
 		
 		_reset_draggable_to_starting_position(starting_position, drink)
 		return
+	
+	elif drop_area_index == 3:
+		var current_puzzle = Puzzle1.new()
+		var feedback = current_puzzle.verify(drink)
+		feedback_label.text = feedback
 	
 	_reset_draggable_to_starting_position(starting_position, drink)
 

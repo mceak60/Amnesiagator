@@ -33,7 +33,12 @@ func set_skin(coords: Vector2i) -> void:
 	
 	skin.region_rect.position = Vector2(skin_coordinates) * Arena.CELL_SIZE
 
-
+func get_ingredient_names() -> Array[String]:
+	var name_list: Array[String] = []
+	for ingredient in ingredient_list:
+		name_list.append(ingredient.details.name)
+		
+	return name_list
 
 func _to_string() -> String:
 	return name
