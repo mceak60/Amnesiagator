@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://biw3haki8sh78"]
+
+[ext_resource type="Script" path="res://scenes/customer/customer.gd" id="1_62hb1"]
+[ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://assets/shaders/2d_outline_shader.tres" id="3_xdqwp"]
+[ext_resource type="Texture2D" uid="uid://cx1ivjobggp8n" path="res://assets/sprites/rogues.png" id="4_18bms"]
+[ext_resource type="Script" path="res://components/outline_highlighter.gd" id="7_3h8hc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdqai"]
+size = Vector2(36, 36)
+
+[node name="Customer" type="Area2D"]
+script = ExtResource("1_62hb1")
+metadata/_edit_group_ = true
+
+[node name="Visuals" type="CanvasGroup" parent="."]
+material = ExtResource("3_xdqwp")
+
+[node name="Skin" type="Sprite2D" parent="Visuals"]
+position = Vector2(16, 8)
+texture = ExtResource("4_18bms")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 8)
+shape = SubResource("RectangleShape2D_rdqai")
+
+[node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
+script = ExtResource("7_3h8hc")
+visuals = NodePath("../Visuals")
+outline_color = Color(1, 1, 1, 1)
+outline_thickness = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
