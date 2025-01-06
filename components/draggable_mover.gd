@@ -1,7 +1,7 @@
 class_name DraggableMover
 extends Node
 
-@onready var feedback_label: RichTextLabel = $"../Feedback"
+@onready var puzzle = $"../Puzzle"
 @export var draggable_areas: Array[DraggableArea]
 
 func _ready() -> void:
@@ -106,9 +106,9 @@ func _on_drink_dropped(starting_position: Vector2, drink: Draggable) -> void:
 		return
 	
 	elif drop_area_index == 3:
-		var current_puzzle = Puzzle1.new()
-		var feedback = current_puzzle.verify(drink)
-		feedback_label.text = feedback
+		puzzle.check(drink)
+		_reset_draggable_to_starting_position(starting_position, drink)
+		return
 	
 	_reset_draggable_to_starting_position(starting_position, drink)
 
