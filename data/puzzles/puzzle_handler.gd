@@ -2,6 +2,7 @@ class_name PuzzleHandler
 extends Node
 
 signal submit_drink(drink: Drink)
+signal submit_drink_to(drink: Drink, customer: Customer)
 
 @export var puzzle_list: Array[Puzzle]
 @export var next_puzzle: bool = true
@@ -15,6 +16,7 @@ var current_puzzle_idx = starting_puzzle_idx
  
 func _ready():
 	draggable_mover.submit_drink.connect(process_drink)
+	draggable_mover.submit_drink_to.connect(process_drink_for)
 
 func get_current_puzzle() -> Puzzle:
 	return puzzle_list[current_puzzle_idx]
@@ -33,7 +35,10 @@ func get_puzzle_and_advance() -> Puzzle:
 
 func _debug_get_puzzle_by_idx(_debug_idx: int) -> Puzzle:
 	return puzzle_list[_debug_idx]
-	
+
+func get_puzzle_customer_match(customer: Customer, puzzle: Puzzle) -> bool:
+	return puzzle.check_customer(customer)
+
 func get_puzzle_evaluation(drink: Drink, puzzle: Puzzle) -> Puzzle.Result:
 	return puzzle.evaluate_drink(drink)
 
@@ -58,5 +63,23 @@ func process_drink(drink: Drink) -> void:
 	print(feedback)
 	print("Added gold: " + str(gold_reward))
 	
+func process_drink_for(drink: Drink, customer: Customer) -> void:
+	var current_puzzle := get_current_puzzle()
+	var customer_match := get_puzzle_customer_match(customer, current_puzzle)
+	if customer_match == true:
+		var result : Puzzle.Result = get_puzzle_evaluation(drink, current_puzzle)
+		var feedback : String = get_puzzle_feedback(drink, result, current_puzzle)
+		var gold_reward : int = get_puzzle_gold_reward(drink, result, current_puzzle)
 	
+		var result_names := ["Great Success","Success","Ehhh","Failure"]
 	
+		feedback_label.text = feedback
+		gold_counter.text = str(int(gold_counter.text) + gold_reward)
+	
+		print(result_names[result])
+		print(feedback)
+		print("Added gold: " + str(gold_reward))
+		
+	else:
+		feedback_label.text = "That's not my order."
+		print("Gave the drink to the wrong customer...")

@@ -24,3 +24,6 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	outline_highlighter.clear_highlight()
 	z_index = 0
+
+func _to_string() -> String:
+	return details.name

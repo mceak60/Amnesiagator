@@ -13,6 +13,10 @@ const number_of_puzzles = 1
 #@export var feedback: String
 #@export var gold_reward: int
 
+func check_customer(_customer: Customer) -> bool:
+	assert(false, "Please override 'check_customer' in puzzle.")
+	return false
+
 func evaluate_drink(_drink: Drink) -> Result:
 	assert(false, "Please override 'evaluate_drink' in puzzle.")
 	return Result.FAILURE
