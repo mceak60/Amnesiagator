@@ -1,8 +1,7 @@
 @tool
 class_name Customer
-extends Area2D
+extends Draggable
 
-@onready var outline_highlighter: OutlineHighlighter = $OutlineHighlighter
 @export var details : CustomerDetails : set = set_details
 @onready var skin: Sprite2D = $Visuals/Skin
 

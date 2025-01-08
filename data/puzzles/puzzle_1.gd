@@ -19,7 +19,7 @@ func verify(drink: Drink) -> Result:
 
 
 
-func feedback(drink: Drink, outcome: Result) -> String:
+func give_feedback(drink: Drink, outcome: Result) -> String:
 	var feedback: String
 	match outcome:
 		Result.GREAT_SUCCESS:
