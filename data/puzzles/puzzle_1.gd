@@ -1,7 +1,7 @@
 class_name Puzzle1
 extends Puzzle
 
-func verify(drink: Drink) -> Result:
+func evaluate_drink(drink: Drink) -> Result:
 	var outcome: Result
 	if drink.attribute_list["Heat"] > 0:
 		outcome = Result.FAILURE
@@ -17,9 +17,7 @@ func verify(drink: Drink) -> Result:
 		
 	return outcome
 
-
-
-func feedback(drink: Drink, outcome: Result) -> String:
+func get_feedback(drink: Drink, outcome: Result) -> String:
 	var feedback: String
 	match outcome:
 		Result.GREAT_SUCCESS:
@@ -28,6 +26,8 @@ func feedback(drink: Drink, outcome: Result) -> String:
 		Result.SUCCESS:
 			feedback = "Not bad, not bad! Has that Arctic bite, though my usual's typically got an extra dose of polar power. But hey - I'm not complaining!"
 		
+		# SK 1/7/25 - Bug: for the ehhh feedback, a drink can have multiple attributes here - will need to disambiguate the "dominant" as currently this just takes the first one in the elif. 
+		# To address in future
 		Result.EHHH:
 			if drink.attribute_list["Fizzy"] > 0 || drink.attribute_list["Electricity"] > 0:
 				feedback = "Wow, that's... different! But my usual's more chill, if you catch my drift."
@@ -57,3 +57,18 @@ func feedback(drink: Drink, outcome: Result) -> String:
 				#either "Solly-fy" this and leave it in, or delete it if no other hot ingredients get added
 	
 	return feedback
+	
+func get_gold_reward(_drink: Drink, result: Result) -> int:
+	var reward: int
+	match result:
+		Result.GREAT_SUCCESS:
+			reward = 5		
+		Result.SUCCESS:
+			reward = 3		
+		Result.EHHH:
+			reward = 1
+		Result.FAILURE:
+			reward = 0
+	
+	return reward
+	

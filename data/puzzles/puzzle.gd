@@ -1,24 +1,33 @@
 class_name Puzzle
 extends Node
 
+# Consider as Abstract Class 
+# GDscript does not currently implement these yet
+
 enum Result {GREAT_SUCCESS, SUCCESS, EHHH, FAILURE}
 
-@onready var feedback_label: RichTextLabel = $"../Feedback"
-@export var change_puzzle: bool = true
-@export var puzzle_list : Dictionary
 
-var current_puzzle = 1
+# SK 1/7/25 - Currently this is a bit of a mix of OOP and functional - further refactors could have the getters actually adjust the instance variables, instead of pulling them new each time :) 
+ 
+#@export var result: Result
+#@export var feedback: String
+#@export var gold_reward: int
 
+func evaluate_drink(_drink: Drink) -> Result:
+	assert(false, "Please override 'evaluate_drink' in puzzle.")
+	return Result.FAILURE
 
-func check(drink: Drink) -> void:
-	var puzzle = puzzle_list.get(current_puzzle).new()
-	var result = puzzle.verify(drink)
-	feedback_label.text = puzzle.feedback(drink, result)
+func get_feedback(_drink: Drink, _result: Result) -> String:
+	assert(false, "Please override 'get_feedback' in puzzle.")
+	return "Error."
 	
-	if change_puzzle:
-		if current_puzzle == puzzle_list.size():
-			print("no more puzzles")
-			return
-		else:
-			current_puzzle += 1
+func get_gold_reward(_drink: Drink, _result: Result) -> int:
+	assert(false, "Please override 'get_gold_reward' in puzzle.")
+	return 0
+	
+
+	
+	
+
+	
 	

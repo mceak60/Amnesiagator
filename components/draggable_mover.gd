@@ -1,7 +1,8 @@
 class_name DraggableMover
 extends Node
 
-@onready var puzzle = $"../Puzzle"
+@onready var puzzle_handler = %PuzzleHandler
+signal submit_drink(drink: Drink)
 @export var draggable_areas: Array[DraggableArea]
 
 func _ready() -> void:
@@ -77,6 +78,8 @@ func _on_ingredient_dropped(starting_position: Vector2, ingredient: Draggable) -
 		on_draggable_dropped(starting_position, ingredient, drop_area_index)
 		return
 		
+	# SK 1/7/25 - there is a bug where the first thing dragged after startup is not getting added to the list.
+	# it works after I clear the drink once
 	elif drop_area_index == 1:
 		var tile := draggable_areas[drop_area_index].get_hovered_tile()
 		if draggable_areas[drop_area_index].draggable_grid.is_tile_occupied(tile):
@@ -106,8 +109,12 @@ func _on_drink_dropped(starting_position: Vector2, drink: Draggable) -> void:
 		return
 	
 	elif drop_area_index == 3:
-		puzzle.check(drink)
+		
+		print("Submitted drink" + str(drink))
+		submit_drink.emit(drink)
+		
 		_reset_draggable_to_starting_position(starting_position, drink)
+		
 		return
 	
 	_reset_draggable_to_starting_position(starting_position, drink)

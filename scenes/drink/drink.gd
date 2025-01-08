@@ -40,4 +40,4 @@ func get_ingredient_names() -> Array[String]:
 	return name_list
 
 func _to_string() -> String:
-	return name
+	return str(attribute_list)
