@@ -1,6 +1,11 @@
 class_name Puzzle1
 extends Puzzle
 
+func check_customer(customer: Customer) -> bool:
+	if customer.details.name == "Doug" && customer.details.animal == "Penguin":
+		return true
+	return false
+
 func evaluate_drink(drink: Drink) -> Result:
 	var outcome: Result
 	if drink.attribute_list["Heat"] > 0:

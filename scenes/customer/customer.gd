@@ -1,8 +1,7 @@
 @tool
 class_name Customer
-extends Area2D
+extends Draggable
 
-@onready var outline_highlighter: OutlineHighlighter = $OutlineHighlighter
 @export var details : CustomerDetails : set = set_details
 @onready var skin: Sprite2D = $Visuals/Skin
 
@@ -25,3 +24,6 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	outline_highlighter.clear_highlight()
 	z_index = 0
+
+func _to_string() -> String:
+	return details.name

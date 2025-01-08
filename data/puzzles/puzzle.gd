@@ -6,12 +6,15 @@ extends Node
 
 enum Result {GREAT_SUCCESS, SUCCESS, EHHH, FAILURE}
 
-
 # SK 1/7/25 - Currently this is a bit of a mix of OOP and functional - further refactors could have the getters actually adjust the instance variables, instead of pulling them new each time :) 
  
 #@export var result: Result
 #@export var feedback: String
 #@export var gold_reward: int
+
+func check_customer(_customer: Customer) -> bool:
+	assert(false, "Please override 'check_customer' in puzzle.")
+	return false
 
 func evaluate_drink(_drink: Drink) -> Result:
 	assert(false, "Please override 'evaluate_drink' in puzzle.")
@@ -24,10 +27,5 @@ func get_feedback(_drink: Drink, _result: Result) -> String:
 func get_gold_reward(_drink: Drink, _result: Result) -> int:
 	assert(false, "Please override 'get_gold_reward' in puzzle.")
 	return 0
-	
-
-	
-	
-
 	
 	

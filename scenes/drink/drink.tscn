@@ -12,6 +12,7 @@ size = Vector2(36, 36)
 
 [node name="Drink" type="Area2D" groups=["drinks"]]
 script = ExtResource("1_ofljw")
+skin_coordinates = Vector2i(3, 4)
 metadata/_edit_group_ = true
 
 [node name="Visuals" type="CanvasGroup" parent="."]
@@ -21,7 +22,7 @@ material = ExtResource("2_chv1i")
 position = Vector2(16, 8)
 texture = ExtResource("3_o78fp")
 region_enabled = true
-region_rect = Rect2(0, 0, 32, 32)
+region_rect = Rect2(96, 128, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(16, 8)

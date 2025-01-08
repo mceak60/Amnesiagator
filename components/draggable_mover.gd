@@ -3,6 +3,7 @@ extends Node
 
 @onready var puzzle_handler = %PuzzleHandler
 signal submit_drink(drink: Drink)
+signal submit_drink_to(drink: Drink, customer: Customer)
 @export var draggable_areas: Array[DraggableArea]
 
 func _ready() -> void:
@@ -15,11 +16,11 @@ func _ready() -> void:
 		setup_drink(drink)
 
 
-func setup_ingredient(ingredient: Draggable) -> void:
+func setup_ingredient(ingredient: Ingredient) -> void:
 	setup_draggable(ingredient)
 	ingredient.drag_and_drop.dropped.connect(_on_ingredient_dropped.bind(ingredient))
 
-func setup_drink(drink: Draggable) -> void:
+func setup_drink(drink: Drink) -> void:
 	setup_draggable(drink)
 	drink.drag_and_drop.dropped.connect(_on_drink_dropped.bind(drink))
 
@@ -72,7 +73,7 @@ func _on_draggable_drag_canceled(starting_position: Vector2, draggable: Draggabl
 	_reset_draggable_to_starting_position(starting_position, draggable)
 
 
-func _on_ingredient_dropped(starting_position: Vector2, ingredient: Draggable) -> void:
+func _on_ingredient_dropped(starting_position: Vector2, ingredient: Ingredient) -> void:
 	var drop_area_index := _get_draggable_area_for_position(ingredient.get_global_mouse_position())
 	if drop_area_index == 0:
 		on_draggable_dropped(starting_position, ingredient, drop_area_index)
@@ -80,6 +81,7 @@ func _on_ingredient_dropped(starting_position: Vector2, ingredient: Draggable) -
 		
 	# SK 1/7/25 - there is a bug where the first thing dragged after startup is not getting added to the list.
 	# it works after I clear the drink once
+	# EH 1/7/25 - solved, can delete all of this now
 	elif drop_area_index == 1:
 		var tile := draggable_areas[drop_area_index].get_hovered_tile()
 		if draggable_areas[drop_area_index].draggable_grid.is_tile_occupied(tile):
@@ -94,7 +96,7 @@ func _on_ingredient_dropped(starting_position: Vector2, ingredient: Draggable) -
 	_reset_draggable_to_starting_position(starting_position, ingredient)
 
 
-func _on_drink_dropped(starting_position: Vector2, drink: Draggable) -> void:
+func _on_drink_dropped(starting_position: Vector2, drink: Drink) -> void:
 	var drop_area_index := _get_draggable_area_for_position(drink.get_global_mouse_position())
 	if drop_area_index == 1:
 		on_draggable_dropped(starting_position, drink, drop_area_index)
@@ -114,8 +116,19 @@ func _on_drink_dropped(starting_position: Vector2, drink: Draggable) -> void:
 		submit_drink.emit(drink)
 		
 		_reset_draggable_to_starting_position(starting_position, drink)
-		
 		return
+	
+	elif drop_area_index == 4:
+		var tile := draggable_areas[drop_area_index].get_hovered_tile()
+		if draggable_areas[drop_area_index].draggable_grid.is_tile_occupied(tile):
+			var customer : Customer = draggable_areas[drop_area_index].draggable_grid.draggables[tile]
+			print("Gave " + str(customer) + " drink: " + str(drink))
+			submit_drink_to.emit(drink, customer)
+			
+		_reset_draggable_to_starting_position(starting_position, drink)
+		return
+			
+			
 	
 	_reset_draggable_to_starting_position(starting_position, drink)
 

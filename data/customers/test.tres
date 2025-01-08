@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CustomerDetails" load_steps=2 format=3 uid="uid://ss86qrvck02q"]
+
+[ext_resource type="Script" path="res://data/customers/customer_details.gd" id="1_inha5"]
+
+[resource]
+script = ExtResource("1_inha5")
+name = "Test"
+animal = "Tester"
+skin_coordinates = Vector2i(3, 2)
