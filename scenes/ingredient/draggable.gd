@@ -13,8 +13,6 @@ func _ready() -> void:
 		drag_and_drop.drag_canceled.connect(_on_drag_canceled)
 
 
-
-
 func reset_after_dragging(starting_position: Vector2) -> void:
 	velocity_based_rotation.enabled = false
 	global_position = starting_position
