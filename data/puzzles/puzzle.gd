@@ -5,7 +5,6 @@ extends Node
 # GDscript does not currently implement these yet
 
 enum Result {GREAT_SUCCESS, SUCCESS, EHHH, FAILURE}
-const number_of_puzzles = 1
 
 # SK 1/7/25 - Currently this is a bit of a mix of OOP and functional - further refactors could have the getters actually adjust the instance variables, instead of pulling them new each time :) 
  
