@@ -103,9 +103,7 @@ func _on_drink_dropped(starting_position: Vector2, drink: Drink) -> void:
 		return
 	
 	elif drop_area_index == 2:
-		drink.ingredient_list.clear()
-		for attribute in drink.attribute_list:
-			drink.attribute_list[attribute] = 0
+		drink.empty()
 		
 		_reset_draggable_to_starting_position(starting_position, drink)
 		return
@@ -124,6 +122,7 @@ func _on_drink_dropped(starting_position: Vector2, drink: Drink) -> void:
 			var customer: Customer = draggable_areas[drop_area_index].draggable_grid.draggables[tile]
 			print("Gave " + str(customer) + " drink: " + str(drink))
 			submit_drink_to.emit(drink, customer)
+			drink.empty()
 			
 		_reset_draggable_to_starting_position(starting_position, drink)
 		return

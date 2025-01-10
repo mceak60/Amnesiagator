@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CustomerDetails" load_steps=2 format=3 uid="uid://bilg4ftodh80l"]
+
+[ext_resource type="Script" path="res://data/customers/customer_details.gd" id="1_42mds"]
+
+[resource]
+script = ExtResource("1_42mds")
+name = "Mark"
+animal = "Owl"
+skin_coordinates = Vector2i(3, 3)

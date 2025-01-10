@@ -40,5 +40,11 @@ func get_ingredient_names() -> Array[String]:
 		
 	return name_list
 
+
+func empty() -> void:
+	ingredient_list.clear()
+	for attribute in attribute_list:
+		attribute_list[attribute] = 0
+
 func _to_string() -> String:
 	return str(attribute_list)
