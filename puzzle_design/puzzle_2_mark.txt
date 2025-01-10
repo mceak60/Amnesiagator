@@ -1,0 +1,64 @@
+Character: Mark
+
+Animal: Owl
+
+Opening line - "Hey Stu, I'm on a deadline. Don't have time to chit-chat. Give me a pick-me-up."
+
+SUCCESS CONDITION:
+
+GREAT SUCCESS - Contains "Electricity" and "Metallic"
+SUCCESS	- Contains "Electricity"
+EHHHH - Contains no "Electricity"
+FAILURE	- Contains any "Sleepy"
+
+Drinks:
+•	Fireball Whisky (flame bottle, thin, tall, red, fireball motif)
+•		Attribute: Heat
+•	Frost Vodka (short, stout, blue bottle)
+•		Attribute: Cold
+•	Berry Brew (moderate, purple, heart shaped)
+•		Attribute: Fruity
+•	Molten Metal (deep gray, boxy)
+•		Attribute: Metallic
+
+Mixers
+•	Ice (ice cubes)
+•		Attribute: Cold
+•	Spark Syrup (very tall and thin yellow bottle with a grey stopper, neon)
+•		Attribute: Electricity
+•	Bubbly Water (overflowing bottle shaped like a bubble)
+•		Attribute: Fizzy
+•	Lava Lamp (a lava lamp)
+•		Attribute: Weird
+
+Garnishes
+•	Stardust Sprinkles (little stars)
+•		Attributes: Sweet, Sleepy
+•	Red Pepper Flakes (like a diner style canister)
+•		Attribute: Heat
+•	Blossom Petals - (flowers)
+•		Attribute: Flora
+•	Hickory (shaved tree bark like a cheese grater)
+•		Attribute: Earthy
+
+
+GREAT SUCCESS (Electricity and Metallic): 
+•	"WHOA MAMA! You didn't hold back Stu, I feel the jolt right through my feathers! You bet your britches I'll be back tomorrow, gotta fly!"
+
+SUCCESS (Electricity):
+•	"Mmmm, oh yeah, that's the stuff. Nice electric kick, but to be honest, your old stuff seemed stronger! Don't hold back on me next time, I can take it!"
+
+EHHHH (No Electricity):
+•	 "Hmm... I'm waiting... what's the big idea?! Where's the kick? I need something to shock me awake!"
+
+FAILURE (Any Sleepy):
+•	"*YAWN* ... What are you doing Stu, did you put sleeping pills in this? I asked for a pick-me-up, not a put-me-down! Should have just gone to a coffee shop..."
+
+
+
+Additional reaction lines if EHHHH
+
+•	fill in later
+ 
+
+

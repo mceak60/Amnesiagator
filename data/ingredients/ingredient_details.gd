@@ -16,6 +16,7 @@ const DEFAULT_ATTRIBUTES := {
 	"Sweet" : 0,
 	"Flora" : 0,
 	"Earthy" : 0,
+	"Sleepy" : 0,
 }
 
 const QUALITY_COLORS := {
