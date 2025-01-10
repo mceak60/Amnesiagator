@@ -2,7 +2,7 @@
 class_name Unit
 extends Area2D
 
-@export var stats: UnitStats : set = set_stats
+@export var stats: UnitStats: set = set_stats
 
 @onready var skin: Sprite2D = $Visuals/Skin
 @onready var health_bar: ProgressBar = $HealthBar

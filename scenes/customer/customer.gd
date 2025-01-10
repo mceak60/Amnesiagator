@@ -2,7 +2,7 @@
 class_name Customer
 extends Draggable
 
-@export var details : CustomerDetails : set = set_details
+@export var details: CustomerDetails: set = set_details
 @onready var skin: Sprite2D = $Visuals/Skin
 
 func set_details(value: CustomerDetails) -> void:

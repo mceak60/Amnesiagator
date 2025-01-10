@@ -1,7 +1,7 @@
 class_name VelocityBasedRotation
 extends Node
 
-@export var enabled: bool = true : set = _set_enabled
+@export var enabled: bool = true: set = _set_enabled
 @export var target: Node2D
 @export_range(0.25, 1.5) var lerp_seconds := 0.4
 @export var max_rotation_degrees := 50

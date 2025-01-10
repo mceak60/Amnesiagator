@@ -1,7 +1,7 @@
 class_name TileHighlighter2
 extends Node
 
-@export var enabled: bool = true : set = _set_enabled
+@export var enabled: bool = true: set = _set_enabled
 @export var draggable_area: DraggableArea
 @export var highlight_layer: TileMapLayer
 @export var tile: Vector2i

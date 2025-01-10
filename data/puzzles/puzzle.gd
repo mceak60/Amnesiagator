@@ -25,4 +25,3 @@ func get_feedback(_drink: Drink, _result: Result) -> String:
 func get_gold_reward(_drink: Drink, _result: Result) -> int:
 	assert(false, "Please override 'get_gold_reward' in puzzle.")
 	return gold_reward
-	

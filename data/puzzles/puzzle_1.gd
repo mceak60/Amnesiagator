@@ -69,9 +69,9 @@ func get_gold_reward(_drink: Drink, evaluated_result: Result) -> int:
 	var evaluated_reward: int
 	match evaluated_result:
 		Result.GREAT_SUCCESS:
-			evaluated_reward = 5		
+			evaluated_reward = 5
 		Result.SUCCESS:
-			evaluated_reward = 3		
+			evaluated_reward = 3
 		Result.EHHH:
 			evaluated_reward = 1
 		Result.FAILURE:
@@ -79,4 +79,3 @@ func get_gold_reward(_drink: Drink, evaluated_result: Result) -> int:
 	
 	gold_reward = evaluated_reward
 	return evaluated_reward
-	
