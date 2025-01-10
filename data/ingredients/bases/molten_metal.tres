@@ -17,6 +17,7 @@ attribute_list = {
 "Fruity": 0,
 "Heat": 0,
 "Metallic": 1,
+"Sleepy": 0,
 "Sweet": 0,
 "Weird": 0
 }
