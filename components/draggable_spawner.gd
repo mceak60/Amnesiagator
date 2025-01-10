@@ -27,8 +27,8 @@ func _ready() -> void:
 	tween.tween_callback(spawn_ingredient_at.bind(preload("res://data/ingredients/garnishes/blossom_petals.tres"), Vector2i(2, 4)))
 	tween.tween_callback(spawn_ingredient_at.bind(preload("res://data/ingredients/garnishes/hickory.tres"), Vector2i(3, 4)))
 	tween.tween_callback(spawn_drink_at.bind(Vector2i(2, 0)))
-	tween.tween_callback(spawn_customer_at.bind(preload("res://data/customers/doug.tres"), Vector2i(1,0)))
-	tween.tween_callback(spawn_customer_at.bind(preload("res://data/customers/test.tres"), Vector2i(3,0)))
+	tween.tween_callback(spawn_customer_at.bind(preload("res://data/customers/doug.tres"), Vector2i(1, 0)))
+	tween.tween_callback(spawn_customer_at.bind(preload("res://data/customers/test.tres"), Vector2i(3, 0)))
 
 #func get_approved_area(draggable: Draggable) -> DraggableArea:
 	#if draggable is Ingredient:
@@ -97,4 +97,3 @@ func spawn_customer_at(customer: CustomerDetails, tile: Vector2i) -> void:
 	seating.draggable_grid.add_draggable(tile, new_customer)
 	new_customer.global_position = seating.get_global_from_tile(tile) - Bar.HALF_CELL_SIZE
 	new_customer.details = customer
-	

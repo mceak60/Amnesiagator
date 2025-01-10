@@ -85,7 +85,7 @@ func _on_ingredient_dropped(starting_position: Vector2, ingredient: Ingredient) 
 	elif drop_area_index == 1:
 		var tile := draggable_areas[drop_area_index].get_hovered_tile()
 		if draggable_areas[drop_area_index].draggable_grid.is_tile_occupied(tile):
-			var drink : Draggable = draggable_areas[drop_area_index].draggable_grid.draggables[tile]
+			var drink: Draggable = draggable_areas[drop_area_index].draggable_grid.draggables[tile]
 			drink.ingredient_list.append(ingredient)
 			for attribute in ingredient.details.attribute_list:
 				drink.attribute_list[attribute] += ingredient.details.attribute_list[attribute]
@@ -121,7 +121,7 @@ func _on_drink_dropped(starting_position: Vector2, drink: Drink) -> void:
 	elif drop_area_index == 4:
 		var tile := draggable_areas[drop_area_index].get_hovered_tile()
 		if draggable_areas[drop_area_index].draggable_grid.is_tile_occupied(tile):
-			var customer : Customer = draggable_areas[drop_area_index].draggable_grid.draggables[tile]
+			var customer: Customer = draggable_areas[drop_area_index].draggable_grid.draggables[tile]
 			print("Gave " + str(customer) + " drink: " + str(drink))
 			submit_drink_to.emit(drink, customer)
 			
@@ -129,7 +129,6 @@ func _on_drink_dropped(starting_position: Vector2, drink: Drink) -> void:
 		return
 			
 			
-	
 	_reset_draggable_to_starting_position(starting_position, drink)
 
 

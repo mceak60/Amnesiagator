@@ -96,50 +96,50 @@ tile_set = ExtResource("2_8n37m")
 [node name="Highlight" type="TileMapLayer" parent="Shelf"]
 tile_set = ExtResource("2_8n37m")
 
-[node name="Ingredient" parent="Shelf" instance=ExtResource("7_e32e7")]
+[node name="Fireball Whiskey" parent="Shelf" instance=ExtResource("7_e32e7")]
 position = Vector2(192, 0)
 
-[node name="Ingredient2" parent="Shelf" instance=ExtResource("7_e32e7")]
+[node name="Frost Vodka" parent="Shelf" instance=ExtResource("7_e32e7")]
 position = Vector2(224, 0)
 details = ExtResource("9_800i4")
 
-[node name="Ingredient3" parent="Shelf" instance=ExtResource("7_e32e7")]
+[node name="Berry Brew" parent="Shelf" instance=ExtResource("7_e32e7")]
 position = Vector2(256, 0)
 details = ExtResource("7_ueodf")
 
-[node name="Ingredient4" parent="Shelf" instance=ExtResource("7_e32e7")]
+[node name="Molten Metal" parent="Shelf" instance=ExtResource("7_e32e7")]
 position = Vector2(288, 0)
 details = ExtResource("8_svd31")
 
-[node name="Ingredient5" parent="Shelf" instance=ExtResource("7_e32e7")]
+[node name="Ice" parent="Shelf" instance=ExtResource("7_e32e7")]
 position = Vector2(192, 64)
 details = ExtResource("9_81278")
 
-[node name="Ingredient6" parent="Shelf" instance=ExtResource("7_e32e7")]
+[node name="Spark Syrup" parent="Shelf" instance=ExtResource("7_e32e7")]
 position = Vector2(224, 64)
 details = ExtResource("10_s4srp")
 
-[node name="Ingredient7" parent="Shelf" instance=ExtResource("7_e32e7")]
+[node name="Bubbly Water" parent="Shelf" instance=ExtResource("7_e32e7")]
 position = Vector2(256, 64)
 details = ExtResource("11_p6hkh")
 
-[node name="Ingredient8" parent="Shelf" instance=ExtResource("7_e32e7")]
+[node name="Lava Lamp" parent="Shelf" instance=ExtResource("7_e32e7")]
 position = Vector2(288, 64)
 details = ExtResource("12_01dsp")
 
-[node name="Ingredient9" parent="Shelf" instance=ExtResource("7_e32e7")]
+[node name="Stardust Sprinkles" parent="Shelf" instance=ExtResource("7_e32e7")]
 position = Vector2(192, 128)
 details = ExtResource("13_iy2dq")
 
-[node name="Ingredient10" parent="Shelf" instance=ExtResource("7_e32e7")]
+[node name="Red Pepper Flakes" parent="Shelf" instance=ExtResource("7_e32e7")]
 position = Vector2(224, 128)
 details = ExtResource("14_k5j75")
 
-[node name="Ingredient11" parent="Shelf" instance=ExtResource("7_e32e7")]
+[node name="Blossom Petals" parent="Shelf" instance=ExtResource("7_e32e7")]
 position = Vector2(256, 128)
 details = ExtResource("15_36fyq")
 
-[node name="Ingredient12" parent="Shelf" instance=ExtResource("7_e32e7")]
+[node name="Hickory" parent="Shelf" instance=ExtResource("7_e32e7")]
 position = Vector2(288, 128)
 details = ExtResource("16_aniqh")
 
@@ -275,7 +275,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="RichTextLabel" parent="GoldCounter"]
+[node name="GoldLabel" type="RichTextLabel" parent="GoldCounter"]
 layout_mode = 0
 offset_left = -1.0
 offset_top = 22.0

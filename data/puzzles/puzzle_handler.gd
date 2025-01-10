@@ -21,12 +21,12 @@ func _ready():
 func get_current_puzzle() -> Puzzle:
 	return puzzle_list[current_puzzle_idx]
 
-func increment_puzzle() -> void:	
+func increment_puzzle() -> void:
 	if next_puzzle:
 		if current_puzzle_idx == puzzle_list.size():
-			assert(false,"No more puzzles.")
+			assert(false, "No more puzzles.")
 		else:
-			current_puzzle_idx += 1	 
+			current_puzzle_idx += 1
 
 func get_puzzle_and_advance() -> Puzzle:
 	var current_puzzle := get_current_puzzle()
@@ -50,11 +50,11 @@ func get_puzzle_gold_reward(drink: Drink, result: Puzzle.Result, puzzle: Puzzle)
 	
 func process_drink(drink: Drink) -> void:
 	var current_puzzle := get_current_puzzle()
-	var result : Puzzle.Result = get_puzzle_evaluation(drink, current_puzzle)
-	var feedback : String = get_puzzle_feedback(drink, result, current_puzzle)
-	var gold_reward : int = get_puzzle_gold_reward(drink, result, current_puzzle)
+	var result: Puzzle.Result = get_puzzle_evaluation(drink, current_puzzle)
+	var feedback: String = get_puzzle_feedback(drink, result, current_puzzle)
+	var gold_reward: int = get_puzzle_gold_reward(drink, result, current_puzzle)
 	
-	var result_names := ["Great Success","Success","Ehhh","Failure"]
+	var result_names := ["Great Success", "Success", "Ehhh", "Failure"]
 	
 	feedback_label.text = feedback
 	gold_counter.text = str(int(gold_counter.text) + gold_reward)
@@ -67,11 +67,11 @@ func process_drink_for(drink: Drink, customer: Customer) -> void:
 	var current_puzzle := get_current_puzzle()
 	var customer_match := get_puzzle_customer_match(customer, current_puzzle)
 	if customer_match == true:
-		var result : Puzzle.Result = get_puzzle_evaluation(drink, current_puzzle)
-		var feedback : String = get_puzzle_feedback(drink, result, current_puzzle)
-		var gold_reward : int = get_puzzle_gold_reward(drink, result, current_puzzle)
+		var result: Puzzle.Result = get_puzzle_evaluation(drink, current_puzzle)
+		var feedback: String = get_puzzle_feedback(drink, result, current_puzzle)
+		var gold_reward: int = get_puzzle_gold_reward(drink, result, current_puzzle)
 	
-		var result_names := ["Great Success","Success","Ehhh","Failure"]
+		var result_names := ["Great Success", "Success", "Ehhh", "Failure"]
 	
 		feedback_label.text = feedback
 		gold_counter.text = str(int(gold_counter.text) + gold_reward)
