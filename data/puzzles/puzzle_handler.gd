@@ -9,6 +9,7 @@ signal submit_drink_to(drink: Drink, customer: Customer)
 @export var starting_puzzle_idx = 0
 
 @onready var draggable_mover: DraggableMover = get_parent().get_node("DraggableMover")
+@onready var draggable_spawner: DraggableSpawner = get_parent().get_node("DraggableSpawner")
 @onready var feedback_label: RichTextLabel = $"../Feedback"
 @onready var gold_counter: Label = $"../GoldCounter"
 
@@ -83,3 +84,6 @@ func process_drink_for(drink: Drink, customer: Customer) -> void:
 	else:
 		feedback_label.text = "That's not my order."
 		print("Gave the drink to the wrong customer...")
+	
+	customer.queue_free()
+	draggable_spawner.spawn_customer(preload("res://data/customers/doug.tres"))
