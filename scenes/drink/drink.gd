@@ -14,6 +14,7 @@ var attribute_list = {
 	"Sweet": 0,
 	"Flora": 0,
 	"Earthy": 0,
+	"Sleepy": 0,
 }
 
 @onready var skin: Sprite2D = $Visuals/Skin
