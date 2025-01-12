@@ -1,8 +1,14 @@
 class_name Puzzle2
 extends Puzzle
 
+func get_customer_and_order() -> String:
+	customer_name = "Mark"
+	customer_animal = "Owl"
+	order = "Hey Stu, I'm on a deadline. Don't have time to chit-chat. Give me a pick-me-up."
+	return order
+
 func check_customer(customer: Customer) -> bool:
-	if customer.details.name == "Mark" && customer.details.animal == "Owl":
+	if customer.details.name == customer_name && customer.details.animal == customer_animal:
 		return true
 	return false
 
@@ -23,7 +29,7 @@ func evaluate_drink(drink: Drink) -> Result:
 	result = evaluated_result
 	return evaluated_result
 
-func get_feedback(drink: Drink, evaluated_result: Result) -> String:
+func get_feedback(_drink: Drink, evaluated_result: Result) -> String:
 	var evaluated_feedback: String
 	match evaluated_result:
 		Result.GREAT_SUCCESS:
