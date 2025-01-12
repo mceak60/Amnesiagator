@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://b5xkx805g0kxj"]
+[gd_scene load_steps=30 format=4 uid="uid://b5xkx805g0kxj"]
 
 [ext_resource type="Script" path="res://scenes/bar/bar.gd" id="1_5m26e"]
 [ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://scenes/arena/tileset.tres" id="2_8n37m"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://biw3haki8sh78" path="res://scenes/customer/customer.tscn" id="23_f36nf"]
 [ext_resource type="Resource" uid="uid://j8smv086g07h" path="res://data/customers/doug.tres" id="24_70dxc"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_handler.gd" id="24_tseuq"]
+[ext_resource type="Script" path="res://data/puzzles/puzzle_2.gd" id="26_bcgwp"]
 
 [sub_resource type="Curve" id="Curve_gxqt7"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.204482, 1), 0.0, 0.0, 0, 0, Vector2(0.795518, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -262,15 +263,22 @@ shelf = NodePath("../Shelf")
 counter = NodePath("../Counter")
 seating = NodePath("../Seating")
 
-[node name="Feedback" type="RichTextLabel" parent="."]
+[node name="Order" type="RichTextLabel" parent="."]
 offset_right = 128.0
-offset_bottom = 288.0
+offset_bottom = 256.0
+metadata/_edit_lock_ = true
+
+[node name="Feedback" type="RichTextLabel" parent="."]
+offset_left = 512.0
+offset_right = 640.0
+offset_bottom = 256.0
 metadata/_edit_lock_ = true
 
 [node name="GoldCounter" type="Label" parent="."]
 offset_left = 600.0
+offset_top = 320.0
 offset_right = 640.0
-offset_bottom = 23.0
+offset_bottom = 343.0
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -286,7 +294,10 @@ text = "Gold"
 [node name="PuzzleHandler" type="Node" parent="." node_paths=PackedStringArray("puzzle_list")]
 unique_name_in_owner = true
 script = ExtResource("24_tseuq")
-puzzle_list = [NodePath("Puzzle1")]
+puzzle_list = [NodePath("Puzzle1"), NodePath("Puzzle2")]
 
 [node name="Puzzle1" type="Node" parent="PuzzleHandler"]
 script = ExtResource("22_m3gre")
+
+[node name="Puzzle2" type="Node" parent="PuzzleHandler"]
+script = ExtResource("26_bcgwp")

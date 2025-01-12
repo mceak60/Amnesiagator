@@ -10,22 +10,29 @@ signal submit_drink_to(drink: Drink, customer: Customer)
 
 @onready var draggable_mover: DraggableMover = get_parent().get_node("DraggableMover")
 @onready var draggable_spawner: DraggableSpawner = get_parent().get_node("DraggableSpawner")
+@onready var order_label: RichTextLabel = $"../Order"
 @onready var feedback_label: RichTextLabel = $"../Feedback"
 @onready var gold_counter: Label = $"../GoldCounter"
 
 var current_puzzle_idx = starting_puzzle_idx
+var order_number = 1
  
 func _ready():
 	draggable_mover.submit_drink.connect(process_drink)
 	draggable_mover.submit_drink_to.connect(process_drink_for)
+	var current_puzzle = get_current_puzzle()
+	order_label.text = "Order #" + str(order_number) + ": \n\n" + current_puzzle.get_customer_and_order()
+	spwan_puzzle_customer(current_puzzle)
 
 func get_current_puzzle() -> Puzzle:
 	return puzzle_list[current_puzzle_idx]
 
 func increment_puzzle() -> void:
 	if next_puzzle:
-		if current_puzzle_idx == puzzle_list.size():
-			assert(false, "No more puzzles.")
+		if current_puzzle_idx == puzzle_list.size()-1:
+			#assert(false, "No more puzzles.")
+			current_puzzle_idx = 0
+			return
 		else:
 			current_puzzle_idx += 1
 
@@ -48,7 +55,18 @@ func get_puzzle_feedback(drink: Drink, result: Puzzle.Result, puzzle: Puzzle) ->
 
 func get_puzzle_gold_reward(drink: Drink, result: Puzzle.Result, puzzle: Puzzle) -> int:
 	return puzzle.get_gold_reward(drink, result)
-	
+
+func spwan_puzzle_customer(puzzle: Puzzle) -> void:
+	var customer: Array[String] = [puzzle.customer_name, puzzle.customer_animal]
+	match customer:
+		["Doug", "Penguin"]:
+			draggable_spawner.spawn_customer(preload("res://data/customers/doug.tres"))
+		["Mark", "Owl"]:
+			draggable_spawner.spawn_customer(preload("res://data/customers/mark.tres"))
+		_:
+			draggable_spawner.spawn_customer(preload("res://data/customers/test.tres"))
+
+
 func process_drink(drink: Drink) -> void:
 	var current_puzzle := get_current_puzzle()
 	var result: Puzzle.Result = get_puzzle_evaluation(drink, current_puzzle)
@@ -86,4 +104,17 @@ func process_drink_for(drink: Drink, customer: Customer) -> void:
 		print("Gave the drink to the wrong customer...")
 	
 	customer.queue_free()
-	draggable_spawner.spawn_customer(preload("res://data/customers/doug.tres"))
+	increment_puzzle()
+	order_number += 1
+	var new_puzzle = get_current_puzzle()
+	# the next 7 lines add a waiting period and update the text box accordingly because it was jarring to just pop
+	# in with the next order immediately, comment everything up to the final await function for an immediate update
+	await get_tree().create_timer(0.75).timeout
+	order_label.text = "."
+	await get_tree().create_timer(0.75).timeout
+	order_label.text = ". ."
+	await get_tree().create_timer(0.75).timeout
+	order_label.text = ". . ."
+	await get_tree().create_timer(0.75).timeout
+	order_label.text = "Order #" + str(order_number) + ":\n\n" + new_puzzle.get_customer_and_order()
+	spwan_puzzle_customer(new_puzzle)

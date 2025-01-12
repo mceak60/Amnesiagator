@@ -1,8 +1,14 @@
 class_name Puzzle1
 extends Puzzle
 
+func get_customer_and_order() -> String:
+	customer_name = "Doug"
+	customer_animal = "Penguin"
+	order = "What’s up Stu? I’ll take my usual."
+	return order
+
 func check_customer(customer: Customer) -> bool:
-	if customer.details.name == "Doug" && customer.details.animal == "Penguin":
+	if customer.details.name == customer_name && customer.details.animal == customer_animal:
 		return true
 	return false
 
