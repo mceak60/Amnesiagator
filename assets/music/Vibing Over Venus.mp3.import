@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://q3w8fcnhubuy"
+path="res://.godot/imported/Vibing Over Venus.mp3-c47eb63cc64273c8b6ff27167215d9ed.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Vibing Over Venus.mp3"
+dest_files=["res://.godot/imported/Vibing Over Venus.mp3-c47eb63cc64273c8b6ff27167215d9ed.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

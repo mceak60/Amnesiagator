@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b58eiq60jmdmb"
+path="res://.godot/imported/Sunday Dub.mp3-354ba0484f1af3cf3f67bc3de9e31936.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Sunday Dub.mp3"
+dest_files=["res://.godot/imported/Sunday Dub.mp3-354ba0484f1af3cf3f67bc3de9e31936.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
