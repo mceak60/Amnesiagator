@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://b5xkx805g0kxj"]
+[gd_scene load_steps=44 format=4 uid="uid://b5xkx805g0kxj"]
 
 [ext_resource type="Script" path="res://scenes/bar/bar.gd" id="1_5m26e"]
 [ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://scenes/arena/tileset.tres" id="2_8n37m"]
@@ -26,6 +26,20 @@
 [ext_resource type="Resource" uid="uid://j8smv086g07h" path="res://data/customers/doug.tres" id="24_70dxc"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_handler.gd" id="24_tseuq"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_2.gd" id="26_bcgwp"]
+[ext_resource type="Script" path="res://components/music_handler.gd" id="27_bfy5o"]
+[ext_resource type="AudioStream" uid="uid://dosq7pyksewo4" path="res://assets/music/Calmant.mp3" id="28_67j5i"]
+[ext_resource type="AudioStream" uid="uid://d3s5f2fu7jahm" path="res://assets/music/Cold Funk.mp3" id="29_wfv5y"]
+[ext_resource type="AudioStream" uid="uid://ov6th6vk8ouq" path="res://assets/music/Digital Lemonade.mp3" id="30_2b24r"]
+[ext_resource type="AudioStream" uid="uid://dwwf2ki1vbsxr" path="res://assets/music/Disco Lounge.mp3" id="31_xhs3n"]
+[ext_resource type="AudioStream" uid="uid://buty16tg5tpcn" path="res://assets/music/Galway.mp3" id="32_uyedv"]
+[ext_resource type="AudioStream" uid="uid://dmlepb0uxoosc" path="res://assets/music/In Your Arms.mp3" id="33_qajwj"]
+[ext_resource type="AudioStream" uid="uid://dwbh8nt6utig6" path="res://assets/music/Northern Glade.mp3" id="34_rkh70"]
+[ext_resource type="AudioStream" uid="uid://cm5uda45kac0t" path="res://assets/music/Suave Standpipe.mp3" id="35_anugf"]
+[ext_resource type="AudioStream" uid="uid://b58eiq60jmdmb" path="res://assets/music/Sunday Dub.mp3" id="36_7tjan"]
+[ext_resource type="AudioStream" uid="uid://cvodutyw16b70" path="res://assets/music/The Forest And The Trees.mp3" id="37_xcrr0"]
+[ext_resource type="AudioStream" uid="uid://djd2n3e2r3fy7" path="res://assets/music/Thief In The Night.mp3" id="38_3coa7"]
+[ext_resource type="AudioStream" uid="uid://q3w8fcnhubuy" path="res://assets/music/Vibing Over Venus.mp3" id="39_vkhg1"]
+[ext_resource type="Script" path="res://components/music_label.gd" id="40_6m60v"]
 
 [sub_resource type="Curve" id="Curve_gxqt7"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.204482, 1), 0.0, 0.0, 0, 0, Vector2(0.795518, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -301,3 +315,22 @@ script = ExtResource("22_m3gre")
 
 [node name="Puzzle2" type="Node" parent="PuzzleHandler"]
 script = ExtResource("26_bcgwp")
+
+[node name="MusicHandler" type="AudioStreamPlayer" parent="."]
+script = ExtResource("27_bfy5o")
+track_list = Array[AudioStream]([ExtResource("28_67j5i"), ExtResource("29_wfv5y"), ExtResource("30_2b24r"), ExtResource("31_xhs3n"), ExtResource("32_uyedv"), ExtResource("33_qajwj"), ExtResource("34_rkh70"), ExtResource("35_anugf"), ExtResource("36_7tjan"), ExtResource("37_xcrr0"), ExtResource("38_3coa7"), ExtResource("39_vkhg1")])
+
+[node name="MusicButton" type="Button" parent="MusicHandler"]
+offset_top = 271.0
+offset_right = 24.0
+offset_bottom = 302.0
+text = "♫"
+
+[node name="MusicLabel" type="RichTextLabel" parent="MusicHandler"]
+offset_left = 4.0
+offset_top = 303.0
+offset_right = 120.0
+offset_bottom = 367.0
+fit_content = true
+autowrap_mode = 0
+script = ExtResource("40_6m60v")

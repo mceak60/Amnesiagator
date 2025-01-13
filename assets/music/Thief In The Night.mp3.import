@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djd2n3e2r3fy7"
+path="res://.godot/imported/Thief In The Night.mp3-426b449edff79ea2dc365c8492c57eef.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Thief In The Night.mp3"
+dest_files=["res://.godot/imported/Thief In The Night.mp3-426b449edff79ea2dc365c8492c57eef.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
