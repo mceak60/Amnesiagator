@@ -21,4 +21,4 @@ attribute_list = {
 "Sweet": 0,
 "Weird": 0
 }
-skin_coordinates = Vector2i(0, 4)
+skin_coordinates = Vector2i(5, 1)

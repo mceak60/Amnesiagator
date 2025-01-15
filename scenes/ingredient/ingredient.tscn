@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scenes/ingredient/ingredient.gd" id="1_0dcoo"]
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://assets/shaders/2d_outline_shader.tres" id="1_cfepo"]
 [ext_resource type="Resource" uid="uid://dhsk6revjjlpx" path="res://data/ingredients/bases/fireball_whiskey.tres" id="2_3o12t"]
-[ext_resource type="Texture2D" uid="uid://cx1ivjobggp8n" path="res://assets/sprites/rogues.png" id="2_ogv8i"]
 [ext_resource type="Script" path="res://components/outline_highlighter.gd" id="3_75pbe"]
+[ext_resource type="Texture2D" uid="uid://do6wl57t2xho1" path="res://scenes/bar/bar scene.png" id="4_c62v7"]
 [ext_resource type="Script" path="res://components/drag_and_drop.gd" id="4_ohuqy"]
 [ext_resource type="Script" path="res://components/velocity_based_rotation.gd" id="4_y1vpc"]
 
@@ -20,10 +20,10 @@ metadata/_edit_group_ = true
 material = ExtResource("1_cfepo")
 
 [node name="Skin" type="Sprite2D" parent="Visuals"]
-position = Vector2(16, 8)
-texture = ExtResource("2_ogv8i")
+position = Vector2(16, 16)
+texture = ExtResource("4_c62v7")
 region_enabled = true
-region_rect = Rect2(0, 0, 32, 32)
+region_rect = Rect2(160, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(16, 8)
