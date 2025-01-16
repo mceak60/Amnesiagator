@@ -1,0 +1,83 @@
+Character: Father Cornelius
+
+Animal: Mink 
+
+Opening line - “Good evening, my child. This is a fine establishment. Something for your humble servant, if you would. As I say in my congregation, the mink shall inherit..." 
+
+Visual cues - clerical collar 
+
+SUCCESS CONDITION:
+
+GREAT SUCCESS	- Contains Earthy + Flora + Fruity
+SUCCESS	- Contains any two of the above
+EHHHH - Contains one of the above, or other simple ingredients
+FAILURE	- Anything else that's too interesting
+
+
+Drinks:
+•	Fireball Whisky (flame bottle, thin, tall, red, fireball motif)
+•		Attribute: Heat
+•	Frost Vodka (short, stout, blue bottle)
+•		Attribute: Cold
+•	Berry Brew (moderate, purple, heart shaped)
+•		Attribute: Fruity
+•	Molten Metal (deep gray, boxy)
+•		Attribute: Metallic
+
+Mixers
+•	Ice (ice cubes)
+•		Attribute: Cold, Boring
+•	Spark Syrup (very tall and thin yellow bottle with a grey stopper, neon)
+•		Attribute: Electricity
+•	Bubbly Water (overflowing bottle shaped like a bubble)
+•		Attribute: Fizzy
+•	Lava Lamp (a lava lamp)
+•		Attribute: Weird
+
+Garnishes
+•	Stardust Sprinkles (little stars)
+•		Attribute: Sweet
+•	Red Pepper Flakes (like a diner style canister)
+•		Attribute: Heat, Boring
+•	Blossom Petals - (flowers)
+•		Attribute: Flora
+•	Hickory (shaved tree bark like a cheese grater)
+•		Attribute: Earthy
+
+
+GREAT SUCCESS (Contains Earthy + Flora + Fruity): 
+
+"Ah, blessed harmony! Like a forest chapel in spring. The earth, the blossoms, the fruits of creation... You truly understand the natural order, my child."
+
+Closes eyes to contemplate.
+
+SUCCESS (Two of: Earthy, Flora, Fruity):
+
+With Earthy + Flora: "A blessed combination, though it yearns for the sweetness of the vine, much like our garden of contemplation."
+
+With Earthy + Fruity: "The earthen foundation supports the fruit beautifully, though it lacks the grace of the blossom. Still, a worthy offering."
+
+With Flora + Fruity: "A delightful blend of backyard pleasures, though it could something use more solid, to ground it, shall we say?"
+
+EHHHH (One of: Earthy, Flora, Fruity):
+
+Single Earthy/Flora/Fruity: "The spirit is willing, but the blend is weak. Consider the whole of creation, not just a single facet."
+
+Plain Bubbly Water: "My child, simplicity has its virtues, but perhaps we're being a bit too... ascetic?"
+
+Stardust Sprinkles: "Certainly a hint of the divine. But surely we can aim closer to our surroundings." 
+
+Ice only: "Do not test me, my child."
+
+FAILURE (Anything out of the ordinary):
+
+Heat: "Oh my! *cough* A bit too... infernal for my taste."
+Cold: "I'm not an advocate of fire and brimstone, but that may help clear this brain freeze!" 
+Spark Syrup: "My child, distilled energy is no substitute for natural revelation."
+Molten Metal: "I seek communion with nature, not... industrial revolution."
+Lava Lamp: "I appreciate modern expressions of faith, but perhaps something more... traditional?"
+
+
+ 
+
+
