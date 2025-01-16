@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://biw3haki8sh78"]
+[gd_scene load_steps=9 format=3 uid="uid://biw3haki8sh78"]
 
 [ext_resource type="Script" path="res://scenes/customer/customer.gd" id="1_62hb1"]
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://assets/shaders/2d_outline_shader.tres" id="3_xdqwp"]
 [ext_resource type="Texture2D" uid="uid://cx1ivjobggp8n" path="res://assets/sprites/rogues.png" id="4_18bms"]
 [ext_resource type="Script" path="res://components/drag_and_drop.gd" id="4_hx6ni"]
+[ext_resource type="Script" path="res://components/debug_label.gd" id="4_yaoc6"]
 [ext_resource type="Script" path="res://components/velocity_based_rotation.gd" id="5_0jso4"]
 [ext_resource type="Script" path="res://components/outline_highlighter.gd" id="7_3h8hc"]
 
@@ -44,6 +45,18 @@ script = ExtResource("7_3h8hc")
 visuals = NodePath("../Visuals")
 outline_color = Color(1, 1, 1, 1)
 outline_thickness = 2
+
+[node name="DebugLabel" type="Label" parent="." node_paths=PackedStringArray("target")]
+offset_left = -119.0
+offset_top = -22.0
+offset_right = 151.0
+offset_bottom = 1.0
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Test"
+horizontal_alignment = 1
+script = ExtResource("4_yaoc6")
+target = NodePath("..")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -19,11 +19,13 @@ func set_details(value: CustomerDetails) -> void:
 func _on_mouse_entered() -> void:
 	outline_highlighter.highlight()
 	z_index = 1
+	show_debug.emit()
 
 
 func _on_mouse_exited() -> void:
 	outline_highlighter.clear_highlight()
 	z_index = 0
+	hide_debug.emit()
 
 func _to_string() -> String:
 	return details.name
