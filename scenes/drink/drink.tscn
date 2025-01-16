@@ -12,6 +12,7 @@
 size = Vector2(36, 36)
 
 [node name="Drink" type="Area2D" groups=["drinks"]]
+z_index = 3
 script = ExtResource("1_ofljw")
 skin_coordinates = Vector2i(4, 1)
 metadata/_edit_group_ = true

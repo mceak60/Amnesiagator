@@ -33,7 +33,7 @@ func _input(event: InputEvent) -> void:
 func _end_dragging() -> void:
 	dragging = false
 	target.remove_from_group("dragging")
-	target.z_index = 0
+	target.z_index = 3
 
 
 func _cancel_dragging() -> void:

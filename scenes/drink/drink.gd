@@ -40,6 +40,23 @@ func get_ingredient_names() -> Array[String]:
 		
 	return name_list
 
+func _on_mouse_entered() -> void:
+	if drag_and_drop.dragging:
+		return
+	
+	outline_highlighter.highlight()
+	z_index = 3
+	
+	show_debug.emit()
+	
+func _on_mouse_exited() -> void:
+	if drag_and_drop.dragging:
+		return
+	
+	outline_highlighter.clear_highlight()
+	z_index = 3
+	
+	hide_debug.emit()
 
 func empty() -> void:
 	ingredient_list.clear()
