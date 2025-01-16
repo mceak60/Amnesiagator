@@ -116,6 +116,7 @@ tile_map_data = PackedByteArray("AAABAAIAAQAGAAYAAAABAAMAAQAGAAcAAAABAAQAAQAGAAg
 tile_set = ExtResource("2_8n37m")
 
 [node name="Highlight" type="TileMapLayer" parent="Shelf"]
+enabled = false
 tile_set = ExtResource("2_8n37m")
 
 [node name="Fireball Whiskey" parent="Shelf" instance=ExtResource("7_e32e7")]
@@ -186,6 +187,7 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Highlight" type="TileMapLayer" parent="Counter"]
+enabled = false
 tile_set = ExtResource("2_8n37m")
 
 [node name="Drink" parent="Counter" instance=ExtResource("9_8ypaw")]
@@ -197,6 +199,7 @@ size = Vector2i(10, 1)
 
 [node name="TileHighlighter" type="Node" parent="Counter" node_paths=PackedStringArray("draggable_area", "highlight_layer")]
 script = ExtResource("6_lytro")
+enabled = false
 draggable_area = NodePath("..")
 highlight_layer = NodePath("../Highlight")
 tile = Vector2i(3, 0)
@@ -235,6 +238,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Highlight" type="TileMapLayer" parent="Submit"]
+enabled = false
 tile_set = ExtResource("2_8n37m")
 
 [node name="SubmitGrid" type="Node2D" parent="Submit"]
@@ -243,6 +247,7 @@ size = Vector2i(1, 1)
 
 [node name="TileHighlighter" type="Node" parent="Submit" node_paths=PackedStringArray("draggable_area", "highlight_layer")]
 script = ExtResource("6_lytro")
+enabled = false
 draggable_area = NodePath("..")
 highlight_layer = NodePath("../Highlight")
 tile = Vector2i(3, 0)
@@ -258,6 +263,7 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Highlight" type="TileMapLayer" parent="Seating"]
+enabled = false
 tile_set = ExtResource("2_8n37m")
 
 [node name="Customer" parent="Seating" instance=ExtResource("23_f36nf")]
@@ -270,6 +276,7 @@ size = Vector2i(10, 1)
 
 [node name="TileHighlighter" type="Node" parent="Seating" node_paths=PackedStringArray("draggable_area", "highlight_layer")]
 script = ExtResource("6_lytro")
+enabled = false
 draggable_area = NodePath("..")
 highlight_layer = NodePath("../Highlight")
 tile = Vector2i(3, 0)
