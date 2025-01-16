@@ -4,6 +4,8 @@ Animal: Chameleon
 
 Opening line - “Gimme the groove!” 
 
+Visual cues - star-shaped sunglasses 
+
 SUCCESS CONDITION:
 
 GREAT SUCCESS	- Contains "Lava Lamp" + "Stardust"
