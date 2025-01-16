@@ -3,7 +3,7 @@ class_name Draggable
 extends Area2D
 
 
-@onready var debug_label: Label = $Visuals/DebugLabel
+@onready var debug_label: Label = $DebugLabel
 @onready var drag_and_drop: DragAndDrop = $DragAndDrop
 @onready var velocity_based_rotation: VelocityBasedRotation = $VelocityBasedRotation
 @onready var outline_highlighter: OutlineHighlighter = $OutlineHighlighter

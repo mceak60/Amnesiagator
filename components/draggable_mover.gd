@@ -87,6 +87,7 @@ func _on_ingredient_dropped(starting_position: Vector2, ingredient: Ingredient) 
 		if draggable_areas[drop_area_index].draggable_grid.is_tile_occupied(tile):
 			var drink: Draggable = draggable_areas[drop_area_index].draggable_grid.draggables[tile]
 			drink.ingredient_list.append(ingredient)
+			drink.debug_label.update_text()
 			for attribute in ingredient.details.attribute_list:
 				drink.attribute_list[attribute] += ingredient.details.attribute_list[attribute]
 			
