@@ -167,7 +167,7 @@ details = ExtResource("16_aniqh")
 
 [node name="ShelfGrid" type="Node2D" parent="Shelf"]
 script = ExtResource("5_80xpi")
-size = Vector2i(4, 7)
+size = Vector2i(4, 3)
 
 [node name="TileHighlighter" type="Node" parent="Shelf" node_paths=PackedStringArray("draggable_area", "highlight_layer")]
 script = ExtResource("6_lytro")
