@@ -101,8 +101,8 @@ tile_set = ExtResource("2_8n37m")
 script = ExtResource("4_nb8bd")
 draggable_grid = NodePath("ShelfGrid")
 tile_highlighter = NodePath("TileHighlighter")
-metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Decor" type="TileMapLayer" parent="Shelf"]
 tile_map_data = PackedByteArray("AAAEAAgAAQAEAAMAAAADAAkAAQADAAQAAAACAAkAAQACAAQAAAABAAkAAQABAAQAAAAAAAkAAQAAAAQAAAAAAAgAAQAAAAMAAAABAAgAAQABAAMAAAACAAgAAQACAAMAAAADAAgAAQADAAMAAAAFAAgAAQAFAAMAAAAGAAgAAQAGAAMAAAAHAAgAAQAHAAMAAAAIAAgAAQAIAAMAAAAIAAkAAQAIAAQAAAAHAAkAAQAHAAQAAAAGAAkAAQAGAAQAAAAFAAkAAQAFAAQAAAAEAAoAAQAEAAUAAAADAAoAAQADAAUAAAACAAoAAQACAAUAAAABAAoAAQABAAUAAAAAAAoAAQAAAAUAAAAEAAkAAQAEAAQAAAAIAAoAAQAIAAUAAAAHAAoAAQAHAAUAAAAGAAoAAQAGAAUAAAAFAAoAAQAFAAUAAAACAAQAAQAAAAEAAAACAAUAAQAAAAEAAAACAAYAAQAAAAEAAAADAAQAAQABAAEAAAADAAUAAQABAAEAAAADAAYAAQABAAEAAAAEAAQAAQABAAAAAAAEAAUAAQABAAEAAAAEAAYAAQABAAEAAAAFAAUAAQACAAEAAAAFAAYAAQACAAEAAAAFAAQAAQACAAAAAAAGAAYAAQADAAEAAAAGAAUAAQADAAEAAAAGAAQAAQADAAAAAAA=")
@@ -186,7 +186,7 @@ metadata/_edit_lock_ = true
 tile_set = ExtResource("2_8n37m")
 
 [node name="Drink" parent="Counter" instance=ExtResource("9_8ypaw")]
-position = Vector2(256, 0)
+position = Vector2(512, 0)
 
 [node name="CounterGrid" type="Node2D" parent="Counter"]
 script = ExtResource("5_80xpi")
@@ -258,7 +258,7 @@ metadata/_edit_lock_ = true
 tile_set = ExtResource("2_8n37m")
 
 [node name="Customer" parent="Seating" instance=ExtResource("23_f36nf")]
-position = Vector2(256, 0)
+position = Vector2(512, 0)
 details = ExtResource("24_70dxc")
 
 [node name="SeatingGrid" type="Node2D" parent="Seating"]

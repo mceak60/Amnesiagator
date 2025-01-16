@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dk2w3c34ae7yp"]
+[gd_scene load_steps=10 format=3 uid="uid://dk2w3c34ae7yp"]
 
 [ext_resource type="Script" path="res://scenes/ingredient/ingredient.gd" id="1_0dcoo"]
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://assets/shaders/2d_outline_shader.tres" id="1_cfepo"]
@@ -7,9 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://do6wl57t2xho1" path="res://scenes/bar/bar scene.png" id="4_c62v7"]
 [ext_resource type="Script" path="res://components/drag_and_drop.gd" id="4_ohuqy"]
 [ext_resource type="Script" path="res://components/velocity_based_rotation.gd" id="4_y1vpc"]
+[ext_resource type="Script" path="res://components/debug_label.gd" id="5_racrk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdqai"]
-size = Vector2(36, 36)
+size = Vector2(20, 30)
 
 [node name="Ingredient" type="Area2D" groups=["ingredients"]]
 script = ExtResource("1_0dcoo")
@@ -26,7 +27,7 @@ region_enabled = true
 region_rect = Rect2(160, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, 8)
+position = Vector2(16, 18)
 shape = SubResource("RectangleShape2D_rdqai")
 
 [node name="DragAndDrop" type="Node" parent="." node_paths=PackedStringArray("target")]
@@ -44,6 +45,18 @@ script = ExtResource("3_75pbe")
 visuals = NodePath("../Visuals")
 outline_color = Color(1, 1, 1, 1)
 outline_thickness = 2
+
+[node name="DebugLabel" type="Label" parent="." node_paths=PackedStringArray("target")]
+offset_left = -103.0
+offset_top = -22.0
+offset_right = 139.0
+offset_bottom = 1.0
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Test"
+horizontal_alignment = 1
+script = ExtResource("5_racrk")
+target = NodePath("..")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
