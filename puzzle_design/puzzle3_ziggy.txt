@@ -1,0 +1,86 @@
+Character: Ziggy
+
+Animal: Chameleon 
+
+Opening line - “Gimme the groove!” 
+
+SUCCESS CONDITION:
+
+GREAT SUCCESS	- Contains "Lava Lamp" + "Stardust"
+SUCCESS	- Contains one of Lava Lamp or Stardust
+EHHHH - Contains a combo of something visually interesting but wrong
+FAILURE	- Contains any Earthy - or another boring combination
+
+
+Drinks:
+•	Fireball Whisky (flame bottle, thin, tall, red, fireball motif)
+•		Attribute: Heat
+•	Frost Vodka (short, stout, blue bottle)
+•		Attribute: Cold
+•	Berry Brew (moderate, purple, heart shaped)
+•		Attribute: Fruity
+•	Molten Metal (deep gray, boxy)
+•		Attribute: Metallic
+
+Mixers
+•	Ice (ice cubes)
+•		Attribute: Cold, Boring
+•	Spark Syrup (very tall and thin yellow bottle with a grey stopper, neon)
+•		Attribute: Electricity
+•	Bubbly Water (overflowing bottle shaped like a bubble)
+•		Attribute: Fizzy
+•	Lava Lamp (a lava lamp)
+•		Attribute: Weird
+
+Garnishes
+•	Stardust Sprinkles (little stars)
+•		Attribute: Sweet
+•	Red Pepper Flakes (like a diner style canister)
+•		Attribute: Heat, Boring
+•	Blossom Petals - (flowers)
+•		Attribute: Flora
+•	Hickory (shaved tree bark like a cheese grater)
+•		Attribute: Earthy
+
+
+GREAT SUCCESS (Lava Lamp + Stardust): 
+
+"Far OUT! Now this is what I call cosmic! The colors, man... they're speaking to me! You're on my wavelength, bartender!"
+
+Ziggy also changes color to match the color of the drink + lava lamp and sparkle effect
+
+
+SUCCESS (One of Lava Lamp or Stardust):
+
+With Lava Lamp: "Almost there, daddy-o! The vibe is flowing, but it needs that extra shine, you dig?"
+
+With Stardust: "Dig those sparkles! But it could use something more... radical, if you catch my drift."
+
+Ziggy also changes color to match the drink + either lava lamp or sparkle effect
+
+
+EHHHH (Visually Interesting But Wrong):
+
+Spark Syrup + (Berry Brew / Frost Vodka / Fireball Whiskey): "Huh... neat light show, but not quite groovy enough. Need something more... far out."
+
+Molten Metal + (Spark Syrup / Berry Brew) : "Too static, man. I need something that flows with the cosmic waves."
+
+Berry Brew + Blossom Petals: "A little too garden party, not enough space party, you know what I mean?"
+
+Molten Metal + Frost Vodka: "Whoa... cool chrome vibes, but I need something more... psychedelic."
+
+Spark Syrup + Bubbly Water: "Dig the electricity, baby, but it's all fizz and no flow!"
+
+Ziggy also changes color to match the drink
+
+
+FAILURE (Any Earthy, or anything Boring, or only one interesting item):
+
+Plain/Boring Combinations: "...this is squaresville, baby. Where's the pizzazz? The movement? The GROOVE?"
+
+Earthy: "What am I, some kind of tree hugger? I need something that'll make my scales dance!"
+
+Ziggy also changes color to grey [no fun!]
+ 
+
+
