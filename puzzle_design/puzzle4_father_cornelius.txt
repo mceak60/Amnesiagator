@@ -2,7 +2,7 @@ Character: Father Cornelius
 
 Animal: Mink 
 
-Opening line - “Good evening, my child. This is a fine establishment. Something for your humble servant, if you would. As I say in my congregation, the mink shall inherit..." 
+Opening line - “Good evening, my child. Something for your humble servant, if you would. As I say in my congregation, the mink shall inherit..." 
 
 Visual cues - clerical collar 
 

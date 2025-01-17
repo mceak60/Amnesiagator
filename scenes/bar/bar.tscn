@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://b5xkx805g0kxj"]
+[gd_scene load_steps=46 format=4 uid="uid://b5xkx805g0kxj"]
 
 [ext_resource type="Script" path="res://scenes/bar/bar.gd" id="1_5m26e"]
 [ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://scenes/arena/tileset.tres" id="2_8n37m"]
@@ -26,8 +26,10 @@
 [ext_resource type="Resource" uid="uid://j8smv086g07h" path="res://data/customers/doug.tres" id="24_70dxc"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_handler.gd" id="24_tseuq"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_2.gd" id="26_bcgwp"]
+[ext_resource type="Script" path="res://data/puzzles/puzzle_3.gd" id="27_6r0c2"]
 [ext_resource type="Script" path="res://components/music_handler.gd" id="27_bfy5o"]
 [ext_resource type="AudioStream" uid="uid://dosq7pyksewo4" path="res://assets/music/Calmant.mp3" id="28_67j5i"]
+[ext_resource type="Script" path="res://data/puzzles/puzzle_4.gd" id="28_yk4rc"]
 [ext_resource type="AudioStream" uid="uid://d3s5f2fu7jahm" path="res://assets/music/Cold Funk.mp3" id="29_wfv5y"]
 [ext_resource type="AudioStream" uid="uid://ov6th6vk8ouq" path="res://assets/music/Digital Lemonade.mp3" id="30_2b24r"]
 [ext_resource type="AudioStream" uid="uid://dwwf2ki1vbsxr" path="res://assets/music/Disco Lounge.mp3" id="31_xhs3n"]
@@ -292,9 +294,9 @@ counter = NodePath("../Counter")
 seating = NodePath("../Seating")
 
 [node name="Order" type="RichTextLabel" parent="."]
-offset_right = 128.0
+offset_left = 10.0
+offset_right = 203.0
 offset_bottom = 256.0
-metadata/_edit_lock_ = true
 
 [node name="Feedback" type="RichTextLabel" parent="."]
 offset_left = 512.0
@@ -322,13 +324,19 @@ text = "Gold"
 [node name="PuzzleHandler" type="Node" parent="." node_paths=PackedStringArray("puzzle_list")]
 unique_name_in_owner = true
 script = ExtResource("24_tseuq")
-puzzle_list = [NodePath("Puzzle1"), NodePath("Puzzle2")]
+puzzle_list = [NodePath("Puzzle1"), NodePath("Puzzle2"), NodePath("Puzzle3"), NodePath("Puzzle4")]
 
 [node name="Puzzle1" type="Node" parent="PuzzleHandler"]
 script = ExtResource("22_m3gre")
 
 [node name="Puzzle2" type="Node" parent="PuzzleHandler"]
 script = ExtResource("26_bcgwp")
+
+[node name="Puzzle3" type="Node" parent="PuzzleHandler"]
+script = ExtResource("27_6r0c2")
+
+[node name="Puzzle4" type="Node" parent="PuzzleHandler"]
+script = ExtResource("28_yk4rc")
 
 [node name="MusicHandler" type="AudioStreamPlayer" parent="."]
 script = ExtResource("27_bfy5o")

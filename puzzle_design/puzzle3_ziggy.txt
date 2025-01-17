@@ -11,7 +11,7 @@ SUCCESS CONDITION:
 GREAT SUCCESS	- Contains "Lava Lamp" + "Stardust"
 SUCCESS	- Contains one of Lava Lamp or Stardust
 EHHHH - Contains a combo of something visually interesting but wrong
-FAILURE	- Contains any Earthy - or another boring combination
+FAILURE	- Contains any Earthy, Boring, or only one attribute
 
 
 Drinks:
@@ -76,7 +76,7 @@ Spark Syrup + Bubbly Water: "Dig the electricity, baby, but it's all fizz and no
 Ziggy also changes color to match the drink
 
 
-FAILURE (Any Earthy, or anything Boring, or only one interesting item):
+FAILURE (Any Earthy, or anything Boring, or only one item):
 
 Plain/Boring Combinations: "...this is squaresville, baby. Where's the pizzazz? The movement? The GROOVE?"
 
