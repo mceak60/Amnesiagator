@@ -14,13 +14,13 @@ func check_customer(customer: Customer) -> bool:
 
 func evaluate_drink(drink: Drink) -> Result:
 	var evaluated_result: Result
-	if drink.attribute_list["Heat"] > 0:
+	if drink.has_attribute("Heat"):
 		evaluated_result = Result.FAILURE
 	
-	elif drink.attribute_list["Cold"] == 1:
+	elif drink.num_of_attribute("Cold") == 1:
 		evaluated_result = Result.SUCCESS
 	
-	elif drink.attribute_list["Cold"] > 1:
+	elif drink.num_of_attribute("Cold") > 1:
 		evaluated_result = Result.GREAT_SUCCESS
 	
 	else:
@@ -44,23 +44,23 @@ func get_feedback(drink: Drink, evaluated_result: Result) -> String:
 			if drink.attribute_list["Fizzy"] > 0 || drink.attribute_list["Electricity"] > 0:
 				evaluated_feedback = "Wow, that's... different! But my usual's more chill, if you catch my drift."
 			
-			elif drink.get_ingredient_names().has("Lava Lamp") && drink.get_ingredient_names().has("Stardust Sprinkles"):
+			elif drink.has_ingredient("Lava Lamp") && drink.has_ingredient("Stardust Sprinkles"):
 				evaluated_feedback = "Ooh, pretty! Like the Southern Lights! But I usually prefer something that reminds me more of home."
 			
-			elif (drink.get_ingredient_names().has("Berry Brew") && drink.get_ingredient_names().has("Blossom Petals")) || (drink.get_ingredient_names().has("Berry Brew") && drink.get_ingredient_names().has("Hickory")):
+			elif (drink.has_ingredient("Berry Brew") && drink.has_ingredient("Blossom Petals")) || (drink.has_ingredient("Berry Brew") && drink.has_ingredient("Hickory")):
 				evaluated_feedback = "Fancy! But I'm more of a ‘simple pleasures’ kind of guy."
 			
 			else:
 				evaluated_feedback = "Welp... it's not bad, but something's missing. Not exactly what I usually get, but at least it didn't melt my beak off!"
 		
 		Result.FAILURE:
-			if drink.get_ingredient_names().has("Fireball Whiskey") && drink.get_ingredient_names().has("Red Pepper Flakes"):
+			if drink.has_ingredient("Fireball Whiskey") && drink.has_ingredient("Red Pepper Flakes"):
 				evaluated_feedback = "Sweet frozen fish sticks! Did you mistake me for a dragon?! I'll... uh... come back tomorrow. Maybe try something more polar-friendly next time?"
 			
-			elif drink.get_ingredient_names().has("Fireball Whiskey"):
+			elif drink.has_ingredient("Fireball Whiskey"):
 				evaluated_feedback = "SQUAWK! What in the Emperor's name-- Stu! My usual is supposed to remind me of home, not turn me into a puddle!"
 			
-			elif drink.get_ingredient_names().has("Red Pepper Flakes"):
+			elif drink.has_ingredient("Red Pepper Flakes"):
 				evaluated_feedback = "ACK! Not even my grandfather’s feathers could handle this spice! Time to go stick my head in a snowbank..."
 			
 			else:

@@ -9,6 +9,7 @@ quality = 0
 ingredient_type = 1
 gold_cost = 1
 attribute_list = {
+"Boring": 0,
 "Cold": 0,
 "Earthy": 0,
 "Electricity": 0,

@@ -14,11 +14,11 @@ func check_customer(customer: Customer) -> bool:
 
 func evaluate_drink(drink: Drink) -> Result:
 	var evaluated_result: Result
-	if drink.attribute_list["Sleepy"] > 0:
+	if drink.has_attribute("Sleepy"):
 		evaluated_result = Result.FAILURE
 	
-	elif drink.attribute_list["Electricity"] >= 1:
-		if drink.attribute_list["Metallic"] >= 1:
+	elif drink.has_attribute("Electricity"):
+		if drink.num_of_attribute("Metallic") >= 1:
 			evaluated_result = Result.GREAT_SUCCESS
 		else:
 			evaluated_result = Result.SUCCESS
@@ -37,7 +37,6 @@ func get_feedback(_drink: Drink, evaluated_result: Result) -> String:
 		
 		Result.SUCCESS:
 			evaluated_feedback = "Mmmm, oh yeah, that's the stuff. Nice electric kick, but to be honest, your old stuff seemed stronger! Don't hold back on me next time, I can take it!"
-		
 
 		Result.EHHH:
 			evaluated_feedback = "Hmm... I'm waiting... what's the big idea?! Where's the kick? I need something to shock me awake!"

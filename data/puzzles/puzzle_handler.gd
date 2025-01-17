@@ -4,9 +4,13 @@ extends Node
 signal submit_drink(drink: Drink)
 signal submit_drink_to(drink: Drink, customer: Customer)
 
+
 @export var puzzle_list: Array[Puzzle]
 @export var next_puzzle: bool = true
-@export var starting_puzzle_idx = 0
+@export var starting_puzzle_idx : int
+
+# Flip to repeat same puzzle for debug, be sure to set starting puzzle idx as well
+@export var debug_repeat_puzzle = false
 
 @onready var draggable_mover: DraggableMover = get_parent().get_node("DraggableMover")
 @onready var draggable_spawner: DraggableSpawner = get_parent().get_node("DraggableSpawner")
@@ -14,12 +18,13 @@ signal submit_drink_to(drink: Drink, customer: Customer)
 @onready var feedback_label: RichTextLabel = $"../Feedback"
 @onready var gold_counter: Label = $"../GoldCounter"
 
-var current_puzzle_idx = starting_puzzle_idx
-var order_number = 1
+var current_puzzle_idx := starting_puzzle_idx
+var order_number := 1
  
 func _ready():
 	draggable_mover.submit_drink.connect(process_drink)
 	draggable_mover.submit_drink_to.connect(process_drink_for)
+	current_puzzle_idx = starting_puzzle_idx
 	var current_puzzle = get_current_puzzle()
 	order_label.text = "Order #" + str(order_number) + ": \n\n" + current_puzzle.get_customer_and_order()
 	spwan_puzzle_customer(current_puzzle)
@@ -28,6 +33,9 @@ func get_current_puzzle() -> Puzzle:
 	return puzzle_list[current_puzzle_idx]
 
 func increment_puzzle() -> void:
+	if debug_repeat_puzzle:
+		return
+	
 	if next_puzzle:
 		if current_puzzle_idx == puzzle_list.size()-1:
 			#assert(false, "No more puzzles.")
@@ -63,6 +71,10 @@ func spwan_puzzle_customer(puzzle: Puzzle) -> void:
 			draggable_spawner.spawn_customer(preload("res://data/customers/doug.tres"))
 		["Mark", "Owl"]:
 			draggable_spawner.spawn_customer(preload("res://data/customers/mark.tres"))
+		["Ziggy", "Chameleon"]:
+			draggable_spawner.spawn_customer(preload("res://data/customers/ziggy.tres"))
+		["Father Cornelius", "Mink"]:
+			draggable_spawner.spawn_customer(preload("res://data/customers/father_cornelius.tres"))
 		_:
 			draggable_spawner.spawn_customer(preload("res://data/customers/test.tres"))
 

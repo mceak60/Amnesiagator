@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CustomerDetails" load_steps=2 format=3 uid="uid://lkecq8f377fx"]
+
+[ext_resource type="Script" path="res://data/customers/customer_details.gd" id="1_g1gwe"]
+
+[resource]
+script = ExtResource("1_g1gwe")
+name = "Father Cornelius"
+animal = "Mink"
+skin_coordinates = Vector2i(1, 2)
