@@ -14,7 +14,7 @@ func set_details(value: CustomerDetails) -> void:
 	if not is_node_ready():
 		await ready
 	
-	skin.region_rect.position = Vector2(details.skin_coordinates) * Arena.CELL_SIZE
+	skin.region_rect.position = Vector2(details.skin_coordinates) * Bar.CELL_SIZE
 
 func _on_mouse_entered() -> void:
 	outline_highlighter.highlight()

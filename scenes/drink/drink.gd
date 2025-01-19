@@ -34,7 +34,7 @@ func set_skin(coords: Vector2i) -> void:
 	if not is_node_ready():
 		await ready
 	
-	skin.region_rect.position = Vector2(skin_coordinates) * Arena.CELL_SIZE
+	skin.region_rect.position = Vector2(skin_coordinates) * Bar.CELL_SIZE
 
 func get_ingredient_names() -> Array[String]:
 	var name_list: Array[String] = []

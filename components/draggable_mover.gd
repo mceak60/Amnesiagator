@@ -55,7 +55,7 @@ func _reset_draggable_to_starting_position(starting_position: Vector2, draggable
 
 func _move_draggable(draggable: Draggable, draggable_area: DraggableArea, tile: Vector2i) -> void:
 	draggable_area.draggable_grid.add_draggable(tile, draggable)
-	draggable.global_position = draggable_area.get_global_from_tile(tile) - Arena.HALF_CELL_SIZE
+	draggable.global_position = draggable_area.get_global_from_tile(tile) - Bar.HALF_CELL_SIZE
 	draggable.reparent(draggable_area.draggable_grid)
 
 
