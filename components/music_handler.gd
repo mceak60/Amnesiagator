@@ -4,6 +4,7 @@ extends AudioStreamPlayer
 var name_list : Array[String]
 
 var current_track := 0
+var current_volume := 0
 var first_click = true
 
 signal track_updated 
@@ -11,6 +12,8 @@ signal track_updated
 func _ready() -> void:
 	var music_button = $"../MusicButton"
 	music_button.pressed.connect(play_next_track)
+	var volume_slider=  $"../VolumeSlider"
+	volume_slider.value_changed.connect(change_volume)
 	var name_list_tmp = track_list.map(func(track): return track.resource_path.get_file().get_basename())
 	name_list.assign(name_list_tmp)
 
@@ -43,3 +46,7 @@ func play_next_track() -> void:
 	play_track(current_track)
 	track_updated.emit()
 	increment_track()
+	
+func change_volume(new_volume: float) -> void:
+	current_volume = linear_to_db(new_volume)
+	self.volume_db = current_volume
