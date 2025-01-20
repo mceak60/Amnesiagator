@@ -18,6 +18,7 @@ config/icon="res://icon.png"
 [autoload]
 
 SignalBus="*res://components/global/signal_bus.gd"
+SFXHandler="*res://components/global/sfx_handler.gd"
 
 [display]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://b5xkx805g0kxj"]
+[gd_scene load_steps=33 format=4 uid="uid://b5xkx805g0kxj"]
 
 [ext_resource type="Script" path="res://scenes/bar/bar.gd" id="1_5m26e"]
 [ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://scenes/arena/tileset.tres" id="2_8n37m"]
@@ -28,7 +28,6 @@
 [ext_resource type="Script" path="res://data/puzzles/puzzle_2.gd" id="26_bcgwp"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_3.gd" id="27_6r0c2"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_4.gd" id="28_yk4rc"]
-[ext_resource type="Script" path="res://components/sfx_handler.gd" id="30_y6tb5"]
 [ext_resource type="PackedScene" uid="uid://ca8q0rl2oblvb" path="res://scenes/jukebox/jukebox.tscn" id="43_b5rlf"]
 
 [sub_resource type="Curve" id="Curve_gxqt7"]
@@ -334,6 +333,3 @@ script = ExtResource("28_yk4rc")
 
 [node name="Jukebox" parent="." instance=ExtResource("43_b5rlf")]
 position = Vector2(16, 192)
-
-[node name="SFX_Handler" type="Node" parent="."]
-script = ExtResource("30_y6tb5")
