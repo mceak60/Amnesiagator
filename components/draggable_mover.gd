@@ -96,7 +96,6 @@ func _on_ingredient_dropped(starting_position: Vector2, ingredient: Ingredient) 
 	
 	_reset_draggable_to_starting_position(starting_position, ingredient)
 
-
 func _on_drink_dropped(starting_position: Vector2, drink: Drink) -> void:
 	var drop_area_index := _get_draggable_area_for_position(drink.get_global_mouse_position())
 	if drop_area_index == 1:

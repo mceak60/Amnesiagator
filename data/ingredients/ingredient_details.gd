@@ -38,6 +38,10 @@ const QUALITY_COLORS := {
 @export_category("Visuals")
 @export var skin_coordinates: Vector2i
 
+@export_category("Sound Effects")
+@export var pickup_sfx: String
+@export var drop_sfx: String
+@export var add_to_drink_sfx: String
 
 func _to_string() -> String:
 	return name
