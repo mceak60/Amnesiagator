@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://b5xkx805g0kxj"]
+[gd_scene load_steps=33 format=4 uid="uid://b5xkx805g0kxj"]
 
 [ext_resource type="Script" path="res://scenes/bar/bar.gd" id="1_5m26e"]
 [ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://scenes/arena/tileset.tres" id="2_8n37m"]
@@ -27,21 +27,8 @@
 [ext_resource type="Script" path="res://data/puzzles/puzzle_handler.gd" id="24_tseuq"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_2.gd" id="26_bcgwp"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_3.gd" id="27_6r0c2"]
-[ext_resource type="Script" path="res://components/music_handler.gd" id="27_bfy5o"]
-[ext_resource type="AudioStream" uid="uid://dosq7pyksewo4" path="res://assets/music/Calmant.mp3" id="28_67j5i"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_4.gd" id="28_yk4rc"]
-[ext_resource type="AudioStream" uid="uid://d3s5f2fu7jahm" path="res://assets/music/Cold Funk.mp3" id="29_wfv5y"]
-[ext_resource type="AudioStream" uid="uid://ov6th6vk8ouq" path="res://assets/music/Digital Lemonade.mp3" id="30_2b24r"]
-[ext_resource type="AudioStream" uid="uid://dwwf2ki1vbsxr" path="res://assets/music/Disco Lounge.mp3" id="31_xhs3n"]
-[ext_resource type="AudioStream" uid="uid://buty16tg5tpcn" path="res://assets/music/Galway.mp3" id="32_uyedv"]
-[ext_resource type="AudioStream" uid="uid://dmlepb0uxoosc" path="res://assets/music/In Your Arms.mp3" id="33_qajwj"]
-[ext_resource type="AudioStream" uid="uid://dwbh8nt6utig6" path="res://assets/music/Northern Glade.mp3" id="34_rkh70"]
-[ext_resource type="AudioStream" uid="uid://cm5uda45kac0t" path="res://assets/music/Suave Standpipe.mp3" id="35_anugf"]
-[ext_resource type="AudioStream" uid="uid://b58eiq60jmdmb" path="res://assets/music/Sunday Dub.mp3" id="36_7tjan"]
-[ext_resource type="AudioStream" uid="uid://cvodutyw16b70" path="res://assets/music/The Forest And The Trees.mp3" id="37_xcrr0"]
-[ext_resource type="AudioStream" uid="uid://djd2n3e2r3fy7" path="res://assets/music/Thief In The Night.mp3" id="38_3coa7"]
-[ext_resource type="AudioStream" uid="uid://q3w8fcnhubuy" path="res://assets/music/Vibing Over Venus.mp3" id="39_vkhg1"]
-[ext_resource type="Script" path="res://components/music_label.gd" id="40_6m60v"]
+[ext_resource type="PackedScene" uid="uid://ca8q0rl2oblvb" path="res://scenes/jukebox/jukebox.tscn" id="43_b5rlf"]
 
 [sub_resource type="Curve" id="Curve_gxqt7"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.204482, 1), 0.0, 0.0, 0, 0, Vector2(0.795518, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -78,15 +65,10 @@ visible = false
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAYAAAAAAAEAAAAAAAYAAAAAAAIAAAAAAAYAAAAAAAMAAAAAAAYAAAAAAAQAAAAAAAYAAAAAAAUAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAcAAAAAAAYAAAAAAAgAAAAAAAYAAAAAAAkAAAAAAAYAAAAAAAoAAAAAAAYAAAABAAAAAAAAAAYAAAABAAEAAAAAAAYAAAABAAIAAAAAAAYAAAABAAMAAAAAAAYAAAABAAQAAAAAAAYAAAABAAUAAAAAAAYAAAABAAYAAAAAAAYAAAABAAcAAAAAAAYAAAABAAgAAAAAAAYAAAABAAkAAAAAAAYAAAABAAoAAAAAAAYAAAACAAAAAAAAAAYAAAACAAEAAAAAAAYAAAACAAIAAAAAAAYAAAACAAMAAAAAAAYAAAACAAQAAAAAAAYAAAACAAUAAAAAAAYAAAACAAYAAAAAAAYAAAACAAcAAAAAAAYAAAACAAgAAAAAAAYAAAACAAkAAAAAAAYAAAACAAoAAAAAAAYAAAADAAAAAAAAAAYAAAADAAEAAAAAAAYAAAADAAIAAAAAAAYAAAADAAMAAAAAAAYAAAADAAQAAAAAAAYAAAADAAUAAAAAAAYAAAADAAYAAAAAAAYAAAADAAcAAAAAAAYAAAADAAgAAAAAAAYAAAADAAkAAAAAAAYAAAADAAoAAAAAAAYAAAAEAAAAAAAAAAYAAAAEAAEAAAAAAAYAAAAEAAIAAAAAAAYAAAAEAAMAAAAAAAYAAAAEAAQAAAAAAAYAAAAEAAUAAAAAAAYAAAAEAAYAAAAAAAYAAAAEAAcAAAAAAAYAAAAFAAAAAAAAAAYAAAAFAAEAAAAAAAYAAAAFAAIAAAAAAAYAAAAFAAMAAAAAAAYAAAAFAAQAAAAAAAYAAAAFAAUAAAAAAAYAAAAFAAYAAAAAAAYAAAAFAAcAAAAAAAYAAAAGAAAAAAAAAAYAAAAGAAEAAAAAAAYAAAAGAAIAAAAAAAYAAAAGAAMAAAAAAAYAAAAGAAQAAAAAAAYAAAAGAAUAAAAAAAYAAAAGAAYAAAAAAAYAAAAGAAcAAAAAAAYAAAAHAAAAAAAAAAYAAAAHAAEAAAAAAAYAAAAHAAIAAAAAAAYAAAAHAAMAAAAAAAYAAAAHAAQAAAAAAAYAAAAHAAUAAAAAAAYAAAAHAAYAAAAAAAYAAAAHAAcAAAAAAAYAAAAIAAAAAAAAAAYAAAAIAAEAAAAAAAYAAAAIAAIAAAAAAAYAAAAIAAMAAAAAAAYAAAAIAAQAAAAAAAYAAAAIAAUAAAAAAAYAAAAIAAYAAAAAAAYAAAAIAAcAAAAAAAYAAAAJAAAAAAAAAAYAAAAJAAEAAAAAAAYAAAAJAAIAAAAAAAYAAAAJAAMAAAAAAAYAAAAJAAQAAAAAAAYAAAAJAAUAAAAAAAYAAAAJAAYAAAAAAAYAAAAJAAcAAAAAAAYAAAAKAAAAAAAAAAYAAAAKAAEAAAAAAAYAAAAKAAIAAAAAAAYAAAAKAAMAAAAAAAYAAAAKAAQAAAAAAAYAAAAKAAUAAAAAAAYAAAAKAAYAAAAAAAYAAAAKAAcAAAAAAAYAAAALAAAAAAAAAAYAAAALAAEAAAAAAAYAAAALAAIAAAAAAAYAAAALAAMAAAAAAAYAAAALAAQAAAAAAAYAAAALAAUAAAAAAAYAAAALAAYAAAAAAAYAAAALAAcAAAAAAAYAAAAMAAAAAAAAAAYAAAAMAAEAAAAAAAYAAAAMAAIAAAAAAAYAAAAMAAMAAAAAAAYAAAAMAAQAAAAAAAYAAAAMAAUAAAAAAAYAAAAMAAYAAAAAAAYAAAAMAAcAAAAAAAYAAAANAAAAAAAAAAYAAAANAAEAAAAAAAYAAAANAAIAAAAAAAYAAAANAAMAAAAAAAYAAAANAAQAAAAAAAYAAAANAAUAAAAAAAYAAAANAAYAAAAAAAYAAAANAAcAAAAAAAYAAAAOAAAAAAAAAAYAAAAOAAEAAAAAAAYAAAAOAAIAAAAAAAYAAAAOAAMAAAAAAAYAAAAOAAQAAAAAAAYAAAAOAAUAAAAAAAYAAAAOAAYAAAAAAAYAAAAOAAcAAAAAAAYAAAAPAAAAAAAAAAYAAAAPAAEAAAAAAAYAAAAPAAIAAAAAAAYAAAAPAAMAAAAAAAYAAAAPAAQAAAAAAAYAAAAPAAUAAAAAAAYAAAAPAAYAAAAAAAYAAAAPAAcAAAAAAAYAAAAQAAAAAAAAAAYAAAAQAAEAAAAAAAYAAAAQAAIAAAAAAAYAAAAQAAMAAAAAAAYAAAAQAAQAAAAAAAYAAAAQAAUAAAAAAAYAAAAQAAYAAAAAAAYAAAAQAAcAAAAAAAYAAAAQAAgAAAAAAAYAAAAQAAkAAAAAAAYAAAAQAAoAAAAAAAYAAAARAAAAAAAAAAYAAAARAAEAAAAAAAYAAAARAAIAAAAAAAYAAAARAAMAAAAAAAYAAAARAAQAAAAAAAYAAAARAAUAAAAAAAYAAAARAAYAAAAAAAYAAAARAAcAAAAAAAYAAAARAAgAAAAAAAYAAAARAAkAAAAAAAYAAAARAAoAAAAAAAYAAAASAAAAAAAAAAYAAAASAAEAAAAAAAYAAAASAAIAAAAAAAYAAAASAAMAAAAAAAYAAAASAAQAAAAAAAYAAAASAAUAAAAAAAYAAAASAAYAAAAAAAYAAAASAAcAAAAAAAYAAAASAAgAAAAAAAYAAAASAAkAAAAAAAYAAAASAAoAAAAAAAYAAAATAAAAAAAAAAYAAAATAAEAAAAAAAYAAAATAAIAAAAAAAYAAAATAAMAAAAAAAYAAAATAAQAAAAAAAYAAAATAAUAAAAAAAYAAAATAAYAAAAAAAYAAAATAAcAAAAAAAYAAAATAAgAAAAAAAYAAAATAAkAAAAAAAYAAAATAAoAAAAAAAYAAAAAAAsAAAAAAAYAAAABAAsAAAAAAAYAAAACAAsAAAAAAAYAAAADAAsAAAAAAAYAAAAQAAsAAAAAAAYAAAARAAsAAAAAAAYAAAASAAsAAAAAAAYAAAATAAsAAAAAAAYAAAAEAAoAAAAAAAYAAAAGAAoAAAAAAA8AAAAHAAoAAAAAAA8AAAAIAAoAAAAAAA8AAAAJAAoAAAAAAA8AAAAKAAoAAAAAAA8AAAALAAoAAAAAAA8AAAAMAAoAAAAAAA8AAAANAAoAAAAAAA8AAAAOAAoAAAAAAA8AAAAPAAoAAAAAAAYAAAAEAAgAAAAAAAYAAAAFAAgAAAAAAAYAAAAGAAgAAAAAAAYAAAAHAAgAAAAAAAYAAAAIAAgAAAAAAAYAAAAJAAgAAAAAAAYAAAAKAAgAAAAAAAYAAAALAAgAAAAAAAYAAAAMAAgAAAAAAAYAAAANAAgAAAAAAAYAAAAOAAgAAAAAAAYAAAAPAAgAAAAAAAYAAAAEAAkAAAAAAAYAAAAFAAkAAAAAAAYAAAAGAAkAAAAAAAYAAAAHAAkAAAAAAAYAAAAIAAkAAAAAAAYAAAAJAAkAAAAAAAYAAAAKAAkAAAAAAAYAAAALAAkAAAAAAAYAAAAMAAkAAAAAAAYAAAANAAkAAAAAAAYAAAAOAAkAAAAAAAYAAAAPAAkAAAAAAAYAAAAFAAoAAAAAAA8AAAA=")
 tile_set = ExtResource("2_8n37m")
 
-[node name="Props" type="TileMapLayer" parent="Visuals"]
-visible = false
-modulate = Color(1, 1, 1, 0.643137)
-tile_map_data = PackedByteArray("AAAAAAAAAAAMABMAAAABAAIAAAADABMAAAABAAQAAAABABMAAAABAAUAAAABABMAAAABAAkAAAAAABMAAAABAAoAAAAKABMAAAAQAAMAAAAJABMAAAAQAAQAAAAKABMAAAARAAkAAAAGABMAAAASAAEAAAAJABMAAAASAAgAAAAGABMAAAATAAAAAAANABMAAAATAAgAAAAHABMAAAA=")
-tile_set = ExtResource("2_8n37m")
-
-[node name="Walls" type="TileMapLayer" parent="Visuals"]
-visible = false
-tile_map_data = PackedByteArray("AAAEAAAAAAAAAAEAAAAFAAAAAAABAAEAAAAIAAAAAAABAAEAAAAGAAAAAAABAAEAAAAHAAAAAAABAAEAAAAJAAAAAAABAAEAAAAKAAAAAAABAAEAAAALAAAAAAABAAEAAAAMAAAAAAABAAEAAAANAAAAAAABAAEAAAAOAAAAAAABAAEAAAAPAAAAAAAAAAEAAAAEAAEAAAAAAAEAAAAEAAIAAAAAAAEAAAAEAAMAAAAAAAEAAAAEAAQAAAAAAAEAAAAEAAUAAAAAAAEAAAAEAAYAAAAAAAEAAAAEAAcAAAAAAAEAAAAPAAEAAAAAAAEAAAAPAAIAAAAAAAEAAAAPAAMAAAAAAAEAAAAPAAQAAAAAAAEAAAAPAAUAAAAAAAEAAAAPAAYAAAAAAAEAAAAPAAcAAAAAAAEAAAAEAAsAAAABAAAAAAAFAAsAAAABAAAAAAAGAAsAAAABAAAAAAAHAAsAAAABAAAAAAAIAAsAAAABAAAAAAALAAsAAAABAAAAAAAMAAsAAAABAAAAAAANAAsAAAABAAAAAAAOAAsAAAABAAAAAAAPAAsAAAABAAAAAAAJAAsAAAABAAAAAAAKAAsAAAABAAAAAAAEAAgAAAAAAAEAAAAFAAgAAAAAAAEAAAAGAAgAAAAAAAEAAAAHAAgAAAAAAAEAAAAIAAgAAAAAAAEAAAAJAAgAAAAAAAEAAAAKAAgAAAAAAAEAAAALAAgAAAAAAAEAAAAMAAgAAAAAAAEAAAANAAgAAAAAAAEAAAAOAAgAAAAAAAEAAAAPAAgAAAAAAAEAAAAEAAoAAAAAAAAAAAAPAAoAAAAAAAAAAAA=")
+[node name="StuSprite" type="TileMapLayer" parent="Visuals"]
+z_index = 2
+position = Vector2(234, 128)
+tile_map_data = PackedByteArray("AAABAAIAAQAGAAYAAAABAAMAAQAGAAcAAAABAAQAAQAGAAgAAAACAAIAAQAHAAYAAAACAAMAAQAHAAcAAAACAAQAAQAHAAgAAAAAAAIAAQAFAAYAAAAAAAMAAQAFAAcAAAAAAAQAAQAFAAgAAAA=")
 tile_set = ExtResource("2_8n37m")
 
 [node name="DustParticles" type="GPUParticles2D" parent="Visuals"]
@@ -99,22 +81,16 @@ texture = ExtResource("3_u2pxk")
 lifetime = 6.0
 
 [node name="Shelf" type="TileMapLayer" parent="." node_paths=PackedStringArray("draggable_grid", "tile_highlighter")]
-position = Vector2(234, 160)
+position = Vector2(234, 112)
 tile_set = ExtResource("2_8n37m")
 script = ExtResource("4_nb8bd")
 draggable_grid = NodePath("ShelfGrid")
 tile_highlighter = NodePath("TileHighlighter")
 metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
 
-[node name="Decor" type="TileMapLayer" parent="Shelf"]
+[node name="IngredientShelf" type="TileMapLayer" parent="Shelf"]
 position = Vector2(-2, 0)
-tile_map_data = PackedByteArray("AAACAAQAAQAEAAMAAAACAAUAAQAEAAQAAAACAAYAAQAEAAUAAAADAAQAAQAFAAMAAAADAAUAAQAFAAQAAAADAAYAAQAFAAUAAAAEAAQAAQAGAAMAAAAEAAUAAQAGAAQAAAAEAAYAAQAGAAUAAAAFAAQAAQAHAAMAAAAFAAUAAQAHAAQAAAAFAAYAAQAHAAUAAAAGAAQAAQAIAAMAAAAGAAUAAQAIAAQAAAAGAAYAAQAIAAUAAAD+/wQAAQAAAAMAAAD+/wUAAQAAAAQAAAD+/wYAAQAAAAUAAAD//wQAAQABAAMAAAD//wUAAQABAAQAAAD//wYAAQABAAUAAAAAAAAAAQAAAAEAAAAAAAEAAQAAAAEAAAAAAAIAAQAAAAEAAAAAAAQAAQACAAMAAAAAAAUAAQACAAQAAAAAAAYAAQACAAUAAAABAAAAAQABAAEAAAABAAEAAQABAAEAAAABAAIAAQABAAEAAAABAAQAAQADAAMAAAABAAUAAQADAAQAAAABAAYAAQADAAUAAAACAAAAAQABAAAAAAACAAEAAQABAAEAAAACAAIAAQABAAEAAAADAAAAAQACAAAAAAADAAEAAQACAAEAAAADAAIAAQACAAEAAAAEAAAAAQADAAAAAAAEAAEAAQADAAEAAAAEAAIAAQADAAEAAAA=")
-tile_set = ExtResource("2_8n37m")
-
-[node name="Decor2" type="TileMapLayer" parent="Shelf"]
-z_index = 2
-tile_map_data = PackedByteArray("AAABAAIAAQAGAAYAAAABAAMAAQAGAAcAAAABAAQAAQAGAAgAAAACAAIAAQAHAAYAAAACAAMAAQAHAAcAAAACAAQAAQAHAAgAAAAAAAIAAQAFAAYAAAAAAAMAAQAFAAcAAAAAAAQAAQAFAAgAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAEAAAAAAAEAAQAAAAEAAAAAAAIAAQAAAAEAAAABAAAAAQABAAEAAAABAAEAAQABAAEAAAABAAIAAQABAAEAAAACAAAAAQABAAAAAAACAAEAAQABAAEAAAACAAIAAQABAAEAAAADAAAAAQACAAAAAAADAAEAAQACAAEAAAADAAIAAQACAAEAAAAEAAAAAQADAAAAAAAEAAEAAQADAAEAAAAEAAIAAQADAAEAAAA=")
 tile_set = ExtResource("2_8n37m")
 
 [node name="Highlight" type="TileMapLayer" parent="Shelf"]
@@ -122,53 +98,66 @@ enabled = false
 tile_set = ExtResource("2_8n37m")
 
 [node name="Fireball Whiskey" parent="Shelf" instance=ExtResource("7_e32e7")]
+visible = false
 position = Vector2(573, 2)
 
 [node name="Frost Vodka" parent="Shelf" instance=ExtResource("7_e32e7")]
+visible = false
 position = Vector2(605, 2)
 details = ExtResource("9_800i4")
 
 [node name="Berry Brew" parent="Shelf" instance=ExtResource("7_e32e7")]
+visible = false
 position = Vector2(637, 2)
 details = ExtResource("7_ueodf")
 
 [node name="Molten Metal" parent="Shelf" instance=ExtResource("7_e32e7")]
+visible = false
 position = Vector2(669, 2)
 details = ExtResource("8_svd31")
 
 [node name="Ice" parent="Shelf" instance=ExtResource("7_e32e7")]
+visible = false
 position = Vector2(573, 66)
 details = ExtResource("9_81278")
 
 [node name="Spark Syrup" parent="Shelf" instance=ExtResource("7_e32e7")]
+visible = false
 position = Vector2(605, 66)
 details = ExtResource("10_s4srp")
 
 [node name="Bubbly Water" parent="Shelf" instance=ExtResource("7_e32e7")]
+visible = false
 position = Vector2(637, 66)
 details = ExtResource("11_p6hkh")
 
 [node name="Lava Lamp" parent="Shelf" instance=ExtResource("7_e32e7")]
+visible = false
 position = Vector2(669, 66)
 details = ExtResource("12_01dsp")
 
 [node name="Stardust Sprinkles" parent="Shelf" instance=ExtResource("7_e32e7")]
+visible = false
 position = Vector2(573, 130)
 details = ExtResource("13_iy2dq")
 
 [node name="Red Pepper Flakes" parent="Shelf" instance=ExtResource("7_e32e7")]
+visible = false
 position = Vector2(605, 130)
 details = ExtResource("14_k5j75")
 
 [node name="Blossom Petals" parent="Shelf" instance=ExtResource("7_e32e7")]
+visible = false
 position = Vector2(637, 130)
 details = ExtResource("15_36fyq")
 
 [node name="Hickory" parent="Shelf" instance=ExtResource("7_e32e7")]
+visible = false
 position = Vector2(669, 130)
 details = ExtResource("16_aniqh")
 
 [node name="ShelfGrid" type="Node2D" parent="Shelf"]
+position = Vector2(-2, 0)
 script = ExtResource("5_80xpi")
 size = Vector2i(4, 3)
 
@@ -180,13 +169,17 @@ highlight_layer = NodePath("../Highlight")
 tile = Vector2i(3, 0)
 
 [node name="Counter" type="TileMapLayer" parent="." node_paths=PackedStringArray("draggable_grid", "tile_highlighter")]
-position = Vector2(160, 288)
+position = Vector2(160, 256)
 tile_set = ExtResource("2_8n37m")
 script = ExtResource("4_nb8bd")
 draggable_grid = NodePath("CounterGrid")
 tile_highlighter = NodePath("TileHighlighter")
 metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
+
+[node name="BarCounter" type="TileMapLayer" parent="Counter"]
+position = Vector2(72, -128)
+tile_map_data = PackedByteArray("AAACAAQAAQAEAAMAAAACAAUAAQAEAAQAAAACAAYAAQAEAAUAAAADAAQAAQAFAAMAAAADAAUAAQAFAAQAAAADAAYAAQAFAAUAAAAEAAQAAQAGAAMAAAAEAAUAAQAGAAQAAAAEAAYAAQAGAAUAAAAFAAQAAQAHAAMAAAAFAAUAAQAHAAQAAAAFAAYAAQAHAAUAAAAGAAQAAQAIAAMAAAAGAAUAAQAIAAQAAAAGAAYAAQAIAAUAAAD+/wQAAQAAAAMAAAD+/wUAAQAAAAQAAAD+/wYAAQAAAAUAAAD//wQAAQABAAMAAAD//wUAAQABAAQAAAD//wYAAQABAAUAAAAAAAQAAQACAAMAAAAAAAUAAQACAAQAAAAAAAYAAQACAAUAAAABAAQAAQADAAMAAAABAAUAAQADAAQAAAABAAYAAQADAAUAAAA=")
+tile_set = ExtResource("2_8n37m")
 
 [node name="Highlight" type="TileMapLayer" parent="Counter"]
 enabled = false
@@ -338,21 +331,5 @@ script = ExtResource("27_6r0c2")
 [node name="Puzzle4" type="Node" parent="PuzzleHandler"]
 script = ExtResource("28_yk4rc")
 
-[node name="MusicHandler" type="AudioStreamPlayer" parent="."]
-script = ExtResource("27_bfy5o")
-track_list = Array[AudioStream]([ExtResource("28_67j5i"), ExtResource("29_wfv5y"), ExtResource("30_2b24r"), ExtResource("31_xhs3n"), ExtResource("32_uyedv"), ExtResource("33_qajwj"), ExtResource("34_rkh70"), ExtResource("35_anugf"), ExtResource("36_7tjan"), ExtResource("37_xcrr0"), ExtResource("38_3coa7"), ExtResource("39_vkhg1")])
-
-[node name="MusicButton" type="Button" parent="MusicHandler"]
-offset_top = 271.0
-offset_right = 24.0
-offset_bottom = 302.0
-text = "♫"
-
-[node name="MusicLabel" type="RichTextLabel" parent="MusicHandler"]
-offset_left = 4.0
-offset_top = 303.0
-offset_right = 120.0
-offset_bottom = 367.0
-fit_content = true
-autowrap_mode = 0
-script = ExtResource("40_6m60v")
+[node name="Jukebox" parent="." instance=ExtResource("43_b5rlf")]
+position = Vector2(16, 192)

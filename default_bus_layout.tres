@@ -5,6 +5,6 @@ resource_name = "HardLimiter"
 ceiling_db = 0.0
 
 [resource]
-bus/0/volume_db = -3.01823
+bus/0/volume_db = -3.01601
 bus/0/effect/0/effect = SubResource("AudioEffectHardLimiter_v7e1l")
 bus/0/effect/0/enabled = true
