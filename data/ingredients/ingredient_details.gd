@@ -38,10 +38,11 @@ const QUALITY_COLORS := {
 @export_category("Visuals")
 @export var skin_coordinates: Vector2i
 
+# Each ingredient may have multiple sound effects (randomly chosen)
 @export_category("Sound Effects")
-@export var pickup_sfx: String
-@export var drop_sfx: String
-@export var add_to_drink_sfx: String
+@export var pickup_sfx: Array[SFX_Handler.SFX_Categories]
+@export var drop_sfx: Array[SFX_Handler.SFX_Categories]
+@export var add_to_drink_sfx: Array[SFX_Handler.SFX_Categories]
 
 func _to_string() -> String:
 	return name

@@ -1,9 +1,8 @@
 class_name PuzzleHandler
 extends Node
 
-signal submit_drink(drink: Drink)
-signal submit_drink_to(drink: Drink, customer: Customer)
-
+#signal submit_drink(drink: Drink)
+#signal submit_drink_to(drink: Drink, customer: Customer)
 
 @export var puzzle_list: Array[Puzzle]
 @export var next_puzzle: bool = true
@@ -78,7 +77,7 @@ func spwan_puzzle_customer(puzzle: Puzzle) -> void:
 		_:
 			draggable_spawner.spawn_customer(preload("res://data/customers/test.tres"))
 
-
+# SK 1/20/25 - These two methods should be refactored - if a code chunk appears identically in multiple places it is a sign it should be extricated into its own function
 func process_drink(drink: Drink) -> void:
 	var current_puzzle := get_current_puzzle()
 	var result: Puzzle.Result = get_puzzle_evaluation(drink, current_puzzle)
@@ -89,7 +88,6 @@ func process_drink(drink: Drink) -> void:
 	
 	feedback_label.text = feedback
 	gold_counter.text = str(int(gold_counter.text) + gold_reward)
-	
 	print(result_names[result])
 	print(feedback)
 	print("Added gold: " + str(gold_reward))
@@ -107,6 +105,8 @@ func process_drink_for(drink: Drink, customer: Customer) -> void:
 		feedback_label.text = feedback
 		gold_counter.text = str(int(gold_counter.text) + gold_reward)
 	
+		SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.GOLD_ADDED)
+		
 		print(result_names[result])
 		print(feedback)
 		print("Added gold: " + str(gold_reward))

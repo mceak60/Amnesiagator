@@ -7,7 +7,6 @@ func _ready():
 	set_stylebox_color("normal", input_color)
 	
 func set_stylebox_color(style_box_type: String, color: Color):
-	
 	var stylebox_theme: StyleBoxFlat = self.get_theme_stylebox(style_box_type)
 	stylebox_theme.bg_color = color
 	stylebox_theme.border_color = color

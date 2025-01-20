@@ -6,9 +6,6 @@ signal submit_drink(drink: Drink)
 signal submit_drink_to(drink: Drink, customer: Customer)
 @export var draggable_areas: Array[DraggableArea]
 
-signal drag_started_sfx(item: Draggable)
-signal drag_dropped_sfx(item: Draggable)
-
 func _ready() -> void:
 	var ingredients := get_tree().get_nodes_in_group("ingredients")
 	for ingredient: Draggable in ingredients:
@@ -69,7 +66,8 @@ func _on_draggable_drag_started(draggable: Draggable) -> void:
 	if i > -1:
 		var tile := draggable_areas[i].get_tile_from_global(draggable.global_position)
 		draggable_areas[i].draggable_grid.remove_draggable(tile)
-		drag_started_sfx.emit(draggable)
+		if draggable is Ingredient:
+			SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.INGREDIENT_PICKED_UP, [draggable], 1, .5,.25)
 
 func _on_draggable_drag_canceled(starting_position: Vector2, draggable: Draggable) -> void:
 	_set_highlighters(false)

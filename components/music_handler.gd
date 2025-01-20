@@ -4,7 +4,7 @@ extends AudioStreamPlayer
 var name_list : Array[String]
 
 var current_track := 0
-var current_volume := 0
+var current_volume := 0.0
 var first_click = true
 
 signal track_updated 
@@ -39,6 +39,8 @@ func randomize_track() -> void:
 	current_track = rng.randi_range(0, track_list.size()-1)
 	
 func play_next_track() -> void:
+	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.JUKEBOX_TURNED_ON)
+	
 	if first_click:
 		randomize_track()
 		first_click = false
