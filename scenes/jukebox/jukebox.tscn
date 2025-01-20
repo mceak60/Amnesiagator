@@ -1,0 +1,46 @@
+[gd_scene load_steps=17 format=4 uid="uid://ca8q0rl2oblvb"]
+
+[ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://scenes/arena/tileset.tres" id="1_amroe"]
+[ext_resource type="Script" path="res://components/music_handler.gd" id="2_qaon4"]
+[ext_resource type="AudioStream" uid="uid://dosq7pyksewo4" path="res://assets/music/Calmant.mp3" id="3_sv34r"]
+[ext_resource type="AudioStream" uid="uid://d3s5f2fu7jahm" path="res://assets/music/Cold Funk.mp3" id="4_s6d3t"]
+[ext_resource type="AudioStream" uid="uid://ov6th6vk8ouq" path="res://assets/music/Digital Lemonade.mp3" id="5_cc36r"]
+[ext_resource type="AudioStream" uid="uid://dwwf2ki1vbsxr" path="res://assets/music/Disco Lounge.mp3" id="6_iyoij"]
+[ext_resource type="AudioStream" uid="uid://buty16tg5tpcn" path="res://assets/music/Galway.mp3" id="7_b338s"]
+[ext_resource type="AudioStream" uid="uid://dmlepb0uxoosc" path="res://assets/music/In Your Arms.mp3" id="8_gattp"]
+[ext_resource type="AudioStream" uid="uid://dwbh8nt6utig6" path="res://assets/music/Northern Glade.mp3" id="9_tf7pm"]
+[ext_resource type="AudioStream" uid="uid://cm5uda45kac0t" path="res://assets/music/Suave Standpipe.mp3" id="10_a53jj"]
+[ext_resource type="AudioStream" uid="uid://b58eiq60jmdmb" path="res://assets/music/Sunday Dub.mp3" id="11_7wn8k"]
+[ext_resource type="AudioStream" uid="uid://cvodutyw16b70" path="res://assets/music/The Forest And The Trees.mp3" id="12_pfph4"]
+[ext_resource type="AudioStream" uid="uid://djd2n3e2r3fy7" path="res://assets/music/Thief In The Night.mp3" id="13_48uvn"]
+[ext_resource type="AudioStream" uid="uid://q3w8fcnhubuy" path="res://assets/music/Vibing Over Venus.mp3" id="14_rkdwl"]
+[ext_resource type="Script" path="res://components/music_label.gd" id="15_310qy"]
+[ext_resource type="Script" path="res://components/music_button.gd" id="15_kqgh3"]
+
+[node name="Jukebox" type="Node2D"]
+
+[node name="Visuals" type="TileMapLayer" parent="."]
+position = Vector2(0, 32)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAYAAAAAAAEAAQAAAAcAAAAAAAIAAQAAAAgAAAAAAAMAAQAAAAkAAAABAAAAAQABAAYAAAABAAEAAQABAAcAAAABAAIAAQABAAgAAAABAAMAAQABAAkAAAACAAAAAQACAAYAAAACAAEAAQACAAcAAAACAAIAAQACAAgAAAACAAMAAQACAAkAAAA=")
+tile_set = ExtResource("1_amroe")
+
+[node name="MusicHandler" type="AudioStreamPlayer" parent="."]
+script = ExtResource("2_qaon4")
+track_list = Array[AudioStream]([ExtResource("3_sv34r"), ExtResource("4_s6d3t"), ExtResource("5_cc36r"), ExtResource("6_iyoij"), ExtResource("7_b338s"), ExtResource("8_gattp"), ExtResource("9_tf7pm"), ExtResource("10_a53jj"), ExtResource("11_7wn8k"), ExtResource("12_pfph4"), ExtResource("13_48uvn"), ExtResource("14_rkdwl")])
+
+[node name="MusicButton" type="Button" parent="."]
+offset_left = 35.0
+offset_top = 91.0
+offset_right = 59.0
+offset_bottom = 122.0
+text = "♫"
+script = ExtResource("15_kqgh3")
+metadata/_edit_use_anchors_ = true
+
+[node name="MusicLabel" type="RichTextLabel" parent="."]
+offset_right = 128.0
+offset_bottom = 64.0
+fit_content = true
+autowrap_mode = 0
+script = ExtResource("15_310qy")
+metadata/_edit_use_anchors_ = true
