@@ -29,14 +29,25 @@ const SFX_VOLUME = .4
 
 enum SFX_Categories {
 	BOTTLE_CAP,
+	BUBBLE,
+	BURP,
+	CHOMP,
+	CLICK,
 	CLINK,
+	CRACKLE,
 	FIZZ,
 	GLUGGLE,
 	ICE,
+	JANGLE,
 	JAR,
+	RUB,
 	SCRAPE,
+	SHAKE,
+	SIP,
 	SLOSH,
+	SNIP,
 	SPIN,
+	SWISH,
 	THUD,
 	TRIPLE_TAP,
 	UNCORK
@@ -52,7 +63,7 @@ func _ready() -> void:
 	sfx_folders = SFX_Categories.keys().map(func(val: String): return val.to_lower())
 	sfx_triggers = SFX_Triggers.keys()
 	print(sfx_triggers)
-	#print(SFX_Categories)
+	print(SFX_Categories)
 	#print(sfx_folders)
 	
 	var loaded_sfx_files := sfx_folders.map(_load_sfx_files)
