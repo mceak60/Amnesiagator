@@ -23,6 +23,6 @@ attribute_list = {
 "Weird": 0
 }
 skin_coordinates = Vector2i(4, 0)
-pickup_sfx = Array[int]([0, 0])
-drop_sfx = Array[int]([])
-add_to_drink_sfx = Array[int]([])
+pickup_sfx = Array[int]([0, 19, 11])
+drop_sfx = Array[int]([20, 21])
+add_to_drink_sfx = Array[int]([16, 8])

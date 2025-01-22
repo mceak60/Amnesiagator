@@ -6,7 +6,7 @@ extends Node
 
 @export var puzzle_list: Array[Puzzle]
 @export var next_puzzle: bool = true
-@export var starting_puzzle_idx : int
+@export var starting_puzzle_idx: int
 
 # Flip to repeat same puzzle for debug, be sure to set starting puzzle idx as well
 @export var debug_repeat_puzzle = false
@@ -26,7 +26,7 @@ func _ready():
 	current_puzzle_idx = starting_puzzle_idx
 	var current_puzzle = get_current_puzzle()
 	order_label.text = "Order #" + str(order_number) + ": \n\n" + current_puzzle.get_customer_and_order()
-	spwan_puzzle_customer(current_puzzle)
+	spawn_puzzle_customer(current_puzzle)
 
 func get_current_puzzle() -> Puzzle:
 	return puzzle_list[current_puzzle_idx]
@@ -36,7 +36,7 @@ func increment_puzzle() -> void:
 		return
 	
 	if next_puzzle:
-		if current_puzzle_idx == puzzle_list.size()-1:
+		if current_puzzle_idx == puzzle_list.size() - 1:
 			#assert(false, "No more puzzles.")
 			current_puzzle_idx = 0
 			return
@@ -63,7 +63,7 @@ func get_puzzle_feedback(drink: Drink, result: Puzzle.Result, puzzle: Puzzle) ->
 func get_puzzle_gold_reward(drink: Drink, result: Puzzle.Result, puzzle: Puzzle) -> int:
 	return puzzle.get_gold_reward(drink, result)
 
-func spwan_puzzle_customer(puzzle: Puzzle) -> void:
+func spawn_puzzle_customer(puzzle: Puzzle) -> void:
 	var customer: Array[String] = [puzzle.customer_name, puzzle.customer_animal]
 	match customer:
 		["Doug", "Penguin"]:
@@ -105,8 +105,9 @@ func process_drink_for(drink: Drink, customer: Customer) -> void:
 		feedback_label.text = feedback
 		gold_counter.text = str(int(gold_counter.text) + gold_reward)
 	
+		SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_FEEDBACK, [customer, result], 1, .5, .25)
 		SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.GOLD_ADDED)
-		
+
 		print(result_names[result])
 		print(feedback)
 		print("Added gold: " + str(gold_reward))
@@ -115,6 +116,7 @@ func process_drink_for(drink: Drink, customer: Customer) -> void:
 		feedback_label.text = "That's not my order."
 		print("Gave the drink to the wrong customer...")
 	
+	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_LEFT, [customer], 1, .5, .25)
 	customer.queue_free()
 	increment_puzzle()
 	order_number += 1
@@ -129,4 +131,4 @@ func process_drink_for(drink: Drink, customer: Customer) -> void:
 	order_label.text = ". . ."
 	await get_tree().create_timer(0.75).timeout
 	order_label.text = "Order #" + str(order_number) + ":\n\n" + new_puzzle.get_customer_and_order()
-	spwan_puzzle_customer(new_puzzle)
+	spawn_puzzle_customer(new_puzzle)

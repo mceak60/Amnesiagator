@@ -104,6 +104,14 @@ func get_ingredients_matched(ingred_list: Array[String]) -> Array[String]:
 			out.append(ingred)
 	return out
 
+func get_sfx(_trigger: SFX_Handler.SFX_Triggers) -> Array[SFX_Handler.SFX_Categories]:
+	# Currently static
+	return [SFX_Handler.SFX_Categories.THUD, SFX_Handler.SFX_Categories.SLOSH, SFX_Handler.SFX_Categories.CLINK]
+
+func get_sfx_ingredient_added(ingredient: Ingredient) -> Array[SFX_Handler.SFX_Categories]:
+	# Currently does not interact with current drink, but it could
+	return ingredient.details.add_to_drink_sfx
+
 func _on_mouse_entered() -> void:
 	if drag_and_drop.dragging:
 		return

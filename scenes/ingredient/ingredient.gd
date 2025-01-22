@@ -28,5 +28,10 @@ func get_sfx(trigger: SFX_Handler.SFX_Triggers) -> Array[SFX_Handler.SFX_Categor
 	
 	return sfx_pool
 
+func get_sfx_swapped(ingredient2: Ingredient) -> Array[SFX_Handler.SFX_Categories]:	
+	var sfx_pool: Array[SFX_Handler.SFX_Categories]
+	sfx_pool = details.pickup_sfx + details.drop_sfx + ingredient2.details.drop_sfx + ingredient2.details.pickup_sfx
+	return sfx_pool
+
 func _to_string() -> String:
 	return details.name

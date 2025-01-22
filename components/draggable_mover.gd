@@ -68,6 +68,8 @@ func _on_draggable_drag_started(draggable: Draggable) -> void:
 		draggable_areas[i].draggable_grid.remove_draggable(tile)
 		if draggable is Ingredient:
 			SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.INGREDIENT_PICKED_UP, [draggable], 1, .5,.25)
+		if draggable is Drink:
+			SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.DRINK_PICKED_UP, [draggable], 1, .5,.25)
 
 func _on_draggable_drag_canceled(starting_position: Vector2, draggable: Draggable) -> void:
 	_set_highlighters(false)
@@ -77,16 +79,15 @@ func _on_draggable_drag_canceled(starting_position: Vector2, draggable: Draggabl
 func _on_ingredient_dropped(starting_position: Vector2, ingredient: Ingredient) -> void:
 	var drop_area_index := _get_draggable_area_for_position(ingredient.get_global_mouse_position())
 	if drop_area_index == 0:
+		SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.INGREDIENT_DROPPED, [ingredient], 1, .5,.25)
 		on_draggable_dropped(starting_position, ingredient, drop_area_index)
 		return
 		
-	# SK 1/7/25 - there is a bug where the first thing dragged after startup is not getting added to the list.
-	# it works after I clear the drink once
-	# EH 1/7/25 - solved, can delete all of this now
 	elif drop_area_index == 1:
 		var tile := draggable_areas[drop_area_index].get_hovered_tile()
 		if draggable_areas[drop_area_index].draggable_grid.is_tile_occupied(tile):
 			var drink: Draggable = draggable_areas[drop_area_index].draggable_grid.draggables[tile]
+			SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.INGREDIENT_ADDED_TO_DRINK, [ingredient, drink], 1, .5,.25)
 			drink.ingredient_list.append(ingredient)
 			drink.debug_label.update_text()
 			for attribute in ingredient.details.attribute_list:
@@ -100,12 +101,13 @@ func _on_ingredient_dropped(starting_position: Vector2, ingredient: Ingredient) 
 func _on_drink_dropped(starting_position: Vector2, drink: Drink) -> void:
 	var drop_area_index := _get_draggable_area_for_position(drink.get_global_mouse_position())
 	if drop_area_index == 1:
+		SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.DRINK_DROPPED, [drink], 1, .5,.25)
 		on_draggable_dropped(starting_position, drink, drop_area_index)
 		return
 	
 	elif drop_area_index == 2:
 		drink.empty()
-		
+		SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.DRINK_TRASHED, [drink], 1, .5,.25)
 		_reset_draggable_to_starting_position(starting_position, drink)
 		return
 	
@@ -144,6 +146,8 @@ func on_draggable_dropped(starting_position: Vector2, draggable: Draggable, drop
 	# swap draggables if we have to
 	if new_area.draggable_grid.is_tile_occupied(new_tile):
 		var old_draggable: Draggable = new_area.draggable_grid.draggables[new_tile]
+		if draggable is Ingredient and old_draggable is Ingredient:
+			SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.INGREDIENT_SWAPPED, [draggable, old_draggable], 1, .5,.25)
 		new_area.draggable_grid.remove_draggable(new_tile)
 		_move_draggable(old_draggable, old_area, old_tile)
 	
