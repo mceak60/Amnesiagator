@@ -36,6 +36,12 @@ func set_skin(coords: Vector2i) -> void:
 	
 	skin.region_rect.position = Vector2(skin_coordinates) * Bar.CELL_SIZE
 
+func get_ingredient_list() -> Array[Ingredient]:
+	return ingredient_list
+
+func get_attribute_list() -> Dictionary:
+	return attribute_list
+
 func get_ingredient_names() -> Array[String]:
 	var name_list: Array[String] = []
 	for ingredient in ingredient_list:
@@ -97,6 +103,14 @@ func get_ingredients_matched(ingred_list: Array[String]) -> Array[String]:
 		if has_ingredient(ingred):
 			out.append(ingred)
 	return out
+
+func get_sfx(_trigger: SFX_Handler.SFX_Triggers) -> Array[SFX_Handler.SFX_Categories]:
+	# Currently static
+	return [SFX_Handler.SFX_Categories.THUD, SFX_Handler.SFX_Categories.SLOSH, SFX_Handler.SFX_Categories.CLINK]
+
+func get_sfx_ingredient_added(ingredient: Ingredient) -> Array[SFX_Handler.SFX_Categories]:
+	# Currently does not interact with current drink, but it could
+	return ingredient.details.add_to_drink_sfx
 
 func _on_mouse_entered() -> void:
 	if drag_and_drop.dragging:

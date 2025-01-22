@@ -91,6 +91,7 @@ func spawn_customer(customer: CustomerDetails) -> void:
 	seating.draggable_grid.add_draggable(tile, new_customer)
 	new_customer.global_position = seating.get_global_from_tile(tile) - Bar.HALF_CELL_SIZE
 	new_customer.details = customer
+	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_ENTERED, [new_customer], 1, .5,.25)
 
 
 func spawn_customer_at(customer: CustomerDetails, tile: Vector2i) -> void:
@@ -99,3 +100,4 @@ func spawn_customer_at(customer: CustomerDetails, tile: Vector2i) -> void:
 	seating.draggable_grid.add_draggable(tile, new_customer)
 	new_customer.global_position = seating.get_global_from_tile(tile) - Bar.HALF_CELL_SIZE
 	new_customer.details = customer
+	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_ENTERED, [new_customer], 1, .5,.25)

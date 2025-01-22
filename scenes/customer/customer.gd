@@ -1,4 +1,3 @@
-@tool
 class_name Customer
 extends Draggable
 
@@ -16,11 +15,22 @@ func set_details(value: CustomerDetails) -> void:
 	
 	skin.region_rect.position = Vector2(details.skin_coordinates) * Bar.CELL_SIZE
 
+func get_sfx(_trigger: SFX_Handler.SFX_Triggers) -> Array[SFX_Handler.SFX_Categories]:
+	# Currently static
+	return [SFX_Handler.SFX_Categories.CLICK]
+
+func get_sfx_drink_served(_drink: Drink) -> Array[SFX_Handler.SFX_Categories]:
+	# Currently does not interact with current drink, but it could
+	return [SFX_Handler.SFX_Categories.SIP, SFX_Handler.SFX_Categories.BURP]
+
+func get_sfx_feedback(_feedback: Puzzle.Result) -> Array[SFX_Handler.SFX_Categories]:
+	# Currently static
+	return [SFX_Handler.SFX_Categories.SHAKE, SFX_Handler.SFX_Categories.BURP]
+
 func _on_mouse_entered() -> void:
 	outline_highlighter.highlight()
 	z_index = 1
 	show_debug.emit()
-
 
 func _on_mouse_exited() -> void:
 	outline_highlighter.clear_highlight()
