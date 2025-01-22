@@ -98,6 +98,42 @@ func get_ingredients_matched(ingred_list: Array[String]) -> Array[String]:
 			out.append(ingred)
 	return out
 
+func priority_list_has(priority_list: Array, attribute: String) -> bool:
+	var has = false
+	for index in priority_list:
+		if index.has(attribute):
+			has = true
+	
+	return has
+
+func get_priority_list() -> Array:
+	var priority_list : Array = []
+	
+	while priority_list.size() < attribute_list.size():
+		var max : Array[String] = []
+		var max_count = 0
+		for attribute in attribute_list:
+			if attribute_list[attribute] > max_count && !priority_list_has(priority_list, attribute):
+				max.clear()
+				max.append(attribute)
+				max_count = attribute_list[attribute]
+			
+			elif attribute_list[attribute] == max_count && !priority_list_has(priority_list, attribute):
+				max.append(attribute)
+			
+		priority_list.append(max)
+	return priority_list
+
+func get_priority_of(priority_list: Array, attribute: String) -> int:
+	var priority : int = -1
+	var index = 0
+	for index_array in priority_list:
+		if index_array.has(attribute):
+			priority = index
+		index += 1
+	
+	return priority
+
 func _on_mouse_entered() -> void:
 	if drag_and_drop.dragging:
 		return
