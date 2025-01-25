@@ -17,7 +17,7 @@ func set_details(value: CustomerDetails) -> void:
 
 func get_sfx(_trigger: SFX_Handler.SFX_Triggers) -> Array[SFX_Handler.SFX_Categories]:
 	# Currently static
-	return [SFX_Handler.SFX_Categories.CLICK]
+	return [SFX_Handler.SFX_Categories.SIT, SFX_Handler.SFX_Categories.KNOCK]
 
 func get_sfx_drink_served(_drink: Drink) -> Array[SFX_Handler.SFX_Categories]:
 	# Currently does not interact with current drink, but it could

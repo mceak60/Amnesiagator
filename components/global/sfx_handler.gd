@@ -35,22 +35,27 @@ enum SFX_Categories {
 	CLICK,
 	CLINK,
 	CRACKLE,
+	DIAL,
 	FIZZ,
 	GLUGGLE,
 	ICE,
 	JANGLE,
 	JAR,
+	KNOCK,
 	RUB,
 	SCRAPE,
 	SHAKE,
 	SIP,
+	SIT,
 	SLOSH,
 	SNIP,
 	SPIN,
 	SWISH,
 	THUD,
 	TRIPLE_TAP,
-	UNCORK
+	UNCORK,
+	WHIR,
+	ZIP
 }
 
 var sfx_dict := {}
