@@ -326,7 +326,6 @@ text = "Gold"
 unique_name_in_owner = true
 script = ExtResource("24_tseuq")
 puzzle_list = [NodePath("Puzzle1"), NodePath("Puzzle2"), NodePath("Puzzle3"), NodePath("Puzzle4")]
-starting_puzzle_idx = 2
 
 [node name="Puzzle1" type="Node" parent="PuzzleHandler"]
 script = ExtResource("22_m3gre")
