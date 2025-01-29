@@ -49,7 +49,6 @@ func _start_dragging() -> void:
 	offset = target.global_position - target.get_global_mouse_position()
 	drag_started.emit()
 
-
 func _drop() -> void:
 	_end_dragging()
 	dropped.emit(starting_position)
