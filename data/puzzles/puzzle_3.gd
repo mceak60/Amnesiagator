@@ -45,20 +45,27 @@ func get_feedback(drink: Drink, evaluated_result: Result) -> String:
 		# SK 1/7/25 - Bug: for the ehhh feedback, a drink can have multiple attributes here - will need to disambiguate the "dominant" as currently this just takes the first one in the elif. 
 		# To address in future
 		Result.EHHH:
-			if drink.has_attribute("Metallic") && drink.has_attribute("Electricity"):
-				evaluated_feedback = "Whoa... cool chrome vibes, but I need something that flows with the cosmic waves."
-			
-			elif drink.has_attribute("Heat") || drink.has_attribute("Cold"):
-				evaluated_feedback = "Too elemental, man. I need to access another dimension!"
-			
-			elif drink.has_attribute("Fruity") && drink.has_attribute("Flora"):
-				evaluated_feedback = "A little too garden party, not enough space party, you know what I mean?"
-			
-			elif drink.has_attribute("Electricity") && drink.has_attribute("Fizzy"):
-				evaluated_feedback = "Dig the electricity, baby, but it's all fizz and no flow!"
-
-			else:
+			var priority_list = drink.get_attribute_priority_list()
+			var option_1 = drink.get_priority_of(priority_list, "Metallic") + drink.get_priority_of(priority_list, "Electricity")
+			var option_2 = drink.get_priority_of(priority_list, "Heat") + drink.get_priority_of(priority_list, "Cold")
+			var option_3 = drink.get_priority_of(priority_list, "Fruity") + drink.get_priority_of(priority_list, "Flora")
+			var option_4 = drink.get_priority_of(priority_list, "Electricity") + drink.get_priority_of(priority_list, "Fizzy")
+			if option_1 == option_2 && option_2 == option_3 && option_3 == option_4:
 				evaluated_feedback = "Huh... neat light show, but not quite groovy enough. Need something more... far out."
+			else:
+				match min(option_1, option_2, option_3, option_4):
+					option_1:
+				#if drink.has_attribute("Metallic") && drink.has_attribute("Electricity"):
+						evaluated_feedback = "Whoa... cool chrome vibes, but I need something that flows with the cosmic waves."
+					option_2:
+				#elif drink.has_attribute("Heat") || drink.has_attribute("Cold"):
+						evaluated_feedback = "Too elemental, man. I need to access another dimension!"
+					option_3:
+				#elif drink.has_attribute("Fruity") && drink.has_attribute("Flora"):
+						evaluated_feedback = "A little too garden party, not enough space party, you know what I mean?"
+					option_4:
+				#elif drink.has_attribute("Electricity") && drink.has_attribute("Fizzy"):
+						evaluated_feedback = "Dig the electricity, baby, but it's all fizz and no flow!"
 		
 		Result.FAILURE:
 			if drink.has_attribute("Earthy"):

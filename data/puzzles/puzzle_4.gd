@@ -64,23 +64,37 @@ func get_feedback(drink: Drink, evaluated_result: Result) -> String:
 				evaluated_feedback = "If god exists, he wouldn't speak this line of dialogue - test."
 		
 		Result.FAILURE:
-			if drink.has_attribute("Heat"):
-				evaluated_feedback = "Oh my! *cough* A bit too... infernal for my taste."
-			
-			elif drink.has_attribute("Cold"):
-				evaluated_feedback = "I'm not an advocate of fire and brimstone, but that may help clear this brain freeze!" 
-
-			elif drink.has_attribute("Electricity"):
-				evaluated_feedback = "My child, cheap jolts are no substitute for natural revelation."
-				
-			elif drink.has_attribute("Metallic"):
-				evaluated_feedback = "I seek communion with nature, not... industrial revolution."
-
-			elif drink.has_attribute("Weird"):
-				evaluated_feedback = "I appreciate modern expressions of faith, but perhaps something more... traditional?"
-
-			else:
+			var priority_list = drink.get_attribute_priority_list()
+			var option_1 = drink.get_priority_of(priority_list, "Heat")
+			var option_2 = drink.get_priority_of(priority_list, "Cold")
+			var option_3 = drink.get_priority_of(priority_list, "Electricity")
+			var option_4 = drink.get_priority_of(priority_list, "Metallic")
+			var option_5 = drink.get_priority_of(priority_list, "Weird")
+			if option_1 == option_2 && option_2 == option_3 && option_3 == option_4 && option_4 == option_5:
 				evaluated_feedback = "This concoction demonstrates the virtue of abstinence. But fear not - the prodigal son always returns."
+			else:
+				match min(option_1, option_2, option_3, option_4, option_5):
+				#if drink.has_attribute("Heat"):
+					option_1:
+						evaluated_feedback = "Oh my! *cough* A bit too... infernal for my taste."
+				
+				#elif drink.has_attribute("Cold"):
+					option_2:
+						evaluated_feedback = "I'm not an advocate of fire and brimstone, but that may help clear this brain freeze!" 
+
+				#elif drink.has_attribute("Electricity"):
+					option_3:
+						evaluated_feedback = "My child, cheap jolts are no substitute for natural revelation."
+					
+				#elif drink.has_attribute("Metallic"):
+					option_4:
+						evaluated_feedback = "I seek communion with nature, not... industrial revolution."
+
+				#elif drink.has_attribute("Weird"):
+					option_5:
+						evaluated_feedback = "I appreciate modern expressions of faith, but perhaps something more... traditional?"
+
+				
 	
 	feedback = evaluated_feedback
 	return evaluated_feedback
