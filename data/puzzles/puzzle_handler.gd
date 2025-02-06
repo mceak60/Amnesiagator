@@ -16,6 +16,7 @@ extends Node
 @onready var order_label: RichTextLabel = $"../Order"
 @onready var feedback_label: RichTextLabel = $"../Feedback"
 @onready var gold_counter: Label = $"../GoldCounter"
+@onready var textbox: CanvasLayer = $"../Textbox"
 
 var current_puzzle_idx := starting_puzzle_idx
 var order_number := 1
@@ -25,7 +26,9 @@ func _ready():
 	draggable_mover.submit_drink_to.connect(process_drink_for)
 	current_puzzle_idx = starting_puzzle_idx
 	var current_puzzle = get_current_puzzle()
-	order_label.text = "Order #" + str(order_number) + ": \n\n" + current_puzzle.get_customer_and_order()
+	var order = current_puzzle.get_customer_and_order()
+	order_label.text = order
+	textbox.queue_text(order)
 	spawn_puzzle_customer(current_puzzle)
 
 func get_current_puzzle() -> Puzzle:
@@ -87,6 +90,7 @@ func process_drink(drink: Drink) -> void:
 	var result_names := ["Great Success", "Success", "Ehhh", "Failure"]
 	
 	feedback_label.text = feedback
+	textbox.queue_text(feedback)
 	gold_counter.text = str(int(gold_counter.text) + gold_reward)
 	print(result_names[result])
 	print(feedback)
@@ -103,6 +107,7 @@ func process_drink_for(drink: Drink, customer: Customer) -> void:
 		var result_names := ["Great Success", "Success", "Ehhh", "Failure"]
 	
 		feedback_label.text = feedback
+		textbox.queue_text(feedback)
 		gold_counter.text = str(int(gold_counter.text) + gold_reward)
 	
 		SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_FEEDBACK, [customer, result], 1, .5, .25)
@@ -123,12 +128,14 @@ func process_drink_for(drink: Drink, customer: Customer) -> void:
 	var new_puzzle = get_current_puzzle()
 	# the next 7 lines add a waiting period and update the text box accordingly because it was jarring to just pop
 	# in with the next order immediately, comment everything up to the final await function for an immediate update
-	await get_tree().create_timer(0.75).timeout
-	order_label.text = "."
-	await get_tree().create_timer(0.75).timeout
-	order_label.text = ". ."
-	await get_tree().create_timer(0.75).timeout
-	order_label.text = ". . ."
-	await get_tree().create_timer(0.75).timeout
-	order_label.text = "Order #" + str(order_number) + ":\n\n" + new_puzzle.get_customer_and_order()
+	#await get_tree().create_timer(0.75).timeout
+	#order_label.text = "."
+	#await get_tree().create_timer(0.75).timeout
+	#order_label.text = ". ."
+	#await get_tree().create_timer(0.75).timeout
+	#order_label.text = ". . ."
+	#await get_tree().create_timer(0.75).timeout
+	var new_order = new_puzzle.get_customer_and_order()
+	order_label.text = new_order
+	textbox.queue_text(new_order)
 	spawn_puzzle_customer(new_puzzle)

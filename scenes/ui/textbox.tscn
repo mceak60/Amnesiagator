@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfbby764xnuhq"]
+
+[ext_resource type="Script" path="res://scenes/ui/textbox.gd" id="1_7jgby"]
+[ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="2_lcfhk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykvck"]
+bg_color = Color(0.313726, 0.329412, 0.501961, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[node name="Textbox" type="CanvasLayer"]
+script = ExtResource("1_7jgby")
+
+[node name="TextboxContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Background" type="Panel" parent="TextboxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ykvck")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextboxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_lcfhk")
+theme_override_font_sizes/font_size = 24
+text = "Text"
+autowrap_mode = 3
+
+[node name="End" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_lcfhk")
+theme_override_font_sizes/font_size = 24
+text = ". . .
+"
