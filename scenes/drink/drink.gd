@@ -104,6 +104,102 @@ func get_ingredients_matched(ingred_list: Array[String]) -> Array[String]:
 			out.append(ingred)
 	return out
 
+func priority_list_has(priority_list: Array, quality: String) -> bool:
+	var has = false
+	for index in priority_list:
+		if index.has(quality):
+			has = true
+	
+	return has
+
+func get_attribute_priority_list() -> Array:
+	var priority_list : Array = []
+	
+	while priority_list.size() < attribute_list.size():
+		var max : Array[String] = []
+		var max_count = 0
+		for attribute in attribute_list:
+			if attribute_list[attribute] > max_count && !priority_list_has(priority_list, attribute):
+				max.clear()
+				max.append(attribute)
+				max_count = attribute_list[attribute]
+			
+			elif attribute_list[attribute] == max_count && !priority_list_has(priority_list, attribute):
+				max.append(attribute)
+			
+		priority_list.append(max)
+	return priority_list
+	
+
+func get_ingredient_priority_list() -> Array:
+	var priority_list : Array = []
+	var ingredient_dict : Dictionary
+	for ingredient in ingredient_list:
+		var ingredient_name = ingredient.details.name
+		if ingredient_dict.has(ingredient_name):
+			ingredient_dict[ingredient_name] += 1
+		else:
+			ingredient_dict[ingredient_name] = 1
+	
+	while priority_list.size() < ingredient_dict.size():
+		var max : Array[String] = []
+		var max_count = 0
+		for ingredient in ingredient_dict:
+			if ingredient_dict[ingredient] > max_count && !priority_list_has(priority_list, ingredient):
+				max.clear()
+				max.append(ingredient)
+				max_count = ingredient_dict[ingredient]
+			
+			elif ingredient_dict[ingredient] == max_count && !priority_list_has(priority_list, ingredient):
+				max.append(ingredient)
+			
+		priority_list.append(max)
+	return priority_list 
+	
+	
+func get_combo_priority_list() -> Array:
+	var priority_list : Array = []
+	var ingredient_dict : Dictionary
+	for ingredient in ingredient_list:
+		var ingredient_name = ingredient.details.name
+		if ingredient_dict.has(ingredient_name):
+			ingredient_dict[ingredient_name] += 1
+		else:
+			ingredient_dict[ingredient_name] = 1
+			
+	var combo_dict = attribute_list.merged(ingredient_dict)
+	#print("Combo_dict " + str(combo_dict))
+	
+	while priority_list.size() < combo_dict.size():
+		var max : Array[String] = []
+		var max_count = 1
+		for item in combo_dict:
+			#print(item + ":" + str(combo_dict[item]) + " " + str(priority_list_has(priority_list, item)))
+			if combo_dict[item] > max_count && !priority_list_has(priority_list, item):
+				#print("New max: " + item)
+				max.clear()
+				max.append(item)
+				max_count = combo_dict[item]
+			
+			elif combo_dict[item] == max_count && !priority_list_has(priority_list, item):
+				#print("Equal to: " + item)
+				max.append(item)
+			
+		#print("Max: " + str(max))
+		priority_list.append(max)
+		#print("cleared max: " + str(max))
+	return priority_list 
+
+func get_priority_of(priority_list: Array, quality: String) -> int:
+	var priority : int = 99
+	var index = 0
+	for index_array in priority_list:
+		if index_array.has(quality):
+			priority = index
+		index += 1
+	
+	return priority
+
 func get_sfx(_trigger: SFX_Handler.SFX_Triggers) -> Array[SFX_Handler.SFX_Categories]:
 	# Currently static
 	return [SFX_Handler.SFX_Categories.THUD, SFX_Handler.SFX_Categories.SLOSH, SFX_Handler.SFX_Categories.CLINK]
@@ -111,6 +207,7 @@ func get_sfx(_trigger: SFX_Handler.SFX_Triggers) -> Array[SFX_Handler.SFX_Catego
 func get_sfx_ingredient_added(ingredient: Ingredient) -> Array[SFX_Handler.SFX_Categories]:
 	# Currently does not interact with current drink, but it could
 	return ingredient.details.add_to_drink_sfx
+
 
 func _on_mouse_entered() -> void:
 	if drag_and_drop.dragging:

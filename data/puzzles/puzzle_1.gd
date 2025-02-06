@@ -41,17 +41,32 @@ func get_feedback(drink: Drink, evaluated_result: Result) -> String:
 		# SK 1/7/25 - Bug: for the ehhh feedback, a drink can have multiple attributes here - will need to disambiguate the "dominant" as currently this just takes the first one in the elif. 
 		# To address in future
 		Result.EHHH:
-			if drink.attribute_list["Fizzy"] > 0 || drink.attribute_list["Electricity"] > 0:
-				evaluated_feedback = "Wow, that's... different! But my usual's more chill, if you catch my drift."
-			
-			elif drink.has_ingredient("Lava Lamp") && drink.has_ingredient("Stardust Sprinkles"):
-				evaluated_feedback = "Ooh, pretty! Like the Southern Lights! But I usually prefer something that reminds me more of home."
-			
-			elif (drink.has_ingredient("Berry Brew") && drink.has_ingredient("Blossom Petals")) || (drink.has_ingredient("Berry Brew") && drink.has_ingredient("Hickory")):
-				evaluated_feedback = "Fancy! But I'm more of a ‘simple pleasures’ kind of guy."
-			
-			else:
+			var priority_list = drink.get_combo_priority_list()
+			var option_1 = drink.get_priority_of(priority_list, "Fizzy") + drink.get_priority_of(priority_list, "Electricity")
+			var option_2 = drink.get_priority_of(priority_list, "Lava Lamp") + drink.get_priority_of(priority_list, "Stardust Sprinkles")
+			var option_3 = drink.get_priority_of(priority_list, "Berry Brew") + drink.get_priority_of(priority_list, "Blossom Petals")
+			var option_4 = drink.get_priority_of(priority_list, "Berry Brew") + drink.get_priority_of(priority_list, "Hickory")
+			#print("Priority list: " + str(priority_list))
+			#print("Priority list: " + str(priority_list.size()))
+			if option_1 == option_2 && option_2 == option_3 && option_3 == option_4:
 				evaluated_feedback = "Welp... it's not bad, but something's missing. Not exactly what I usually get, but at least it didn't melt my beak off!"
+			else:
+				match min(option_1, option_2, option_3, option_4):
+					option_1:
+					#if drink.attribute_list["Fizzy"] > 0 || drink.attribute_list["Electricity"] > 0:
+						evaluated_feedback = "Wow, that's... different! But my usual's more chill, if you catch my drift."
+					
+					option_2:
+					#elif drink.has_ingredient("Lava Lamp") && drink.has_ingredient("Stardust Sprinkles"):
+						evaluated_feedback = "Ooh, pretty! Like the Southern Lights! But I usually prefer something that reminds me more of home."
+			
+					option_3:
+					#elif (drink.has_ingredient("Berry Brew") && drink.has_ingredient("Blossom Petals")) || (drink.has_ingredient("Berry Brew") && drink.has_ingredient("Hickory")):
+						evaluated_feedback = "Fancy! But I'm more of a ‘simple pleasures’ kind of guy."
+					option_4:
+						evaluated_feedback = "Fancy! But I'm more of a ‘simple pleasures’ kind of guy."
+			
+				
 		
 		Result.FAILURE:
 			if drink.has_ingredient("Fireball Whiskey") && drink.has_ingredient("Red Pepper Flakes"):

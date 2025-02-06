@@ -26,7 +26,7 @@ func _ready() -> void:
 	tween.tween_callback(spawn_ingredient_at.bind(preload("res://data/ingredients/garnishes/red_pepper_flakes.tres"), Vector2i(1, 2)))
 	tween.tween_callback(spawn_ingredient_at.bind(preload("res://data/ingredients/garnishes/blossom_petals.tres"), Vector2i(2, 2)))
 	tween.tween_callback(spawn_ingredient_at.bind(preload("res://data/ingredients/garnishes/hickory.tres"), Vector2i(3, 2)))
-	tween.tween_callback(spawn_drink_at.bind(Vector2i(4, 0)))
+	tween.tween_callback(spawn_drink_at.bind(Vector2i(3, 0)))
 	#tween.tween_callback(spawn_customer_at.bind(preload("res://data/customers/doug.tres"), Vector2i(1, 0)))
 	#tween.tween_callback(spawn_customer_at.bind(preload("res://data/customers/test.tres"), Vector2i(4, 0)))
 	#tween.tween_callback(spawn_customer_at.bind(preload("res://data/customers/mark.tres"), Vector2i(4, 0)))
