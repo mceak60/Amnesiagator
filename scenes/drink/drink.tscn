@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3f52ph83f31m"]
+[gd_scene load_steps=10 format=3 uid="uid://b3f52ph83f31m"]
 
 [ext_resource type="Script" path="res://scenes/drink/drink.gd" id="1_ofljw"]
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://assets/shaders/2d_outline_shader.tres" id="2_chv1i"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://components/debug_label.gd" id="4_pish0"]
 [ext_resource type="Script" path="res://components/velocity_based_rotation.gd" id="5_ntewb"]
 [ext_resource type="Script" path="res://components/outline_highlighter.gd" id="6_r4tkf"]
+[ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="7_45ad5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdqai"]
 size = Vector2(36, 36)
@@ -53,6 +54,9 @@ offset_right = 151.0
 offset_bottom = 1.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("7_45ad5")
 text = "Test"
 horizontal_alignment = 1
 autowrap_mode = 3

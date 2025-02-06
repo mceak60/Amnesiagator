@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://b5xkx805g0kxj"]
+[gd_scene load_steps=35 format=4 uid="uid://b5xkx805g0kxj"]
 
 [ext_resource type="Script" path="res://scenes/bar/bar.gd" id="1_5m26e"]
 [ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://scenes/arena/tileset.tres" id="2_8n37m"]
@@ -24,10 +24,12 @@
 [ext_resource type="Script" path="res://data/puzzles/puzzle_1.gd" id="22_m3gre"]
 [ext_resource type="PackedScene" uid="uid://biw3haki8sh78" path="res://scenes/customer/customer.tscn" id="23_f36nf"]
 [ext_resource type="Resource" uid="uid://j8smv086g07h" path="res://data/customers/doug.tres" id="24_70dxc"]
+[ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="24_mnmeu"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_handler.gd" id="24_tseuq"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_2.gd" id="26_bcgwp"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_3.gd" id="27_6r0c2"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_4.gd" id="28_yk4rc"]
+[ext_resource type="PackedScene" uid="uid://bfbby764xnuhq" path="res://scenes/ui/textbox.tscn" id="31_23he4"]
 [ext_resource type="PackedScene" uid="uid://ca8q0rl2oblvb" path="res://scenes/jukebox/jukebox.tscn" id="43_b5rlf"]
 
 [sub_resource type="Curve" id="Curve_gxqt7"]
@@ -57,8 +59,7 @@ script = ExtResource("1_5m26e")
 metadata/_edit_lock_ = true
 
 [node name="Visuals" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
+position = Vector2(-8, -92)
 
 [node name="Background" type="TileMapLayer" parent="Visuals"]
 visible = false
@@ -81,7 +82,7 @@ texture = ExtResource("3_u2pxk")
 lifetime = 6.0
 
 [node name="Shelf" type="TileMapLayer" parent="." node_paths=PackedStringArray("draggable_grid", "tile_highlighter")]
-position = Vector2(234, 112)
+position = Vector2(226, 20)
 tile_set = ExtResource("2_8n37m")
 script = ExtResource("4_nb8bd")
 draggable_grid = NodePath("ShelfGrid")
@@ -169,7 +170,7 @@ highlight_layer = NodePath("../Highlight")
 tile = Vector2i(3, 0)
 
 [node name="Counter" type="TileMapLayer" parent="." node_paths=PackedStringArray("draggable_grid", "tile_highlighter")]
-position = Vector2(160, 256)
+position = Vector2(151, 164)
 tile_set = ExtResource("2_8n37m")
 script = ExtResource("4_nb8bd")
 draggable_grid = NodePath("CounterGrid")
@@ -200,14 +201,13 @@ highlight_layer = NodePath("../Highlight")
 tile = Vector2i(3, 0)
 
 [node name="Sink" type="TileMapLayer" parent="." node_paths=PackedStringArray("draggable_grid", "tile_highlighter")]
-position = Vector2(480, 288)
+position = Vector2(472, 196)
 tile_map_data = PackedByteArray("AAAAAAAAAQADAAkAAAA=")
 tile_set = ExtResource("2_8n37m")
 script = ExtResource("4_nb8bd")
 draggable_grid = NodePath("SinkGrid")
 tile_highlighter = NodePath("TileHighlighter")
 metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
 
 [node name="Highlight" type="TileMapLayer" parent="Sink"]
 tile_set = ExtResource("2_8n37m")
@@ -223,13 +223,13 @@ highlight_layer = NodePath("../Highlight")
 tile = Vector2i(3, 0)
 
 [node name="Submit" type="TileMapLayer" parent="." node_paths=PackedStringArray("draggable_grid", "tile_highlighter")]
-position = Vector2(128, 288)
+visible = false
+position = Vector2(120, 196)
 tile_map_data = PackedByteArray("AAAAAAAAAAADABAAAAA=")
 tile_set = ExtResource("2_8n37m")
 script = ExtResource("4_nb8bd")
 draggable_grid = NodePath("SubmitGrid")
 tile_highlighter = NodePath("TileHighlighter")
-metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Highlight" type="TileMapLayer" parent="Submit"]
@@ -248,14 +248,13 @@ highlight_layer = NodePath("../Highlight")
 tile = Vector2i(3, 0)
 
 [node name="Seating" type="TileMapLayer" parent="." node_paths=PackedStringArray("draggable_grid", "tile_highlighter")]
-position = Vector2(160, 320)
+position = Vector2(152, 228)
 tile_map_data = PackedByteArray("AAAAAAAAAAACABEAAAABAAAAAAACABEAAAACAAAAAAACABEAAAADAAAAAAACABEAAAAEAAAAAAACABEAAAAFAAAAAAACABEAAAAGAAAAAAACABEAAAAHAAAAAAACABEAAAAIAAAAAAACABEAAAAJAAAAAAACABEAAAA=")
 tile_set = ExtResource("2_8n37m")
 script = ExtResource("4_nb8bd")
 draggable_grid = NodePath("SeatingGrid")
 tile_highlighter = NodePath("TileHighlighter")
 metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
 
 [node name="Highlight" type="TileMapLayer" parent="Seating"]
 enabled = false
@@ -287,32 +286,38 @@ counter = NodePath("../Counter")
 seating = NodePath("../Seating")
 
 [node name="Order" type="RichTextLabel" parent="."]
-offset_left = 10.0
-offset_right = 203.0
-offset_bottom = 256.0
+offset_left = 2.0
+offset_top = 5.0
+offset_right = 195.0
+offset_bottom = 142.0
+theme_override_fonts/normal_font = ExtResource("24_mnmeu")
 
 [node name="Feedback" type="RichTextLabel" parent="."]
 offset_left = 512.0
 offset_right = 640.0
 offset_bottom = 256.0
+theme_override_fonts/normal_font = ExtResource("24_mnmeu")
 metadata/_edit_lock_ = true
 
 [node name="GoldCounter" type="Label" parent="."]
-offset_left = 600.0
-offset_top = 320.0
-offset_right = 640.0
-offset_bottom = 343.0
+offset_left = 592.0
+offset_top = 228.0
+offset_right = 632.0
+offset_bottom = 251.0
+theme_override_fonts/font = ExtResource("24_mnmeu")
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GoldLabel" type="RichTextLabel" parent="GoldCounter"]
 layout_mode = 0
-offset_left = -1.0
-offset_top = 22.0
-offset_right = 39.0
-offset_bottom = 45.0
+offset_top = 21.0
+offset_right = 40.0
+offset_bottom = 44.0
+theme_override_fonts/normal_font = ExtResource("24_mnmeu")
 text = "Gold"
+
+[node name="Textbox" parent="." instance=ExtResource("31_23he4")]
 
 [node name="PuzzleHandler" type="Node" parent="." node_paths=PackedStringArray("puzzle_list")]
 unique_name_in_owner = true
@@ -332,4 +337,4 @@ script = ExtResource("27_6r0c2")
 script = ExtResource("28_yk4rc")
 
 [node name="Jukebox" parent="." instance=ExtResource("43_b5rlf")]
-position = Vector2(16, 192)
+position = Vector2(8, 100)
