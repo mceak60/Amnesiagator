@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 
 SFX_Handler="*res://components/global/sfx_handler.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+DialogueHandler="*res://components/global/dialogue_handler.gd"
 
 [dialogic]
 

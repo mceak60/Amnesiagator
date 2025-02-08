@@ -1,11 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://biw3haki8sh78"]
+[gd_scene load_steps=8 format=3 uid="uid://biw3haki8sh78"]
 
 [ext_resource type="Script" path="res://scenes/customer/customer.gd" id="1_62hb1"]
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://assets/shaders/2d_outline_shader.tres" id="3_xdqwp"]
 [ext_resource type="Texture2D" uid="uid://cx1ivjobggp8n" path="res://assets/sprites/rogues.png" id="4_18bms"]
-[ext_resource type="Script" path="res://components/drag_and_drop.gd" id="4_hx6ni"]
 [ext_resource type="Script" path="res://components/debug_label.gd" id="4_yaoc6"]
-[ext_resource type="Script" path="res://components/velocity_based_rotation.gd" id="5_0jso4"]
 [ext_resource type="Script" path="res://components/outline_highlighter.gd" id="7_3h8hc"]
 [ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="7_y7a6r"]
 
@@ -29,18 +27,6 @@ region_rect = Rect2(0, 0, 32, 32)
 position = Vector2(16, 8)
 shape = SubResource("RectangleShape2D_rdqai")
 
-[node name="DragAndDrop" type="Node" parent="." node_paths=PackedStringArray("target")]
-script = ExtResource("4_hx6ni")
-enabled = false
-target = NodePath("..")
-
-[node name="VelocityBasedRotation" type="Node" parent="." node_paths=PackedStringArray("target")]
-script = ExtResource("5_0jso4")
-enabled = false
-target = NodePath("../Visuals/Skin")
-lerp_seconds = 0.3
-max_rotation_degrees = 30
-
 [node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
 script = ExtResource("7_3h8hc")
 visuals = NodePath("../Visuals")
@@ -62,5 +48,6 @@ horizontal_alignment = 1
 script = ExtResource("4_yaoc6")
 target = NodePath("..")
 
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

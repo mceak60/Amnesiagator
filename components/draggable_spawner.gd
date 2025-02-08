@@ -84,7 +84,7 @@ func spawn_drink_at(tile: Vector2i) -> void:
 	drink_spawned.emit(new_drink)
 
 
-func spawn_customer(customer: CustomerDetails) -> void:
+func spawn_customer(customer: CustomerDetails) -> Customer:
 	var new_customer := CUSTOMER.instantiate()
 	var tile := seating.draggable_grid.get_first_empty_tile()
 	seating.draggable_grid.add_child(new_customer)
@@ -92,12 +92,14 @@ func spawn_customer(customer: CustomerDetails) -> void:
 	new_customer.global_position = seating.get_global_from_tile(tile) - Bar.HALF_CELL_SIZE
 	new_customer.details = customer
 	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_ENTERED, [new_customer], 1, .5,.25)
+	return new_customer
 
 
-func spawn_customer_at(customer: CustomerDetails, tile: Vector2i) -> void:
+func spawn_customer_at(customer: CustomerDetails, tile: Vector2i) -> Customer:
 	var new_customer := CUSTOMER.instantiate()
 	seating.draggable_grid.add_child(new_customer)
 	seating.draggable_grid.add_draggable(tile, new_customer)
 	new_customer.global_position = seating.get_global_from_tile(tile) - Bar.HALF_CELL_SIZE
 	new_customer.details = customer
 	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_ENTERED, [new_customer], 1, .5,.25)
+	return new_customer

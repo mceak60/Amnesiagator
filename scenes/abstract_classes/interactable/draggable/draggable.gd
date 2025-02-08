@@ -1,15 +1,11 @@
+# Interactables that can be dragged and dropped
+
 @tool
 class_name Draggable
-extends Area2D
+extends Interactable
 
-
-@onready var debug_label: Label = $DebugLabel
 @onready var drag_and_drop: DragAndDrop = $DragAndDrop
 @onready var velocity_based_rotation: VelocityBasedRotation = $VelocityBasedRotation
-@onready var outline_highlighter: OutlineHighlighter = $OutlineHighlighter
-
-signal show_debug
-signal hide_debug
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
@@ -33,18 +29,10 @@ func _on_drag_canceled(starting_position: Vector2) -> void:
 func _on_mouse_entered() -> void:
 	if drag_and_drop.dragging:
 		return
-	
-	outline_highlighter.highlight()
-	z_index = 1
-	
-	show_debug.emit()
+	super()
 
 
 func _on_mouse_exited() -> void:
 	if drag_and_drop.dragging:
 		return
-	
-	outline_highlighter.clear_highlight()
-	z_index = 0
-	
-	hide_debug.emit()
+	super()
