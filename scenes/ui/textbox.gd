@@ -13,8 +13,10 @@ enum State {
 	FINISHED
 }
 
+
 var current_state = State.READY
 var text_queue = []
+
 
 func _ready() -> void:
 	if not is_node_ready():
@@ -22,7 +24,8 @@ func _ready() -> void:
 	print("Starting State: READY")
 	hide_textbox()
 
-func _process(delta: float) -> void:
+
+func _process(_delta: float) -> void:
 	match current_state:
 		State.READY:
 			if !text_queue.is_empty():
@@ -38,15 +41,19 @@ func _process(delta: float) -> void:
 				change_state(State.READY)
 				hide_textbox()
 
+
 func queue_text(next_text: String):
 	text_queue.push_back(next_text)
+
 
 func hide_textbox() -> void:
 	text_label.text = ""
 	textbox_container.hide()
 
+
 func show_textbox() -> void:
 	textbox_container.show()
+
 
 func display_text() -> void:
 	tween = get_tree().create_tween()
@@ -58,6 +65,7 @@ func display_text() -> void:
 	tween.connect("finished", on_tween_finished)
 	end_symbol.text = ". . ."
 
+
 func on_tween_finished():
 	end_symbol.text = "↵"
 	change_state(State.FINISHED)
@@ -67,7 +75,10 @@ func change_state(next_state: State) -> void:
 	match current_state:
 		State.READY:
 			print("Changing state to: READY")
+			DialogueHandler.emit_signal("dialogue_ready")
 		State.READING:
 			print("Changing state to: READING")
+			DialogueHandler.emit_signal("dialogue_reading")
 		State.FINISHED:
 			print("Changing state to: FINISHED")
+			DialogueHandler.emit_signal("dialogue_finished")

@@ -12,10 +12,11 @@ var starting_position: Vector2
 var offset := Vector2.ZERO
 var dragging := false
 
-
 func _ready() -> void:
 	assert(target, "No target set for DragAndDrop Component!")
 	target.input_event.connect(_on_target_input_event.unbind(1))
+	DialogueHandler.connect("dialogue_reading", Callable(self, "_on_dialogue_reading"))
+	DialogueHandler.connect("dialogue_ready", Callable(self, "_on_dialogue_ready"))
 
 
 func _process(_delta: float) -> void:
@@ -52,7 +53,7 @@ func _start_dragging() -> void:
 func _drop() -> void:
 	_end_dragging()
 	dropped.emit(starting_position)
-	
+
 
 func _on_target_input_event(_viewport: Node, event: InputEvent) -> void:
 	if not enabled:
@@ -65,3 +66,11 @@ func _on_target_input_event(_viewport: Node, event: InputEvent) -> void:
 	
 	if not dragging and event.is_action_pressed("select"):
 		_start_dragging()
+
+
+func _on_dialogue_reading() -> void:
+	enabled = false
+
+
+func _on_dialogue_ready() -> void:
+	enabled = true

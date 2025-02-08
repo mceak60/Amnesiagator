@@ -12,6 +12,7 @@ border_width_bottom = 5
 border_color = Color(1, 1, 1, 1)
 
 [node name="Textbox" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_7jgby")
 
 [node name="TextboxContainer" type="MarginContainer" parent="."]

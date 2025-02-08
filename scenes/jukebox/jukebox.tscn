@@ -34,6 +34,7 @@ offset_left = 35.0
 offset_top = 91.0
 offset_right = 59.0
 offset_bottom = 122.0
+focus_mode = 0
 text = "♫"
 script = ExtResource("15_kqgh3")
 metadata/_edit_use_anchors_ = true

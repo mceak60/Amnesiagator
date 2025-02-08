@@ -20,15 +20,13 @@ extends Node
 
 var current_puzzle_idx := starting_puzzle_idx
 var order_number := 1
- 
+
 func _ready():
 	draggable_mover.submit_drink.connect(process_drink)
 	draggable_mover.submit_drink_to.connect(process_drink_for)
 	current_puzzle_idx = starting_puzzle_idx
 	var current_puzzle = get_current_puzzle()
 	var order = current_puzzle.get_customer_and_order()
-	order_label.text = order
-	textbox.queue_text(order)
 	spawn_puzzle_customer(current_puzzle)
 
 func get_current_puzzle() -> Puzzle:
@@ -67,18 +65,20 @@ func get_puzzle_gold_reward(drink: Drink, result: Puzzle.Result, puzzle: Puzzle)
 	return puzzle.get_gold_reward(drink, result)
 
 func spawn_puzzle_customer(puzzle: Puzzle) -> void:
-	var customer: Array[String] = [puzzle.customer_name, puzzle.customer_animal]
-	match customer:
+	var customer_data: Array[String] = [puzzle.customer_name, puzzle.customer_animal]
+	var customer: Customer
+	match customer_data:
 		["Doug", "Penguin"]:
-			draggable_spawner.spawn_customer(preload("res://data/customers/doug.tres"))
+			customer = draggable_spawner.spawn_customer(preload("res://data/customers/doug.tres"))
 		["Mark", "Owl"]:
-			draggable_spawner.spawn_customer(preload("res://data/customers/mark.tres"))
+			customer = draggable_spawner.spawn_customer(preload("res://data/customers/mark.tres"))
 		["Ziggy", "Chameleon"]:
-			draggable_spawner.spawn_customer(preload("res://data/customers/ziggy.tres"))
+			customer = draggable_spawner.spawn_customer(preload("res://data/customers/ziggy.tres"))
 		["Father Cornelius", "Mink"]:
-			draggable_spawner.spawn_customer(preload("res://data/customers/father_cornelius.tres"))
+			customer = draggable_spawner.spawn_customer(preload("res://data/customers/father_cornelius.tres"))
 		_:
-			draggable_spawner.spawn_customer(preload("res://data/customers/test.tres"))
+			customer = draggable_spawner.spawn_customer(preload("res://data/customers/test.tres"))
+	customer.customer_clicked.connect(_on_customer_clicked)
 
 # SK 1/20/25 - These two methods should be refactored - if a code chunk appears identically in multiple places it is a sign it should be extricated into its own function
 func process_drink(drink: Drink) -> void:
@@ -90,12 +90,13 @@ func process_drink(drink: Drink) -> void:
 	var result_names := ["Great Success", "Success", "Ehhh", "Failure"]
 	
 	feedback_label.text = feedback
-	textbox.queue_text(feedback)
+	textbox.queue_text(current_puzzle.customer_name + ": " + feedback)
 	gold_counter.text = str(int(gold_counter.text) + gold_reward)
 	print(result_names[result])
 	print(feedback)
 	print("Added gold: " + str(gold_reward))
-	
+
+
 func process_drink_for(drink: Drink, customer: Customer) -> void:
 	var current_puzzle := get_current_puzzle()
 	var customer_match := get_puzzle_customer_match(customer, current_puzzle)
@@ -107,7 +108,7 @@ func process_drink_for(drink: Drink, customer: Customer) -> void:
 		var result_names := ["Great Success", "Success", "Ehhh", "Failure"]
 	
 		feedback_label.text = feedback
-		textbox.queue_text(feedback)
+		textbox.queue_text(current_puzzle.customer_name + ": " + feedback)
 		gold_counter.text = str(int(gold_counter.text) + gold_reward)
 	
 		SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_FEEDBACK, [customer, result], 1, .5, .25)
@@ -121,21 +122,26 @@ func process_drink_for(drink: Drink, customer: Customer) -> void:
 		feedback_label.text = "That's not my order."
 		print("Gave the drink to the wrong customer...")
 	
+	# wait for dialogue to be progressed, then the customer leaves
+	await DialogueHandler.dialogue_ready
 	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_LEFT, [customer], 1, .5, .25)
 	customer.queue_free()
 	increment_puzzle()
 	order_number += 1
 	var new_puzzle = get_current_puzzle()
-	# the next 7 lines add a waiting period and update the text box accordingly because it was jarring to just pop
-	# in with the next order immediately, comment everything up to the final await function for an immediate update
-	#await get_tree().create_timer(0.75).timeout
-	#order_label.text = "."
-	#await get_tree().create_timer(0.75).timeout
-	#order_label.text = ". ."
-	#await get_tree().create_timer(0.75).timeout
-	#order_label.text = ". . ."
-	#await get_tree().create_timer(0.75).timeout
+	
+	# wait 3 seconds, then spawn the next customer and get the next puzzle
+	await get_tree().create_timer(3).timeout
+	var new_order = new_puzzle.get_customer_and_order()
+	spawn_puzzle_customer(new_puzzle)
+
+
+func _on_customer_clicked(customer: Customer):
+	if textbox.current_state != textbox.State.READY:
+		return
+	
+	print("Customer clicked: " + str(customer))
+	var new_puzzle = get_current_puzzle()
 	var new_order = new_puzzle.get_customer_and_order()
 	order_label.text = new_order
-	textbox.queue_text(new_order)
-	spawn_puzzle_customer(new_puzzle)
+	textbox.queue_text(new_puzzle.customer_name + ": " + new_order)

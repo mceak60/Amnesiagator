@@ -178,7 +178,6 @@ tile_highlighter = NodePath("TileHighlighter")
 metadata/_edit_group_ = true
 
 [node name="BarCounter" type="TileMapLayer" parent="Counter"]
-position = Vector2(-32, 0)
 tile_map_data = PackedByteArray("AAAAAAAAAQAAAAMAAAAAAAEAAQAAAAQAAAAAAAIAAQAAAAUAAAABAAAAAQABAAMAAAABAAEAAQABAAQAAAABAAIAAQABAAUAAAACAAAAAQACAAMAAAACAAEAAQACAAQAAAACAAIAAQACAAUAAAADAAAAAQADAAMAAAADAAEAAQADAAQAAAADAAIAAQADAAUAAAAEAAAAAQAEAAMAAAAEAAEAAQAEAAQAAAAEAAIAAQAEAAUAAAAFAAAAAQAFAAMAAAAFAAEAAQAFAAQAAAAFAAIAAQAFAAUAAAAGAAAAAQAGAAMAAAAGAAEAAQAGAAQAAAAGAAIAAQAGAAUAAAAHAAAAAQAHAAMAAAAHAAEAAQAHAAQAAAAHAAIAAQAHAAUAAAAIAAAAAQAIAAMAAAAIAAEAAQAIAAQAAAAIAAIAAQAIAAUAAAA=")
 tile_set = ExtResource("2_8n37m")
 
@@ -286,6 +285,7 @@ counter = NodePath("../Counter")
 seating = NodePath("../Seating")
 
 [node name="Order" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 2.0
 offset_top = 5.0
 offset_right = 195.0
@@ -293,6 +293,7 @@ offset_bottom = 142.0
 theme_override_fonts/normal_font = ExtResource("24_mnmeu")
 
 [node name="Feedback" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 512.0
 offset_right = 640.0
 offset_bottom = 256.0
