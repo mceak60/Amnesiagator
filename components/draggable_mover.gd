@@ -87,11 +87,12 @@ func _on_ingredient_dropped(starting_position: Vector2, ingredient: Ingredient) 
 		var tile := draggable_areas[drop_area_index].get_hovered_tile()
 		if draggable_areas[drop_area_index].draggable_grid.is_tile_occupied(tile):
 			var drink: Draggable = draggable_areas[drop_area_index].draggable_grid.draggables[tile]
-			SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.INGREDIENT_ADDED_TO_DRINK, [ingredient, drink], 1, .5,.25)
-			drink.ingredient_list.append(ingredient)
-			drink.debug_label.update_text()
-			for attribute in ingredient.details.attribute_list:
-				drink.attribute_list[attribute] += ingredient.details.attribute_list[attribute]
+			if drink.ingredient_list.size() < drink.maximum_ingredients:
+				SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.INGREDIENT_ADDED_TO_DRINK, [ingredient, drink], 1, .5,.25)
+				drink.ingredient_list.append(ingredient)
+				drink.debug_label.update_text()
+				for attribute in ingredient.details.attribute_list:
+					drink.attribute_list[attribute] += ingredient.details.attribute_list[attribute]
 			
 		_reset_draggable_to_starting_position(starting_position, ingredient)
 		return

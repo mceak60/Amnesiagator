@@ -170,7 +170,7 @@ highlight_layer = NodePath("../Highlight")
 tile = Vector2i(3, 0)
 
 [node name="Counter" type="TileMapLayer" parent="." node_paths=PackedStringArray("draggable_grid", "tile_highlighter")]
-position = Vector2(151, 164)
+position = Vector2(192, 164)
 tile_set = ExtResource("2_8n37m")
 script = ExtResource("4_nb8bd")
 draggable_grid = NodePath("CounterGrid")
@@ -178,6 +178,7 @@ tile_highlighter = NodePath("TileHighlighter")
 metadata/_edit_group_ = true
 
 [node name="BarCounter" type="TileMapLayer" parent="Counter"]
+position = Vector2(-32, 0)
 tile_map_data = PackedByteArray("AAAAAAAAAQAAAAMAAAAAAAEAAQAAAAQAAAAAAAIAAQAAAAUAAAABAAAAAQABAAMAAAABAAEAAQABAAQAAAABAAIAAQABAAUAAAACAAAAAQACAAMAAAACAAEAAQACAAQAAAACAAIAAQACAAUAAAADAAAAAQADAAMAAAADAAEAAQADAAQAAAADAAIAAQADAAUAAAAEAAAAAQAEAAMAAAAEAAEAAQAEAAQAAAAEAAIAAQAEAAUAAAAFAAAAAQAFAAMAAAAFAAEAAQAFAAQAAAAFAAIAAQAFAAUAAAAGAAAAAQAGAAMAAAAGAAEAAQAGAAQAAAAGAAIAAQAGAAUAAAAHAAAAAQAHAAMAAAAHAAEAAQAHAAQAAAAHAAIAAQAHAAUAAAAIAAAAAQAIAAMAAAAIAAEAAQAIAAQAAAAIAAIAAQAIAAUAAAA=")
 tile_set = ExtResource("2_8n37m")
 
