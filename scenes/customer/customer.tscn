@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://scenes/customer/customer.gd" id="1_62hb1"]
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://assets/shaders/2d_outline_shader.tres" id="3_xdqwp"]
 [ext_resource type="Texture2D" uid="uid://cx1ivjobggp8n" path="res://assets/sprites/rogues.png" id="4_18bms"]
-[ext_resource type="Script" path="res://components/debug_label.gd" id="4_yaoc6"]
-[ext_resource type="Script" path="res://components/outline_highlighter.gd" id="7_3h8hc"]
+[ext_resource type="Script" path="res://components/highlighters/outline_highlighter.gd" id="4_a1xyg"]
+[ext_resource type="Script" path="res://components/labels/debug_label.gd" id="6_wbqqc"]
 [ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="7_y7a6r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdqai"]
-size = Vector2(36, 36)
+size = Vector2(46, 51)
 
 [node name="Customer" type="Area2D"]
 script = ExtResource("1_62hb1")
@@ -24,11 +24,11 @@ region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, 8)
+position = Vector2(14, 10.5)
 shape = SubResource("RectangleShape2D_rdqai")
 
 [node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
-script = ExtResource("7_3h8hc")
+script = ExtResource("4_a1xyg")
 visuals = NodePath("../Visuals")
 outline_color = Color(1, 1, 1, 1)
 outline_thickness = 2
@@ -45,7 +45,7 @@ theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("7_y7a6r")
 text = "Test"
 horizontal_alignment = 1
-script = ExtResource("4_yaoc6")
+script = ExtResource("6_wbqqc")
 target = NodePath("..")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

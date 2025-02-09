@@ -3,15 +3,15 @@
 [ext_resource type="Script" path="res://scenes/ingredient/ingredient.gd" id="1_0dcoo"]
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://assets/shaders/2d_outline_shader.tres" id="1_cfepo"]
 [ext_resource type="Resource" uid="uid://dhsk6revjjlpx" path="res://data/ingredients/bases/fireball_whiskey.tres" id="2_3o12t"]
-[ext_resource type="Script" path="res://components/outline_highlighter.gd" id="3_75pbe"]
-[ext_resource type="Texture2D" uid="uid://do6wl57t2xho1" path="res://scenes/bar/bar scene.png" id="4_c62v7"]
-[ext_resource type="Script" path="res://components/drag_and_drop.gd" id="4_ohuqy"]
-[ext_resource type="Script" path="res://components/velocity_based_rotation.gd" id="4_y1vpc"]
-[ext_resource type="Script" path="res://components/debug_label.gd" id="5_racrk"]
+[ext_resource type="Texture2D" uid="uid://cwplwibc2jk02" path="res://assets/sprites/bar scene.png" id="4_lbtrg"]
+[ext_resource type="Script" path="res://components/draggable_components/drag_and_drop.gd" id="5_8xn5v"]
+[ext_resource type="Script" path="res://components/draggable_components/velocity_based_rotation.gd" id="6_2i3me"]
+[ext_resource type="Script" path="res://components/highlighters/outline_highlighter.gd" id="7_6hn7r"]
 [ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="8_omucs"]
+[ext_resource type="Script" path="res://components/labels/debug_label.gd" id="9_ovwad"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdqai"]
-size = Vector2(20, 30)
+size = Vector2(24, 33)
 
 [node name="Ingredient" type="Area2D" groups=["ingredients"]]
 script = ExtResource("1_0dcoo")
@@ -23,26 +23,26 @@ material = ExtResource("1_cfepo")
 
 [node name="Skin" type="Sprite2D" parent="Visuals"]
 position = Vector2(16, 16)
-texture = ExtResource("4_c62v7")
+texture = ExtResource("4_lbtrg")
 region_enabled = true
 region_rect = Rect2(160, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, 18)
+position = Vector2(16, 17.5)
 shape = SubResource("RectangleShape2D_rdqai")
 
 [node name="DragAndDrop" type="Node" parent="." node_paths=PackedStringArray("target")]
-script = ExtResource("4_ohuqy")
+script = ExtResource("5_8xn5v")
 target = NodePath("..")
 
 [node name="VelocityBasedRotation" type="Node" parent="." node_paths=PackedStringArray("target")]
-script = ExtResource("4_y1vpc")
+script = ExtResource("6_2i3me")
 target = NodePath("../Visuals/Skin")
 lerp_seconds = 0.3
 max_rotation_degrees = 30
 
 [node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
-script = ExtResource("3_75pbe")
+script = ExtResource("7_6hn7r")
 visuals = NodePath("../Visuals")
 outline_color = Color(1, 1, 1, 1)
 outline_thickness = 2
@@ -60,7 +60,7 @@ theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("8_omucs")
 text = "Test"
 horizontal_alignment = 1
-script = ExtResource("5_racrk")
+script = ExtResource("9_ovwad")
 target = NodePath("..")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

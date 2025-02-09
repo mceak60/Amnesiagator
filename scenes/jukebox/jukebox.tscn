@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=4 uid="uid://ca8q0rl2oblvb"]
 
-[ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://scenes/arena/tileset.tres" id="1_amroe"]
-[ext_resource type="Script" path="res://components/music_handler.gd" id="2_qaon4"]
+[ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://assets/tileset.tres" id="1_amroe"]
+[ext_resource type="Script" path="res://components/music/music_handler.gd" id="2_qaon4"]
 [ext_resource type="AudioStream" uid="uid://dosq7pyksewo4" path="res://assets/music/Calmant.mp3" id="3_sv34r"]
 [ext_resource type="AudioStream" uid="uid://d3s5f2fu7jahm" path="res://assets/music/Cold Funk.mp3" id="4_s6d3t"]
 [ext_resource type="AudioStream" uid="uid://ov6th6vk8ouq" path="res://assets/music/Digital Lemonade.mp3" id="5_cc36r"]
@@ -14,8 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://cvodutyw16b70" path="res://assets/music/The Forest And The Trees.mp3" id="12_pfph4"]
 [ext_resource type="AudioStream" uid="uid://djd2n3e2r3fy7" path="res://assets/music/Thief In The Night.mp3" id="13_48uvn"]
 [ext_resource type="AudioStream" uid="uid://q3w8fcnhubuy" path="res://assets/music/Vibing Over Venus.mp3" id="14_rkdwl"]
-[ext_resource type="Script" path="res://components/music_label.gd" id="15_310qy"]
-[ext_resource type="Script" path="res://components/music_button.gd" id="15_kqgh3"]
+[ext_resource type="Script" path="res://components/labels/music_label.gd" id="15_310qy"]
+[ext_resource type="Script" path="res://components/music/music_button.gd" id="15_kqgh3"]
 [ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="16_h4x1g"]
 
 [node name="Jukebox" type="Node2D"]

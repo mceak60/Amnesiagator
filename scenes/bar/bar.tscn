@@ -1,18 +1,18 @@
 [gd_scene load_steps=35 format=4 uid="uid://b5xkx805g0kxj"]
 
 [ext_resource type="Script" path="res://scenes/bar/bar.gd" id="1_5m26e"]
-[ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://scenes/arena/tileset.tres" id="2_8n37m"]
+[ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://assets/tileset.tres" id="2_8n37m"]
 [ext_resource type="Texture2D" uid="uid://mbxv0ayrsu3d" path="res://assets/sprites/star_particle.png" id="3_u2pxk"]
-[ext_resource type="Script" path="res://components/draggable_area.gd" id="4_nb8bd"]
-[ext_resource type="Script" path="res://components/draggable_grid.gd" id="5_80xpi"]
-[ext_resource type="Script" path="res://components/tile_highlighter2.gd" id="6_lytro"]
+[ext_resource type="Script" path="res://components/draggable_components/draggable_area.gd" id="4_nb8bd"]
+[ext_resource type="Script" path="res://components/draggable_components/draggable_grid.gd" id="5_80xpi"]
+[ext_resource type="Script" path="res://components/highlighters/tile_highlighter2.gd" id="6_lytro"]
 [ext_resource type="PackedScene" uid="uid://dk2w3c34ae7yp" path="res://scenes/ingredient/ingredient.tscn" id="7_e32e7"]
 [ext_resource type="Resource" uid="uid://wca2sic46svr" path="res://data/ingredients/bases/berry_brew.tres" id="7_ueodf"]
 [ext_resource type="Resource" uid="uid://pm2fpv484bh2" path="res://data/ingredients/bases/molten_metal.tres" id="8_svd31"]
 [ext_resource type="PackedScene" uid="uid://b3f52ph83f31m" path="res://scenes/drink/drink.tscn" id="9_8ypaw"]
 [ext_resource type="Resource" uid="uid://bmidkeyqjvsna" path="res://data/ingredients/bases/frost_vodka.tres" id="9_800i4"]
 [ext_resource type="Resource" uid="uid://k0gmsq77ek8n" path="res://data/ingredients/mixers/ice.tres" id="9_81278"]
-[ext_resource type="Script" path="res://components/draggable_mover.gd" id="9_r2njs"]
+[ext_resource type="Script" path="res://components/draggable_components/draggable_mover.gd" id="9_r2njs"]
 [ext_resource type="Resource" uid="uid://h8ckrc3qhp1s" path="res://data/ingredients/mixers/spark_syrup.tres" id="10_s4srp"]
 [ext_resource type="Resource" uid="uid://1k3bytuqvil2" path="res://data/ingredients/mixers/bubbly_water.tres" id="11_p6hkh"]
 [ext_resource type="Resource" uid="uid://d06df0ppixm2w" path="res://data/ingredients/mixers/lava_lamp.tres" id="12_01dsp"]
@@ -20,10 +20,9 @@
 [ext_resource type="Resource" uid="uid://clotptjvnql3y" path="res://data/ingredients/garnishes/red_pepper_flakes.tres" id="14_k5j75"]
 [ext_resource type="Resource" uid="uid://dr6qb475c51fj" path="res://data/ingredients/garnishes/blossom_petals.tres" id="15_36fyq"]
 [ext_resource type="Resource" uid="uid://b2or6aqa4g1n6" path="res://data/ingredients/garnishes/hickory.tres" id="16_aniqh"]
-[ext_resource type="Script" path="res://components/draggable_spawner.gd" id="21_05fne"]
+[ext_resource type="Script" path="res://components/draggable_components/draggable_spawner.gd" id="21_05fne"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_1.gd" id="22_m3gre"]
 [ext_resource type="PackedScene" uid="uid://biw3haki8sh78" path="res://scenes/customer/customer.tscn" id="23_f36nf"]
-[ext_resource type="Resource" uid="uid://j8smv086g07h" path="res://data/customers/doug.tres" id="24_70dxc"]
 [ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="24_mnmeu"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_handler.gd" id="24_tseuq"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_2.gd" id="26_bcgwp"]
@@ -53,6 +52,9 @@ scale_min = 0.1
 scale_max = 0.2
 scale_curve = SubResource("CurveTexture_5sum6")
 color = Color(1, 1, 1, 0.494118)
+
+[sub_resource type="Resource" id="Resource_l4eua"]
+metadata/__load_path__ = "res://data/customers/doug.tres"
 
 [node name="Bar" type="Node2D"]
 script = ExtResource("1_5m26e")
@@ -261,7 +263,7 @@ tile_set = ExtResource("2_8n37m")
 
 [node name="Customer" parent="Seating" instance=ExtResource("23_f36nf")]
 position = Vector2(512, 0)
-details = ExtResource("24_70dxc")
+details = SubResource("Resource_l4eua")
 
 [node name="SeatingGrid" type="Node2D" parent="Seating"]
 script = ExtResource("5_80xpi")

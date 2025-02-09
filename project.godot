@@ -24,7 +24,7 @@ DialogueHandler="*res://components/global/dialogue_handler.gd"
 [dialogic]
 
 directories/dch_directory={
-"doug": "res://data/customers/doug.dch"
+"doug/doug": "res://data/customers/doug/doug.dch"
 }
 directories/dtl_directory={
 "puzzle1": "res://data/puzzles/puzzle1.dtl"

@@ -21,7 +21,7 @@ func reset_after_dragging(starting_position: Vector2) -> void:
 func _on_drag_started() -> void:
 	velocity_based_rotation.enabled = true
 
-
+ 
 func _on_drag_canceled(starting_position: Vector2) -> void:
 	reset_after_dragging(starting_position)
 

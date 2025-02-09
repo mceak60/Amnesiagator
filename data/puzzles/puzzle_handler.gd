@@ -1,9 +1,6 @@
 class_name PuzzleHandler
 extends Node
 
-#signal submit_drink(drink: Drink)
-#signal submit_drink_to(drink: Drink, customer: Customer)
-
 @export var puzzle_list: Array[Puzzle]
 @export var next_puzzle: bool = true
 @export var starting_puzzle_idx: int
@@ -64,62 +61,36 @@ func get_puzzle_feedback(drink: Drink, result: Puzzle.Result, puzzle: Puzzle) ->
 func get_puzzle_gold_reward(drink: Drink, result: Puzzle.Result, puzzle: Puzzle) -> int:
 	return puzzle.get_gold_reward(drink, result)
 
+
 func spawn_puzzle_customer(puzzle: Puzzle) -> void:
 	var customer_data: Array[String] = [puzzle.customer_name, puzzle.customer_animal]
 	var customer: Customer
 	match customer_data:
 		["Doug", "Penguin"]:
-			customer = draggable_spawner.spawn_customer(preload("res://data/customers/doug.tres"))
+			customer = draggable_spawner.spawn_customer(preload("res://data/customers/doug/doug.tres"))
 		["Mark", "Owl"]:
-			customer = draggable_spawner.spawn_customer(preload("res://data/customers/mark.tres"))
+			customer = draggable_spawner.spawn_customer(preload("res://data/customers/mark/mark.tres"))
 		["Ziggy", "Chameleon"]:
-			customer = draggable_spawner.spawn_customer(preload("res://data/customers/ziggy.tres"))
+			customer = draggable_spawner.spawn_customer(preload("res://data/customers/ziggy/ziggy.tres"))
 		["Father Cornelius", "Mink"]:
-			customer = draggable_spawner.spawn_customer(preload("res://data/customers/father_cornelius.tres"))
+			customer = draggable_spawner.spawn_customer(preload("res://data/customers/father_cornelius/father_cornelius.tres"))
 		_:
 			customer = draggable_spawner.spawn_customer(preload("res://data/customers/test.tres"))
-	customer.customer_clicked.connect(_on_customer_clicked)
+	customer.customer_clicked.connect(_show_customer_dialogue)
 
-# SK 1/20/25 - These two methods should be refactored - if a code chunk appears identically in multiple places it is a sign it should be extricated into its own function
+
 func process_drink(drink: Drink) -> void:
-	var current_puzzle := get_current_puzzle()
-	var result: Puzzle.Result = get_puzzle_evaluation(drink, current_puzzle)
-	var feedback: String = get_puzzle_feedback(drink, result, current_puzzle)
-	var gold_reward: int = get_puzzle_gold_reward(drink, result, current_puzzle)
-	
-	var result_names := ["Great Success", "Success", "Ehhh", "Failure"]
-	
-	feedback_label.text = feedback
-	textbox.queue_text(current_puzzle.customer_name + ": " + feedback)
-	gold_counter.text = str(int(gold_counter.text) + gold_reward)
-	print(result_names[result])
-	print(feedback)
-	print("Added gold: " + str(gold_reward))
+	do_process_drink(drink, get_current_puzzle())
 
 
 func process_drink_for(drink: Drink, customer: Customer) -> void:
 	var current_puzzle := get_current_puzzle()
 	var customer_match := get_puzzle_customer_match(customer, current_puzzle)
 	if customer_match == true:
-		var result: Puzzle.Result = get_puzzle_evaluation(drink, current_puzzle)
-		var feedback: String = get_puzzle_feedback(drink, result, current_puzzle)
-		var gold_reward: int = get_puzzle_gold_reward(drink, result, current_puzzle)
-	
-		var result_names := ["Great Success", "Success", "Ehhh", "Failure"]
-	
-		feedback_label.text = feedback
-		textbox.queue_text(current_puzzle.customer_name + ": " + feedback)
-		gold_counter.text = str(int(gold_counter.text) + gold_reward)
-	
-		SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_FEEDBACK, [customer, result], 1, .5, .25)
-		SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.GOLD_ADDED)
-
-		print(result_names[result])
-		print(feedback)
-		print("Added gold: " + str(gold_reward))
-		
+		do_process_drink(drink, current_puzzle, customer)
 	else:
-		feedback_label.text = "That's not my order."
+		textbox.queue_text(current_puzzle.customer_name + ": " + "That's not my order.")
+		#feedback_label.text = "That's not my order."
 		print("Gave the drink to the wrong customer...")
 	
 	# wait for dialogue to be progressed, then the customer leaves
@@ -132,16 +103,34 @@ func process_drink_for(drink: Drink, customer: Customer) -> void:
 	
 	# wait 3 seconds, then spawn the next customer and get the next puzzle
 	await get_tree().create_timer(3).timeout
-	var new_order = new_puzzle.get_customer_and_order()
+	new_puzzle.get_customer_and_order()
 	spawn_puzzle_customer(new_puzzle)
 
+# helper function for process_drink and process_drink_for
+func do_process_drink(drink: Drink, current_puzzle: Puzzle, customer: Customer = null) -> void:
+	var result: Puzzle.Result = get_puzzle_evaluation(drink, current_puzzle)
+	var feedback: String = get_puzzle_feedback(drink, result, current_puzzle)
+	var gold_reward: int = get_puzzle_gold_reward(drink, result, current_puzzle)
+	var result_names := ["Great Success", "Success", "Ehhh", "Failure"]
+	
+	gold_counter.text = str(int(gold_counter.text) + gold_reward)
+	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.GOLD_ADDED)
+	textbox.queue_text(current_puzzle.customer_name + ": " + feedback)
+	if(customer != null):
+		SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_FEEDBACK, [customer, result], 1, .5, .25)
+	#feedback_label.text = feedback
 
-func _on_customer_clicked(customer: Customer):
-	if textbox.current_state != textbox.State.READY:
+	print(result_names[result])
+	print(feedback)
+	print("Added gold: " + str(gold_reward))
+
+
+func _show_customer_dialogue(customer: Customer):
+	if DialogueHandler.current_state != DialogueHandler.State.READY:
 		return
 	
 	print("Customer clicked: " + str(customer))
-	var new_puzzle = get_current_puzzle()
-	var new_order = new_puzzle.get_customer_and_order()
-	order_label.text = new_order
-	textbox.queue_text(new_puzzle.customer_name + ": " + new_order)
+	var puzzle = get_current_puzzle()
+	var order = puzzle.get_customer_and_order()
+	textbox.queue_text(puzzle.customer_name + ": " + order)
+	#order_label.text = order
