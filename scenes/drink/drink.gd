@@ -20,6 +20,8 @@ var attribute_list = {
 	"Boring": 0,
 }
 
+var maximum_ingredients : int = 3
+
 @onready var skin: Sprite2D = $Visuals/Skin
 
 @export_category("Visuals")
