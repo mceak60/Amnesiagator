@@ -248,7 +248,6 @@ tile = Vector2i(3, 0)
 
 [node name="Seating" type="TileMapLayer" parent="." node_paths=PackedStringArray("draggable_grid", "tile_highlighter")]
 position = Vector2(152, 228)
-tile_map_data = PackedByteArray("AAAAAAAAAAACABEAAAABAAAAAAACABEAAAACAAAAAAACABEAAAADAAAAAAACABEAAAAEAAAAAAACABEAAAAFAAAAAAACABEAAAAGAAAAAAACABEAAAAHAAAAAAACABEAAAAIAAAAAAACABEAAAAJAAAAAAACABEAAAA=")
 tile_set = ExtResource("2_8n37m")
 script = ExtResource("4_nb8bd")
 draggable_grid = NodePath("SeatingGrid")
