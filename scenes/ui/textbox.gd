@@ -4,7 +4,7 @@ const CHAR_READ_RATE = 0.05
 
 @onready var textbox_container: MarginContainer = $TextboxContainer
 @onready var text_label: Label = $TextboxContainer/MarginContainer/HBoxContainer/Text
-@onready var end_symbol: Label = $TextboxContainer/MarginContainer/HBoxContainer/End
+@onready var end_symbol: RichTextLabel = $TextboxContainer/MarginContainer/HBoxContainer/End
 @onready var tween = get_tree().create_tween()
 
 
@@ -25,7 +25,7 @@ func _process(_delta: float) -> void:
 			if Input.is_action_just_pressed("ui_accept"):
 				tween.kill()
 				text_label.visible_characters = -1
-				end_symbol.text = "↵"
+				end_symbol.text = "[wave]↵[wave]"
 				DialogueHandler.change_state(state.FINISHED)
 		state.FINISHED:
 			if Input.is_action_just_pressed("ui_accept"):
@@ -54,9 +54,9 @@ func display_text() -> void:
 	show_textbox()
 	tween.tween_property(text_label, "visible_characters", len(next_text), len(next_text) * CHAR_READ_RATE).from(0).finished
 	tween.connect("finished", on_tween_finished)
-	end_symbol.text = ". . ."
+	end_symbol.text = "[wave]. . .[wave]"
 
 
 func on_tween_finished():
-	end_symbol.text = "↵"
+	end_symbol.text = "[wave]↵[wave]"
 	DialogueHandler.change_state(state.FINISHED)

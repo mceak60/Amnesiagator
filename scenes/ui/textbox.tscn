@@ -42,20 +42,24 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 
 [node name="Text" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
-clip_contents = true
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("2_lcfhk")
 theme_override_font_sizes/font_size = 24
 text = "Text"
 autowrap_mode = 3
 
-[node name="End" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+[node name="End" type="RichTextLabel" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("2_lcfhk")
-theme_override_font_sizes/font_size = 24
-text = ". . .
-"
+theme_override_fonts/normal_font = ExtResource("2_lcfhk")
+theme_override_fonts/mono_font = ExtResource("2_lcfhk")
+theme_override_font_sizes/mono_font_size = 24
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = ". . ."
+fit_content = true
+scroll_active = false
