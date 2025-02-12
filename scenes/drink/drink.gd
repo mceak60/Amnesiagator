@@ -4,21 +4,7 @@ extends Draggable
 
 @export var ingredient_list: Array[Ingredient]
 
-#SK 1/16 - HIGH PRIORITY - We really need to make the attribute list a constant somewhere, otherwise it has to be updated across all classes when one attribute is added.
-var attribute_list = {
-	"Heat": 0,
-	"Cold": 0,
-	"Fruity": 0,
-	"Metallic": 0,
-	"Electricity": 0,
-	"Fizzy": 0,
-	"Weird": 0,
-	"Sweet": 0,
-	"Flora": 0,
-	"Earthy": 0,
-	"Sleepy": 0,
-	"Boring": 0,
-}
+var attribute_list = Dictionary().merged(Definitions.DEFAULT_ATTRIBUTES)
 
 var maximum_ingredients : int = 3
 

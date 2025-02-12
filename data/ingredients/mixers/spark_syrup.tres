@@ -9,18 +9,7 @@ quality = 0
 ingredient_type = 1
 gold_cost = 1
 attribute_list = {
-"Boring": 0,
-"Cold": 0,
-"Earthy": 0,
-"Electricity": 1,
-"Fizzy": 0,
-"Flora": 0,
-"Fruity": 0,
-"Heat": 0,
-"Metallic": 0,
-"Sleepy": 0,
-"Sweet": 0,
-"Weird": 0
+"Electricity": 1
 }
 skin_coordinates = Vector2i(5, 2)
 pickup_sfx = Array[int]([22, 6])

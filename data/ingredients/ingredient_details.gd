@@ -5,21 +5,6 @@ enum Quality {CHEAP, AVERAGE, EXQUISITE}
 
 enum Ingredient_Type {BASE, MIXER, GARNISH}
 
-const DEFAULT_ATTRIBUTES := {
-	"Heat": 0,
-	"Cold" : 0,
-	"Fruity" : 0,
-	"Metallic" : 0,
-	"Electricity" : 0,
-	"Fizzy" : 0,
-	"Weird" : 0,
-	"Sweet" : 0,
-	"Flora" : 0,
-	"Earthy" : 0,
-	"Sleepy" : 0,
-	"Boring" : 0,
-}
-
 const QUALITY_COLORS := {
 	Quality.CHEAP: Color("124a2e"),
 	Quality.AVERAGE: Color("1c527c"),
@@ -33,7 +18,7 @@ const QUALITY_COLORS := {
 @export var quality: Quality
 @export var ingredient_type: Ingredient_Type
 @export var gold_cost := 1
-@export var attribute_list: Dictionary = DEFAULT_ATTRIBUTES
+@export var attribute_list: Dictionary
 
 @export_category("Visuals")
 @export var skin_coordinates: Vector2i
