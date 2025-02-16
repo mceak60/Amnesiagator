@@ -3,26 +3,44 @@ class_name Drink
 extends Draggable
 
 @export var ingredient_list: Array[Ingredient]
+@export var INCREMENT_SIZE: int
+@export var current_color: Color
 
 var attribute_list = Dictionary().merged(Definitions.DEFAULT_ATTRIBUTES)
 
-var maximum_ingredients : int = 3
+var max_capacity: int = 10
+var current_capacity: int = 0
 
 @onready var skin: Sprite2D = $Visuals/Skin
+@onready var drink_visual: Sprite2D = $Visuals/DrinkLevel
 
 @export_category("Visuals")
-@export var skin_coordinates: Vector2i: set = set_skin
+@export var drink_level: Vector2i: set = set_drink_level
 
-func set_skin(coords: Vector2i) -> void:
-	skin_coordinates = coords
-	
+func set_drink_level(coords: Vector2i) -> void:
+	drink_level = coords
 	if coords == null:
 		return
 	
 	if not is_node_ready():
 		await ready
 	
-	skin.region_rect.position = Vector2(skin_coordinates) * Bar.CELL_SIZE
+	drink_visual.region_rect.position = Vector2(drink_level) * Bar.CELL_SIZE
+	drink_visual.modulate = current_color
+
+func add_level(ingredient: Ingredient) -> void:
+	current_color = get_random_color()
+	drink_level.x = drink_level.x + INCREMENT_SIZE
+	current_capacity += INCREMENT_SIZE
+	pass
+
+func can_add_more() -> bool:
+	return current_capacity < max_capacity
+	
+func get_random_color() -> Color:
+	var rng = RandomNumberGenerator.new()
+	var hue = rng.randf()
+	return Color.from_hsv(hue,0.85,0.85,0.8)
 
 func get_ingredient_list() -> Array[Ingredient]:
 	return ingredient_list
@@ -41,7 +59,7 @@ func has_ingredient(ingredient: String) -> bool:
 	return get_ingredient_names().has(ingredient)
 
 func has_attribute(attribute: String) -> bool:
-	return attribute_list[attribute] > 0 
+	return attribute_list[attribute] > 0
 	
 func num_of_attribute(attribute: String) -> int:
 	if has_attribute(attribute):
@@ -50,7 +68,7 @@ func num_of_attribute(attribute: String) -> int:
 		return 0
 
 func num_total_attributes() -> int:
-	var sum := 0 
+	var sum := 0
 	for attr in attribute_list:
 		sum += attribute_list[attr]
 	return sum
@@ -62,14 +80,14 @@ func contains_n_from_attribute_list(n: int, attr_list: Array[String]) -> bool:
 	var sum := 0
 	for attr in attr_list:
 		if has_attribute(attr):
-			sum +=1
+			sum += 1
 	return (sum == n)
 
 func contains_n_from_ingredient_list(n: int, ingred_list: Array[String]) -> bool:
 	var sum := 0
 	for ingredient in ingred_list:
 		if has_ingredient(ingredient):
-			sum +=1
+			sum += 1
 	return (sum == n)
 
 func equals_sole_ingredient(ingred: String) -> bool:
@@ -79,14 +97,14 @@ func equals_sole_ingredient(ingred: String) -> bool:
 		return false
 
 func get_attributes_matched(attr_list: Array[String]) -> Array[String]:
-	var out : Array[String] = []
+	var out: Array[String] = []
 	for attr in attr_list:
 		if has_attribute(attr):
 			out.append(attr)
 	return out
 
 func get_ingredients_matched(ingred_list: Array[String]) -> Array[String]:
-	var out : Array[String] = []
+	var out: Array[String] = []
 	for ingred in ingred_list:
 		if has_ingredient(ingred):
 			out.append(ingred)
@@ -101,27 +119,27 @@ func priority_list_has(priority_list: Array, quality: String) -> bool:
 	return has
 
 func get_attribute_priority_list() -> Array:
-	var priority_list : Array = []
+	var priority_list: Array = []
 	
 	while priority_list.size() < attribute_list.size():
-		var max : Array[String] = []
+		var max_list: Array[String] = []
 		var max_count = 0
 		for attribute in attribute_list:
 			if attribute_list[attribute] > max_count && !priority_list_has(priority_list, attribute):
-				max.clear()
-				max.append(attribute)
+				max_list.clear()
+				max_list.append(attribute)
 				max_count = attribute_list[attribute]
 			
 			elif attribute_list[attribute] == max_count && !priority_list_has(priority_list, attribute):
-				max.append(attribute)
+				max_list.append(attribute)
 			
-		priority_list.append(max)
+		priority_list.append(max_list)
 	return priority_list
 	
 
 func get_ingredient_priority_list() -> Array:
-	var priority_list : Array = []
-	var ingredient_dict : Dictionary
+	var priority_list: Array = []
+	var ingredient_dict: Dictionary
 	for ingredient in ingredient_list:
 		var ingredient_name = ingredient.details.name
 		if ingredient_dict.has(ingredient_name):
@@ -130,24 +148,24 @@ func get_ingredient_priority_list() -> Array:
 			ingredient_dict[ingredient_name] = 1
 	
 	while priority_list.size() < ingredient_dict.size():
-		var max : Array[String] = []
+		var max_list: Array[String] = []
 		var max_count = 0
 		for ingredient in ingredient_dict:
 			if ingredient_dict[ingredient] > max_count && !priority_list_has(priority_list, ingredient):
-				max.clear()
-				max.append(ingredient)
+				max_list.clear()
+				max_list.append(ingredient)
 				max_count = ingredient_dict[ingredient]
 			
 			elif ingredient_dict[ingredient] == max_count && !priority_list_has(priority_list, ingredient):
-				max.append(ingredient)
+				max_list.append(ingredient)
 			
-		priority_list.append(max)
-	return priority_list 
+		priority_list.append(max_list)
+	return priority_list
 	
 	
 func get_combo_priority_list() -> Array:
-	var priority_list : Array = []
-	var ingredient_dict : Dictionary
+	var priority_list: Array = []
+	var ingredient_dict: Dictionary
 	for ingredient in ingredient_list:
 		var ingredient_name = ingredient.details.name
 		if ingredient_dict.has(ingredient_name):
@@ -159,34 +177,34 @@ func get_combo_priority_list() -> Array:
 	#print("Combo_dict " + str(combo_dict))
 	
 	while priority_list.size() < combo_dict.size():
-		var max : Array[String] = []
+		var max_list: Array[String] = []
 		var max_count = 1
 		for item in combo_dict:
 			#print(item + ":" + str(combo_dict[item]) + " " + str(priority_list_has(priority_list, item)))
 			if combo_dict[item] > max_count && !priority_list_has(priority_list, item):
 				#print("New max: " + item)
-				max.clear()
-				max.append(item)
+				max_list.clear()
+				max_list.append(item)
 				max_count = combo_dict[item]
 			
 			elif combo_dict[item] == max_count && !priority_list_has(priority_list, item):
 				#print("Equal to: " + item)
-				max.append(item)
+				max_list.append(item)
 			
 		#print("Max: " + str(max))
-		priority_list.append(max)
+		priority_list.append(max_list)
 		#print("cleared max: " + str(max))
-	return priority_list 
+	return priority_list
 
 func get_priority_of(priority_list: Array, quality: String) -> int:
-	var priority : int = 99
+	var priority_val: int = 99
 	var index = 0
 	for index_array in priority_list:
 		if index_array.has(quality):
-			priority = index
+			priority_val = index
 		index += 1
 	
-	return priority
+	return priority_val
 
 func get_sfx(_trigger: SFX_Handler.SFX_Triggers) -> Array[SFX_Handler.SFX_Categories]:
 	# Currently static
