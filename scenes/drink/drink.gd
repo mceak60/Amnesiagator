@@ -1,8 +1,10 @@
+@tool
 class_name Drink
 extends Draggable
 
 @export var ingredient_list: Array[Ingredient]
 @export var INCREMENT_SIZE: int
+@export var current_color: Color
 
 var attribute_list = Dictionary().merged(Definitions.DEFAULT_ATTRIBUTES)
 
@@ -11,7 +13,6 @@ var current_capacity: int = 0
 
 @onready var skin: Sprite2D = $Visuals/Skin
 @onready var drink_visual: Sprite2D = $Visuals/DrinkLevel
-
 
 @export_category("Visuals")
 @export var drink_level: Vector2i: set = set_drink_level
@@ -25,14 +26,21 @@ func set_drink_level(coords: Vector2i) -> void:
 		await ready
 	
 	drink_visual.region_rect.position = Vector2(drink_level) * Bar.CELL_SIZE
+	drink_visual.modulate = current_color
 
 func add_level(ingredient: Ingredient) -> void:
+	current_color = get_random_color()
 	drink_level.x = drink_level.x + INCREMENT_SIZE
 	current_capacity += INCREMENT_SIZE
 	pass
 
 func can_add_more() -> bool:
 	return current_capacity < max_capacity
+	
+func get_random_color() -> Color:
+	var rng = RandomNumberGenerator.new()
+	var hue = rng.randf()
+	return Color.from_hsv(hue,0.85,0.85,0.8)
 
 func get_ingredient_list() -> Array[Ingredient]:
 	return ingredient_list

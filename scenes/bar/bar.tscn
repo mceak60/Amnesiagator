@@ -190,6 +190,7 @@ tile_set = ExtResource("2_8n37m")
 
 [node name="Drink" parent="Counter" instance=ExtResource("9_8ypaw")]
 position = Vector2(512, 0)
+current_color = null
 
 [node name="CounterGrid" type="Node2D" parent="Counter"]
 script = ExtResource("5_80xpi")
