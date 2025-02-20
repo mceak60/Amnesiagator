@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://components/labels/debug_label.gd" id="8_gq2ua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdqai"]
-size = Vector2(36, 39)
+size = Vector2(34, 34)
 
 [node name="Drink" type="Area2D" groups=["drinks"]]
 z_index = 3
@@ -36,7 +36,7 @@ region_enabled = true
 region_rect = Rect2(32, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, 9.5)
+position = Vector2(15, 9)
 shape = SubResource("RectangleShape2D_rdqai")
 
 [node name="DragAndDrop" type="Node" parent="." node_paths=PackedStringArray("target")]

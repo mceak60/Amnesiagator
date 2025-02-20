@@ -97,7 +97,6 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAAAAEAAAAAAAEAAQAAAAEAAAAAAAIAAQAAAAE
 tile_set = ExtResource("2_8n37m")
 
 [node name="Highlight" type="TileMapLayer" parent="Shelf"]
-enabled = false
 tile_set = ExtResource("2_8n37m")
 
 [node name="Fireball Whiskey" parent="Shelf" instance=ExtResource("7_e32e7")]
@@ -166,7 +165,6 @@ size = Vector2i(4, 3)
 
 [node name="TileHighlighter" type="Node" parent="Shelf" node_paths=PackedStringArray("draggable_area", "highlight_layer")]
 script = ExtResource("6_lytro")
-enabled = false
 draggable_area = NodePath("..")
 highlight_layer = NodePath("../Highlight")
 tile = Vector2i(3, 0)
@@ -185,12 +183,10 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAAAAMAAAAAAAEAAQAAAAQAAAAAAAIAAQAAAAU
 tile_set = ExtResource("2_8n37m")
 
 [node name="Highlight" type="TileMapLayer" parent="Counter"]
-enabled = false
 tile_set = ExtResource("2_8n37m")
 
 [node name="Drink" parent="Counter" instance=ExtResource("9_8ypaw")]
 position = Vector2(512, 0)
-current_color = null
 
 [node name="CounterGrid" type="Node2D" parent="Counter"]
 script = ExtResource("5_80xpi")
@@ -198,7 +194,6 @@ size = Vector2i(7, 1)
 
 [node name="TileHighlighter" type="Node" parent="Counter" node_paths=PackedStringArray("draggable_area", "highlight_layer")]
 script = ExtResource("6_lytro")
-enabled = false
 draggable_area = NodePath("..")
 highlight_layer = NodePath("../Highlight")
 tile = Vector2i(3, 0)
@@ -259,7 +254,6 @@ tile_highlighter = NodePath("TileHighlighter")
 metadata/_edit_group_ = true
 
 [node name="Highlight" type="TileMapLayer" parent="Seating"]
-enabled = false
 tile_set = ExtResource("2_8n37m")
 
 [node name="Customer" parent="Seating" instance=ExtResource("23_f36nf")]

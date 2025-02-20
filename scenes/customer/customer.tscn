@@ -8,7 +8,7 @@
 [ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="7_y7a6r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdqai"]
-size = Vector2(46, 51)
+size = Vector2(40, 39)
 
 [node name="Customer" type="Area2D"]
 script = ExtResource("1_62hb1")
@@ -24,7 +24,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(14, 10.5)
+position = Vector2(15, 9.5)
 shape = SubResource("RectangleShape2D_rdqai")
 
 [node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]

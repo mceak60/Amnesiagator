@@ -10,6 +10,7 @@ var attribute_list = Dictionary().merged(Definitions.DEFAULT_ATTRIBUTES)
 
 var max_capacity: int = 10
 var current_capacity: int = 0
+var default_drink_level: Vector2i = Vector2i(1,0)
 
 @onready var skin: Sprite2D = $Visuals/Skin
 @onready var drink_visual: Sprite2D = $Visuals/DrinkLevel
@@ -235,6 +236,8 @@ func _on_mouse_exited() -> void:
 
 func empty() -> void:
 	ingredient_list.clear()
+	set_drink_level(default_drink_level)
+	current_capacity = 0
 	for attribute in attribute_list:
 		attribute_list[attribute] = 0
 
