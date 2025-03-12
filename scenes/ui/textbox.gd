@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 const CHAR_READ_RATE = 0.05
 
