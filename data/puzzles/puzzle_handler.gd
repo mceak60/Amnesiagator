@@ -13,7 +13,7 @@ extends Node
 @onready var order_label: RichTextLabel = $"../Order"
 @onready var feedback_label: RichTextLabel = $"../Feedback"
 @onready var gold_counter: Label = $"../GoldCounter"
-@onready var textbox: CanvasLayer = $"../Textbox"
+@onready var textbox: Control = $"../UILayer/Textbox"
 
 var current_puzzle_idx := starting_puzzle_idx
 var order_number := 1
