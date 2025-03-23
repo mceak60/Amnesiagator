@@ -27,12 +27,18 @@ directories/dch_directory={
 "doug": "res://data/customers/doug/doug.dch"
 }
 directories/dtl_directory={
-"puzzle1": "res://data/puzzles/puzzle1.dtl"
+"puzzle": "res://data/puzzles/puzzle.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=[]
-layout/default_style="Default"
-variables={}
+layout/style_list=["res://components/styles/test.tres", "res://components/styles/portrait_style.tres", "res://components/styles/vn_style.tres", "res://components/styles/test2.tres", "res://components/styles/test2_2.tres", "res://components/styles/test3.tres"]
+layout/default_style="res://components/styles/test3.tres"
+variables={
+"current_puzzle": "",
+"feedback": "",
+"order": "",
+"ordering": false,
+"result": 0
+}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -53,6 +59,16 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
+glossary/glossary_files=["res://components/styles/glossary.tres"]
+history/simple_history_enabled=true
+history/full_history_enabled=true
+history/simple_history_save=true
+history/full_history_save=true
+history/visited_event_history_enabled=true
+history/save_on_save=true
+history/save_on_autosave=true
+animations/join_default="Slide In Left"
+animations/leave_default="Slide Out Left"
 
 [display]
 

@@ -76,7 +76,7 @@ func spawn_puzzle_customer(puzzle: Puzzle) -> void:
 			customer = draggable_spawner.spawn_customer(preload("res://data/customers/father_cornelius/father_cornelius.tres"))
 		_:
 			customer = draggable_spawner.spawn_customer(preload("res://data/customers/test.tres"))
-	customer.customer_clicked.connect(_show_customer_dialogue)
+	customer.customer_clicked.connect(_customer_dialogue)
 
 
 func process_drink(drink: Drink) -> void:
@@ -94,7 +94,7 @@ func process_drink_for(drink: Drink, customer: Customer) -> void:
 		print("Gave the drink to the wrong customer...")
 	
 	# wait for dialogue to be progressed, then the customer leaves
-	await DialogueHandler.dialogue_ready
+	#await DialogueHandler.dialogue_ready
 	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_LEFT, [customer], 1, .5, .25)
 	customer.queue_free()
 	increment_puzzle()
@@ -109,13 +109,18 @@ func process_drink_for(drink: Drink, customer: Customer) -> void:
 # helper function for process_drink and process_drink_for
 func do_process_drink(drink: Drink, current_puzzle: Puzzle, customer: Customer = null) -> void:
 	var result: Puzzle.Result = get_puzzle_evaluation(drink, current_puzzle)
+	Dialogic.VAR.result = result
 	var feedback: String = get_puzzle_feedback(drink, result, current_puzzle)
+	Dialogic.VAR.feedback = feedback
 	var gold_reward: int = get_puzzle_gold_reward(drink, result, current_puzzle)
 	var result_names := ["Great Success", "Success", "Ehhh", "Failure"]
 	
 	gold_counter.text = str(int(gold_counter.text) + gold_reward)
 	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.GOLD_ADDED)
-	textbox.queue_text(current_puzzle.customer_name + ": " + feedback)
+	#textbox.queue_text(current_puzzle.customer_name + ": " + feedback)
+	Dialogic.VAR.ordering = false
+	Dialogic.start('puzzle')
+	get_viewport().set_input_as_handled()
 	if(customer != null):
 		SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_FEEDBACK, [customer, result], 1, .5, .25)
 	#feedback_label.text = feedback
@@ -134,3 +139,12 @@ func _show_customer_dialogue(customer: Customer):
 	var order = puzzle.get_customer_and_order()
 	textbox.queue_text(puzzle.customer_name + ": " + order)
 	#order_label.text = order
+
+func _customer_dialogue(customer: Customer):
+	if Dialogic.current_timeline != null:
+		return
+	Dialogic.VAR.ordering = true
+	var order = get_current_puzzle().get_customer_and_order()
+	Dialogic.VAR.order = order
+	Dialogic.start('puzzle')
+	get_viewport().set_input_as_handled()
