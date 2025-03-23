@@ -1,0 +1,1024 @@
+[gd_scene load_steps=7 format=3 uid="uid://bko47vta83els"]
+
+[ext_resource type="Texture2D" uid="uid://lsdi8e6arl4r" path="res://assets/sprites/Journal.png" id="1_cx044"]
+[ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="2_lftq4"]
+[ext_resource type="Texture2D" uid="uid://bw58nkxog80uh" path="res://assets/sprites/animals.png" id="3_y7brv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ej5t"]
+texture = ExtResource("1_cx044")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjvie"]
+bg_color = Color(0.384314, 0.6, 0.933333, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0444534, 0, 0.956607, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87lap"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[node name="Journal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="JournalContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(431, 335)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1ej5t")
+
+[node name="Customers" type="HBoxContainer" parent="JournalContainer"]
+visible = false
+layout_mode = 2
+
+[node name="LeftPage" type="MarginContainer" parent="JournalContainer/Customers"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 55
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 65
+
+[node name="Panel" type="Panel" parent="JournalContainer/Customers/LeftPage"]
+visible = false
+z_index = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fjvie")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="JournalContainer/Customers/LeftPage"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="JournalContainer/Customers/LeftPage/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+theme_override_font_sizes/font_size = 30
+text = "CUSTOMERS"
+horizontal_alignment = 1
+
+[node name="CustomerGrid" type="GridContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+
+[node name="Customer1" type="MarginContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer1/VBox"]
+custom_minimum_size = Vector2(28, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer1/VBox/PanelContainer"]
+position = Vector2(25.5, 15.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(0, 416, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer1/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???
+"
+horizontal_alignment = 1
+
+[node name="Customer2" type="MarginContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer2/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer2/VBox/PanelContainer"]
+position = Vector2(23.5, 12.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(32, 256, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer2/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="Customer3" type="MarginContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer3/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer3/VBox/PanelContainer"]
+position = Vector2(22.5, 15.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(96, 0, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer3/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="Customer4" type="MarginContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer4/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer4/VBox/PanelContainer"]
+position = Vector2(23.5, 12.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(0, 32, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer4/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="Customer5" type="MarginContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer5/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer5/VBox/PanelContainer"]
+position = Vector2(22.5, 14.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(32, 288, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer5/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="Customer6" type="MarginContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer6/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer6/VBox/PanelContainer"]
+position = Vector2(25.5, 16.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(32, 32, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer6/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="Customer7" type="MarginContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer7/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer7/VBox/PanelContainer"]
+position = Vector2(25.5, 11.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(32, 96, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer7/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="Customer8" type="MarginContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer8/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer8/VBox/PanelContainer"]
+position = Vector2(24.5, 13.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(64, 32, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer8/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="Customer9" type="MarginContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer9/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer9/VBox/PanelContainer"]
+position = Vector2(23.5, 12.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(64, 96, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer9/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="RightPage" type="MarginContainer" parent="JournalContainer/Customers"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 55
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 65
+
+[node name="Panel" type="Panel" parent="JournalContainer/Customers/RightPage"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fjvie")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="JournalContainer/Customers/RightPage"]
+layout_mode = 2
+
+[node name="Top" type="HBoxContainer" parent="JournalContainer/Customers/RightPage/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="JournalContainer/Customers/RightPage/VBoxContainer/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="JournalContainer/Customers/RightPage/VBoxContainer/Top/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="JournalContainer/Customers/RightPage/VBoxContainer/Top/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+theme_override_font_sizes/font_size = 20
+text = "Name"
+
+[node name="Likes" type="Label" parent="JournalContainer/Customers/RightPage/VBoxContainer/Top/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "Likes"
+
+[node name="LikesList" type="Label" parent="JournalContainer/Customers/RightPage/VBoxContainer/Top/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "- ???
+- ???"
+
+[node name="Dislikes" type="Label" parent="JournalContainer/Customers/RightPage/VBoxContainer/Top/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "Dislikes"
+
+[node name="DislikesList" type="Label" parent="JournalContainer/Customers/RightPage/VBoxContainer/Top/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "- ???
+- ???"
+
+[node name="Portrait" type="VBoxContainer" parent="JournalContainer/Customers/RightPage/VBoxContainer/Top/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Customer1" type="MarginContainer" parent="JournalContainer/Customers/RightPage/VBoxContainer/Top/HBoxContainer/Portrait"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Customers/RightPage/VBoxContainer/Top/HBoxContainer/Portrait/Customer1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Customers/RightPage/VBoxContainer/Top/HBoxContainer/Portrait/Customer1/VBox"]
+custom_minimum_size = Vector2(28, 32)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Customers/RightPage/VBoxContainer/Top/HBoxContainer/Portrait/Customer1/VBox/PanelContainer"]
+position = Vector2(55.5, 43.5)
+scale = Vector2(2.34375, 2.10937)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(0, 416, 32, 32)
+
+[node name="SpeciesProfession" type="Label" parent="JournalContainer/Customers/RightPage/VBoxContainer/Top/HBoxContainer/Portrait/Customer1/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "Species/ Profession
+"
+horizontal_alignment = 1
+
+[node name="Bottom" type="VBoxContainer" parent="JournalContainer/Customers/RightPage/VBoxContainer"]
+layout_mode = 2
+
+[node name="Gossip" type="Label" parent="JournalContainer/Customers/RightPage/VBoxContainer/Bottom"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "Gossip"
+
+[node name="GossipList" type="Label" parent="JournalContainer/Customers/RightPage/VBoxContainer/Bottom"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "- ???
+- ???
+- ???
+- ???
+"
+
+[node name="Ingredients" type="HBoxContainer" parent="JournalContainer"]
+layout_mode = 2
+
+[node name="LeftPage" type="MarginContainer" parent="JournalContainer/Ingredients"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 55
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 65
+
+[node name="Panel" type="Panel" parent="JournalContainer/Ingredients/LeftPage"]
+visible = false
+z_index = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fjvie")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="JournalContainer/Ingredients/LeftPage"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Title" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+theme_override_font_sizes/font_size = 30
+text = "INGREDIENTS"
+horizontal_alignment = 1
+
+[node name="IngredientGrid" type="GridContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Ingredient1" type="MarginContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = -1
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient1/VBox"]
+custom_minimum_size = Vector2(28, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient1/VBox/PanelContainer"]
+position = Vector2(25.5, 15.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(0, 416, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient1/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???
+"
+horizontal_alignment = 1
+
+[node name="Ingredient2" type="MarginContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = -1
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient2/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient2/VBox/PanelContainer"]
+position = Vector2(23.5, 12.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(32, 256, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient2/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="Ingredient3" type="MarginContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = -1
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient3/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient3/VBox/PanelContainer"]
+position = Vector2(22.5, 15.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(96, 0, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient3/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="Ingredient4" type="MarginContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = -1
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient4/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient4/VBox/PanelContainer"]
+position = Vector2(23.5, 12.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(0, 32, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient4/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="Ingredient5" type="MarginContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = -1
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient5/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient5/VBox/PanelContainer"]
+position = Vector2(22.5, 14.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(32, 288, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient5/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="Ingredient6" type="MarginContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = -1
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient6/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient6/VBox/PanelContainer"]
+position = Vector2(21.5, 15.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(32, 32, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient6/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="Ingredient7" type="MarginContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 0
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = -1
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient7/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient7/VBox/PanelContainer"]
+position = Vector2(21.5, 11.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(32, 96, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient7/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="Ingredient8" type="MarginContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 0
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = -1
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient8/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient8/VBox/PanelContainer"]
+position = Vector2(24.5, 13.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(64, 32, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient8/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="Ingredient9" type="MarginContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 0
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient9"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = -1
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient9/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient9/VBox/PanelContainer"]
+position = Vector2(23.5, 12.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(64, 96, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient9/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="Ingredient10" type="MarginContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 0
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient10"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = -1
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient10/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient10/VBox/PanelContainer"]
+position = Vector2(23.5, 12.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(64, 96, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient10/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="Ingredient11" type="MarginContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 0
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient11"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = -1
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient11/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient11/VBox/PanelContainer"]
+position = Vector2(23.5, 12.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(64, 96, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient11/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="Ingredient12" type="MarginContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 0
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient12"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = -1
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient12/VBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient12/VBox/PanelContainer"]
+position = Vector2(23.5, 12.5)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(64, 96, 32, 32)
+
+[node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient12/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "???"
+horizontal_alignment = 1
+
+[node name="RightPage" type="MarginContainer" parent="JournalContainer/Ingredients"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 55
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 65
+
+[node name="Panel" type="Panel" parent="JournalContainer/Ingredients/RightPage"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fjvie")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="JournalContainer/Ingredients/RightPage"]
+layout_mode = 2
+
+[node name="Top" type="HBoxContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+theme_override_font_sizes/font_size = 20
+text = "Name"
+
+[node name="Likes" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "Likes"
+
+[node name="LikesList" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "- ???
+- ???"
+
+[node name="Dislikes" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "Dislikes"
+
+[node name="DislikesList" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "- ???
+- ???"
+
+[node name="Portrait" type="VBoxContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Customer1" type="MarginContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/Portrait"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/Portrait/Customer1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/Portrait/Customer1/VBox"]
+custom_minimum_size = Vector2(28, 32)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
+
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/Portrait/Customer1/VBox/PanelContainer"]
+position = Vector2(55.5, 43.5)
+scale = Vector2(2.34375, 2.10937)
+texture = ExtResource("3_y7brv")
+region_enabled = true
+region_rect = Rect2(0, 416, 32, 32)
+
+[node name="SpeciesProfession" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/Portrait/Customer1/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "Species/ Profession
+"
+horizontal_alignment = 1
+
+[node name="Bottom" type="VBoxContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer"]
+layout_mode = 2
+
+[node name="Gossip" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Bottom"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "Gossip"
+
+[node name="GossipList" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Bottom"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "- ???
+- ???"
