@@ -11,7 +11,7 @@ gold_cost = 1
 attribute_list = {
 "Weird": 1
 }
-skin_coordinates = Vector2i(4, 2)
+skin_coordinates = Vector2i(6, 0)
 pickup_sfx = Array[int]([16, 5])
 drop_sfx = Array[int]([20])
 add_to_drink_sfx = Array[int]([19, 21])

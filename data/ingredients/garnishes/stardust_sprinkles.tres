@@ -12,7 +12,7 @@ attribute_list = {
 "Sleepy": 1,
 "Sweet": 1
 }
-skin_coordinates = Vector2i(5, 0)
+skin_coordinates = Vector2i(2, 0)
 pickup_sfx = Array[int]([12, 10, 11])
 drop_sfx = Array[int]([20])
 add_to_drink_sfx = Array[int]([12, 10])

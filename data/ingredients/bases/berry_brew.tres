@@ -11,7 +11,7 @@ gold_cost = 1
 attribute_list = {
 "Fruity": 1
 }
-skin_coordinates = Vector2i(4, 0)
+skin_coordinates = Vector2i(3, 0)
 pickup_sfx = Array[int]([0, 19, 11])
 drop_sfx = Array[int]([20, 21])
 add_to_drink_sfx = Array[int]([16, 8])

@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bko47vta83els"]
+[gd_scene load_steps=11 format=3 uid="uid://bko47vta83els"]
 
+[ext_resource type="Script" path="res://scenes/ui/journal.gd" id="1_cgbrf"]
 [ext_resource type="Texture2D" uid="uid://lsdi8e6arl4r" path="res://assets/sprites/Journal.png" id="1_cx044"]
 [ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="2_lftq4"]
 [ext_resource type="Texture2D" uid="uid://bw58nkxog80uh" path="res://assets/sprites/animals.png" id="3_y7brv"]
+[ext_resource type="Texture2D" uid="uid://b3ug0cb3jgmm7" path="res://assets/sprites/props.png" id="4_86hx0"]
+[ext_resource type="Texture2D" uid="uid://cwyjrs1ogc240" path="res://assets/sprites/xp.png" id="6_tk2ar"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ej5t"]
 texture = ExtResource("1_cx044")
@@ -23,6 +26,8 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Texture2DRD" id="Texture2DRD_86ldt"]
+
 [node name="Journal" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -30,6 +35,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("1_cgbrf")
 
 [node name="JournalContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(431, 335)
@@ -45,10 +52,10 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_1ej5t")
 
 [node name="Customers" type="HBoxContainer" parent="JournalContainer"]
-visible = false
 layout_mode = 2
 
 [node name="LeftPage" type="MarginContainer" parent="JournalContainer/Customers"]
@@ -137,7 +144,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 position = Vector2(23.5, 12.5)
 texture = ExtResource("3_y7brv")
 region_enabled = true
-region_rect = Rect2(32, 256, 32, 32)
+region_rect = Rect2(32, 352, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer2/VBox"]
 layout_mode = 2
@@ -169,7 +176,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 position = Vector2(22.5, 15.5)
 texture = ExtResource("3_y7brv")
 region_enabled = true
-region_rect = Rect2(96, 0, 32, 32)
+region_rect = Rect2(32, 256, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer3/VBox"]
 layout_mode = 2
@@ -201,7 +208,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 position = Vector2(23.5, 12.5)
 texture = ExtResource("3_y7brv")
 region_enabled = true
-region_rect = Rect2(0, 32, 32, 32)
+region_rect = Rect2(64, 160, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer4/VBox"]
 layout_mode = 2
@@ -230,10 +237,10 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 
 [node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer5/VBox/PanelContainer"]
-position = Vector2(22.5, 14.5)
+position = Vector2(23.5, 15.5)
 texture = ExtResource("3_y7brv")
 region_enabled = true
-region_rect = Rect2(32, 288, 32, 32)
+region_rect = Rect2(32, 32, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer5/VBox"]
 layout_mode = 2
@@ -265,7 +272,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 position = Vector2(25.5, 16.5)
 texture = ExtResource("3_y7brv")
 region_enabled = true
-region_rect = Rect2(32, 32, 32, 32)
+region_rect = Rect2(64, 320, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer6/VBox"]
 layout_mode = 2
@@ -329,7 +336,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 position = Vector2(24.5, 13.5)
 texture = ExtResource("3_y7brv")
 region_enabled = true
-region_rect = Rect2(64, 32, 32, 32)
+region_rect = Rect2(128, 448, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer8/VBox"]
 layout_mode = 2
@@ -358,10 +365,10 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 
 [node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer9/VBox/PanelContainer"]
-position = Vector2(23.5, 12.5)
+position = Vector2(22.5, 14.5)
 texture = ExtResource("3_y7brv")
 region_enabled = true
-region_rect = Rect2(64, 96, 32, 32)
+region_rect = Rect2(32, 288, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Customers/LeftPage/VBoxContainer/CustomerGrid/Customer9/VBox"]
 layout_mode = 2
@@ -401,7 +408,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_lftq4")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 26
 text = "Name"
 
 [node name="Likes" type="Label" parent="JournalContainer/Customers/RightPage/VBoxContainer/Top/HBoxContainer/VBoxContainer"]
@@ -476,6 +483,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_lftq4")
+theme_override_font_sizes/font_size = 20
 text = "Gossip"
 
 [node name="GossipList" type="Label" parent="JournalContainer/Customers/RightPage/VBoxContainer/Bottom"]
@@ -490,6 +498,7 @@ text = "- ???
 "
 
 [node name="Ingredients" type="HBoxContainer" parent="JournalContainer"]
+visible = false
 layout_mode = 2
 
 [node name="LeftPage" type="MarginContainer" parent="JournalContainer/Ingredients"]
@@ -541,10 +550,10 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 
 [node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient1/VBox/PanelContainer"]
-position = Vector2(25.5, 15.5)
-texture = ExtResource("3_y7brv")
+position = Vector2(22.5, 15.5)
+texture = ExtResource("4_86hx0")
 region_enabled = true
-region_rect = Rect2(0, 416, 32, 32)
+region_rect = Rect2(0, 0, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient1/VBox"]
 layout_mode = 2
@@ -573,10 +582,10 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 
 [node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient2/VBox/PanelContainer"]
-position = Vector2(23.5, 12.5)
-texture = ExtResource("3_y7brv")
+position = Vector2(23.5, 14.5)
+texture = ExtResource("4_86hx0")
 region_enabled = true
-region_rect = Rect2(32, 256, 32, 32)
+region_rect = Rect2(32, 0, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient2/VBox"]
 layout_mode = 2
@@ -605,9 +614,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 
 [node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient3/VBox/PanelContainer"]
 position = Vector2(22.5, 15.5)
-texture = ExtResource("3_y7brv")
+texture = ExtResource("4_86hx0")
 region_enabled = true
-region_rect = Rect2(96, 0, 32, 32)
+region_rect = Rect2(64, 0, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient3/VBox"]
 layout_mode = 2
@@ -635,10 +644,10 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 
 [node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient4/VBox/PanelContainer"]
-position = Vector2(23.5, 12.5)
-texture = ExtResource("3_y7brv")
+position = Vector2(22.5, 15.5)
+texture = ExtResource("4_86hx0")
 region_enabled = true
-region_rect = Rect2(0, 32, 32, 32)
+region_rect = Rect2(96, 0, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient4/VBox"]
 layout_mode = 2
@@ -666,10 +675,10 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 
 [node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient5/VBox/PanelContainer"]
-position = Vector2(22.5, 14.5)
-texture = ExtResource("3_y7brv")
+position = Vector2(23.5, 15.5)
+texture = ExtResource("4_86hx0")
 region_enabled = true
-region_rect = Rect2(32, 288, 32, 32)
+region_rect = Rect2(128, 0, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient5/VBox"]
 layout_mode = 2
@@ -697,10 +706,10 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 
 [node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient6/VBox/PanelContainer"]
-position = Vector2(21.5, 15.5)
-texture = ExtResource("3_y7brv")
+position = Vector2(22.5, 14.5)
+texture = ExtResource("4_86hx0")
 region_enabled = true
-region_rect = Rect2(32, 32, 32, 32)
+region_rect = Rect2(160, 0, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient6/VBox"]
 layout_mode = 2
@@ -730,10 +739,10 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 
 [node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient7/VBox/PanelContainer"]
-position = Vector2(21.5, 11.5)
-texture = ExtResource("3_y7brv")
+position = Vector2(22.5, 15.5)
+texture = ExtResource("4_86hx0")
 region_enabled = true
-region_rect = Rect2(32, 96, 32, 32)
+region_rect = Rect2(192, 0, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient7/VBox"]
 layout_mode = 2
@@ -763,10 +772,10 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 
 [node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient8/VBox/PanelContainer"]
-position = Vector2(24.5, 13.5)
-texture = ExtResource("3_y7brv")
+position = Vector2(22.5, 15.5)
+texture = ExtResource("4_86hx0")
 region_enabled = true
-region_rect = Rect2(64, 32, 32, 32)
+region_rect = Rect2(224, 0, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient8/VBox"]
 layout_mode = 2
@@ -796,10 +805,10 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 
 [node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient9/VBox/PanelContainer"]
-position = Vector2(23.5, 12.5)
-texture = ExtResource("3_y7brv")
+position = Vector2(22.5, 14.5)
+texture = ExtResource("4_86hx0")
 region_enabled = true
-region_rect = Rect2(64, 96, 32, 32)
+region_rect = Rect2(256, 0, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient9/VBox"]
 layout_mode = 2
@@ -829,10 +838,10 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 
 [node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient10/VBox/PanelContainer"]
-position = Vector2(23.5, 12.5)
-texture = ExtResource("3_y7brv")
+position = Vector2(24.5, 15.5)
+texture = ExtResource("4_86hx0")
 region_enabled = true
-region_rect = Rect2(64, 96, 32, 32)
+region_rect = Rect2(288, 0, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient10/VBox"]
 layout_mode = 2
@@ -862,10 +871,10 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 
 [node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient11/VBox/PanelContainer"]
-position = Vector2(23.5, 12.5)
-texture = ExtResource("3_y7brv")
+position = Vector2(22.5, 15.5)
+texture = ExtResource("4_86hx0")
 region_enabled = true
-region_rect = Rect2(64, 96, 32, 32)
+region_rect = Rect2(320, 0, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient11/VBox"]
 layout_mode = 2
@@ -895,10 +904,10 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 
 [node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient12/VBox/PanelContainer"]
-position = Vector2(23.5, 12.5)
-texture = ExtResource("3_y7brv")
+position = Vector2(22.5, 14.5)
+texture = ExtResource("4_86hx0")
 region_enabled = true
-region_rect = Rect2(64, 96, 32, 32)
+region_rect = Rect2(352, 0, 32, 32)
 
 [node name="Label" type="Label" parent="JournalContainer/Ingredients/LeftPage/VBoxContainer/IngredientGrid/Ingredient12/VBox"]
 layout_mode = 2
@@ -922,56 +931,24 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_fjvie")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="JournalContainer/Ingredients/RightPage"]
 layout_mode = 2
+theme_override_constants/separation = -1
 
-[node name="Top" type="HBoxContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer"]
+[node name="Name" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+theme_override_font_sizes/font_size = 26
+text = "NAME"
+horizontal_alignment = 1
+
+[node name="HBox" type="HBoxContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top"]
+[node name="Left" type="VBoxContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Name" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_lftq4")
-theme_override_font_sizes/font_size = 20
-text = "Name"
-
-[node name="Likes" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_lftq4")
-text = "Likes"
-
-[node name="LikesList" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_lftq4")
-text = "- ???
-- ???"
-
-[node name="Dislikes" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_lftq4")
-text = "Dislikes"
-
-[node name="DislikesList" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_lftq4")
-text = "- ???
-- ???"
-
-[node name="Portrait" type="VBoxContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Customer1" type="MarginContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/Portrait"]
+[node name="MarginContainer" type="MarginContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/HBox/Left"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -980,45 +957,117 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBox" type="VBoxContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/Portrait/Customer1"]
+[node name="VBox" type="VBoxContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/HBox/Left/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/Portrait/Customer1/VBox"]
+[node name="PanelContainer" type="PanelContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/HBox/Left/MarginContainer/VBox"]
 custom_minimum_size = Vector2(28, 32)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_87lap")
 
-[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/Portrait/Customer1/VBox/PanelContainer"]
-position = Vector2(55.5, 43.5)
-scale = Vector2(2.34375, 2.10937)
-texture = ExtResource("3_y7brv")
+[node name="Sprite2D" type="Sprite2D" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/HBox/Left/MarginContainer/VBox/PanelContainer"]
+position = Vector2(36.5, 31.5)
+scale = Vector2(2.26562, 2.28125)
+texture = ExtResource("4_86hx0")
 region_enabled = true
-region_rect = Rect2(0, 416, 32, 32)
+region_rect = Rect2(0, 0, 32, 32)
 
-[node name="SpeciesProfession" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Top/HBoxContainer/Portrait/Customer1/VBox"]
+[node name="Properties" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/HBox/Left/MarginContainer/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_lftq4")
-text = "Species/ Profession
+text = "Properties
 "
 horizontal_alignment = 1
 
-[node name="Bottom" type="VBoxContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer"]
-layout_mode = 2
-
-[node name="Gossip" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Bottom"]
+[node name="PropertiesList" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/HBox/Left/MarginContainer/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_lftq4")
-text = "Gossip"
+text = "_____   _____
+"
+horizontal_alignment = 1
 
-[node name="GossipList" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/Bottom"]
+[node name="LikedBy" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/HBox/Left/MarginContainer/VBox"]
 layout_mode = 2
-size_flags_vertical = 6
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_lftq4")
-text = "- ???
-- ???"
+text = "Liked By
+"
+horizontal_alignment = 1
+
+[node name="LikedByList" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/HBox/Left/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "_____   _____
+"
+horizontal_alignment = 1
+
+[node name="DislikedBy" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/HBox/Left/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "Disliked By
+"
+horizontal_alignment = 1
+
+[node name="DislikedByList" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/HBox/Left/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "_____   _____
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/HBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Combinations" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/HBox/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "Combinations"
+horizontal_alignment = 1
+
+[node name="Combinations List" type="Label" parent="JournalContainer/Ingredients/RightPage/VBoxContainer/HBox/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lftq4")
+text = "____:  ?
+____:  ?
+____:  ?
+____:  ?
+____:  ?
+____:  ?
+____:  ?
+____:  ?
+____:  ?
+____:  ?
+____:  ?"
+
+[node name="Button" type="Button" parent="."]
+z_index = 1
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+offset_left = 121.0
+offset_top = 23.0
+offset_right = 166.0
+offset_bottom = 60.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_icons/icon = SubResource("Texture2DRD_86ldt")
+icon = ExtResource("6_tk2ar")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

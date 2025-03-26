@@ -12,7 +12,7 @@ attribute_list = {
 "Boring": 1,
 "Cold": 1
 }
-skin_coordinates = Vector2i(5, 1)
+skin_coordinates = Vector2i(10, 0)
 pickup_sfx = Array[int]([9])
 drop_sfx = Array[int]([9])
 add_to_drink_sfx = Array[int]([9])

@@ -11,7 +11,7 @@ gold_cost = 1
 attribute_list = {
 "Cold": 1
 }
-skin_coordinates = Vector2i(4, 1)
+skin_coordinates = Vector2i(4, 0)
 pickup_sfx = Array[int]([0, 22])
 drop_sfx = Array[int]([5, 20])
 add_to_drink_sfx = Array[int]([9, 16])

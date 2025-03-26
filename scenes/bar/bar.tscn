@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://b5xkx805g0kxj"]
+[gd_scene load_steps=36 format=4 uid="uid://b5xkx805g0kxj"]
 
 [ext_resource type="Script" path="res://scenes/bar/bar.gd" id="1_5m26e"]
 [ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://assets/tileset.tres" id="2_8n37m"]
@@ -26,7 +26,6 @@
 [ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="24_mnmeu"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_handler.gd" id="24_tseuq"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_2.gd" id="26_bcgwp"]
-[ext_resource type="Script" path="res://scenes/ui/journal.gd" id="26_snilh"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_3.gd" id="27_6r0c2"]
 [ext_resource type="Script" path="res://data/puzzles/puzzle_4.gd" id="28_yk4rc"]
 [ext_resource type="PackedScene" uid="uid://bko47vta83els" path="res://scenes/ui/journal.tscn" id="31_2tg8q"]
@@ -288,20 +287,23 @@ shelf = NodePath("../Shelf")
 counter = NodePath("../Counter")
 seating = NodePath("../Seating")
 
-[node name="Order" type="RichTextLabel" parent="."]
-visible = false
+[node name="InstructionsLabel" type="RichTextLabel" parent="."]
 offset_left = 2.0
 offset_top = 5.0
 offset_right = 195.0
 offset_bottom = 142.0
 theme_override_fonts/normal_font = ExtResource("24_mnmeu")
+text = "Use me as an instructions label
+Someone else can fill me out with the instructions since nick ran out of time "
 
-[node name="Feedback" type="RichTextLabel" parent="."]
-visible = false
+[node name="InstructionsLabel2" type="RichTextLabel" parent="."]
 offset_left = 512.0
 offset_right = 640.0
 offset_bottom = 256.0
 theme_override_fonts/normal_font = ExtResource("24_mnmeu")
+text = "I'm also a label but on the right side of the screen this time wow
+
+Tip: press 'J' to open the journal"
 metadata/_edit_lock_ = true
 
 [node name="GoldCounter" type="Label" parent="."]
@@ -329,7 +331,6 @@ mouse_filter = 2
 
 [node name="Journal" parent="UILayer" instance=ExtResource("31_2tg8q")]
 mouse_filter = 2
-script = ExtResource("26_snilh")
 
 [node name="PuzzleHandler" type="Node" parent="." node_paths=PackedStringArray("puzzle_list")]
 unique_name_in_owner = true
