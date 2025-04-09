@@ -1,0 +1,10 @@
+if {ordering} == true:
+	# #join doug center [animation="Slide In Left" length="1.0" wait="true"]
+	jump order/
+
+
+else:
+	jump feedback/
+
+
+[end_timeline]

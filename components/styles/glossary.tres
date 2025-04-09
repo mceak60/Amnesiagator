@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="DialogicGlossary" load_steps=2 format=3 uid="uid://dgx07les4t0rr"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Glossary/glossary_resource.gd" id="1_kowh0"]
+
+[resource]
+script = ExtResource("1_kowh0")
+entries = {
+"Stu": {
+"case_sensitive": true,
+"color": Color(0.112115, 0.761719, 0.038681, 1),
+"enabled": false,
+"name": "Stu",
+"text": "Is that my name?",
+"title": "Me"
+},
+"chill": "cold",
+"chilly": "cold",
+"cold": {
+"alternatives": ["chill", "chilly", "colder", "polar"],
+"case_sensitive": false,
+"enabled": true,
+"name": "cold",
+"text": "a drink that has a cold quality, derived from one or more of its component ingredients",
+"title": "Cold Attribute"
+},
+"colder": "cold",
+"electricity": {
+"alternatives": ["jolt", "shock"],
+"case_sensitive": false,
+"color": Color(0.911133, 0.917969, 0.0430298, 1),
+"enabled": true,
+"name": "electricity",
+"text": "a drink that has an electric quality, derived from one or more of its ingredients",
+"title": "Electricity Attribute"
+},
+"jolt": "electricity",
+"polar": "cold",
+"shock": "electricity"
+}
+enabled = true
+_translation_id = ""
+_translation_keys = {}

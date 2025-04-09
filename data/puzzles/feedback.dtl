@@ -1,0 +1,74 @@
+if {customer_name} == "Doug":
+	jump doug
+
+elif {customer_name} == "Mark":
+	jump mark
+
+elif {customer_name} == "Ziggy":
+	jump ziggy
+
+elif {customer_name} == "Father Cornelius":
+	jump father_cornelius
+
+else:
+	jump test
+
+label doug
+# #join doug center [animation="Zoom In" length="0.7" wait="true"]
+\doug: {feedback}
+if {result} == 0 or {result} == 1:
+	- ask about something really nice | [if {result} == 0] [else="disable" alt_text="Need a Great Success"]
+		\doug: Doug's Secret information
+	- ask about something nice
+		\doug: Doug's Normal information
+	- ask about something boring
+		\doug: Doug's Boring information
+
+# #leave doug [animation="Slide Out Right" length="1.5" wait="true"]
+jump end
+
+label mark
+mark: {feedback}
+if {result} == 0 or {result} == 1:
+	- ask about something really nice | [if {result} == 0] [else="disable" alt_text="Need a Great Success"]
+		mark: Mark's Secret information
+	- ask about something nice
+		mark: Mark's Normal information
+	- ask about something boring
+		mark: Mark's Boring information
+jump end
+
+label ziggy
+ziggy: {feedback}
+if {result} == 0 or {result} == 1:
+	- ask about something really nice | [if {result} == 0] [else="disable" alt_text="Need a Great Success"]
+		ziggy: Ziggy's Secret information
+	- ask about something nice
+		ziggy: Ziggy's Normal information
+	- ask about something boring
+		ziggy: Ziggy's Boring information
+jump end
+
+label father_cornelius
+father_cornelius: {feedback}
+if {result} == 0 or {result} == 1:
+	- ask about something really nice | [if {result} == 0] [else="disable" alt_text="Need a Great Success"]
+		father_cornelius: Father Cornelius's Secret information
+	- ask about something nice
+		father_cornelius: Father Cornelius's Normal information
+	- ask about something boring
+		father_cornelius: Father Cornelius's Boring information
+jump end
+
+label test
+test: {feedback}
+if {result} == 0 or {result} == 1:
+	- ask about something really nice | [if {result} == 0] [else="disable" alt_text="Need a Great Success"]
+		test: Test's Secret information
+	- ask about something nice
+		test: Test's Normal information
+	- ask about something boring
+		test: Test's Boring information
+
+label end
+[end_timeline]

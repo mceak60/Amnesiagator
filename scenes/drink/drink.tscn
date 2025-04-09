@@ -29,6 +29,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="DrinkLevel" type="Sprite2D" parent="Visuals"]
+modulate = Color(0, 0, 0, 0)
 position = Vector2(16, 8)
 texture = ExtResource("3_bt54s")
 region_enabled = true

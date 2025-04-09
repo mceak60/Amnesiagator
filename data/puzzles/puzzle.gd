@@ -12,6 +12,7 @@ var order: String
 var result: Result
 var feedback: String
 var gold_reward: int
+var dialogue: String
 
 func get_customer_and_order() -> String:
 	assert(false, "Please override 'get_order' in puzzle.")
