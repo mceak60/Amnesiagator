@@ -2,7 +2,7 @@
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
 "_translation_id": "",
-"color": Color(0.0521994, 0.0450439, 0.960938, 1),
+"color": Color(0.158234, 0.953125, 0.0446777, 1),
 "custom_info": {
 "prefix": "",
 "sound_mood_default": "",
@@ -12,19 +12,18 @@
 },
 "default_portrait": "New portrait",
 "description": "",
-"display_name": "Doug",
-"mirror": true,
+"display_name": "Test",
+"mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {
 "New portrait": {
 "export_overrides": {
-"image": "\"res://assets/sprites/penguin.png\""
+"image": "\"res://icon.png\""
 },
-"ignore_char_scale": false,
 "mirror": false,
 "offset": Vector2(0, 0),
-"scale": 1.0,
+"scale": 1,
 "scene": ""
 }
 },

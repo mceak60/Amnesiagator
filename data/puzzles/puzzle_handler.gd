@@ -17,6 +17,7 @@ extends Node
 
 var current_puzzle_idx := starting_puzzle_idx
 var order_number := 1
+var global_customer: Customer
 
 func _ready():
 	draggable_mover.submit_drink.connect(process_drink)
@@ -87,6 +88,7 @@ func process_drink_for(drink: Drink, customer: Customer) -> void:
 	var current_puzzle := get_current_puzzle()
 	var customer_match := get_puzzle_customer_match(customer, current_puzzle)
 	if customer_match == true:
+		global_customer = customer
 		do_process_drink(drink, current_puzzle, customer)
 	else:
 		textbox.queue_text(current_puzzle.customer_name + ": " + "That's not my order.")
@@ -95,14 +97,17 @@ func process_drink_for(drink: Drink, customer: Customer) -> void:
 	
 	# wait for dialogue to be progressed, then the customer leaves
 	#await DialogueHandler.dialogue_ready
-	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_LEFT, [customer], 1, .5, .25)
-	customer.queue_free()
+
+func _on_timeline_ended():
+	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
+	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_LEFT, [global_customer], 1, .5, .25)
+	global_customer.queue_free()
 	increment_puzzle()
 	order_number += 1
 	var new_puzzle = get_current_puzzle()
 	
 	# wait 3 seconds, then spawn the next customer and get the next puzzle
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(1.5).timeout
 	new_puzzle.get_customer_and_order()
 	spawn_puzzle_customer(new_puzzle)
 
@@ -119,6 +124,8 @@ func do_process_drink(drink: Drink, current_puzzle: Puzzle, customer: Customer =
 	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.GOLD_ADDED)
 	#textbox.queue_text(current_puzzle.customer_name + ": " + feedback)
 	Dialogic.VAR.ordering = false
+	Dialogic.VAR.customer_name = get_current_puzzle().customer_name
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	Dialogic.start('puzzle')
 	get_viewport().set_input_as_handled()
 	if(customer != null):
@@ -146,5 +153,6 @@ func _customer_dialogue(customer: Customer):
 	Dialogic.VAR.ordering = true
 	var order = get_current_puzzle().get_customer_and_order()
 	Dialogic.VAR.order = order
+	Dialogic.VAR.customer_name = get_current_puzzle().customer_name
 	Dialogic.start('puzzle')
 	get_viewport().set_input_as_handled()

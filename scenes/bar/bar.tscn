@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://b5xkx805g0kxj"]
+[gd_scene load_steps=36 format=4 uid="uid://b5xkx805g0kxj"]
 
 [ext_resource type="Script" path="res://scenes/bar/bar.gd" id="1_5m26e"]
 [ext_resource type="TileSet" uid="uid://c0chx1drw6ddt" path="res://assets/tileset.tres" id="2_8n37m"]
@@ -54,9 +54,6 @@ scale_min = 0.1
 scale_max = 0.2
 scale_curve = SubResource("CurveTexture_5sum6")
 color = Color(1, 1, 1, 0.494118)
-
-[sub_resource type="Resource" id="Resource_l4eua"]
-metadata/__load_path__ = "res://data/customers/doug.tres"
 
 [node name="Bar" type="Node2D"]
 script = ExtResource("1_5m26e")
@@ -265,7 +262,6 @@ tile_set = ExtResource("2_8n37m")
 
 [node name="Customer" parent="Seating" instance=ExtResource("23_f36nf")]
 position = Vector2(512, 0)
-details = SubResource("Resource_l4eua")
 
 [node name="SeatingGrid" type="Node2D" parent="Seating"]
 script = ExtResource("5_80xpi")

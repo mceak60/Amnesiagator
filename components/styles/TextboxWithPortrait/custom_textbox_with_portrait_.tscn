@@ -23,8 +23,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_7jt4d")
-automatic_scroll = null
-scroll_bar = null
 box_panel = "res://addons/dialogic/Modules/DefaultLayoutParts/Layer_SpeakerPortraitTextbox/default_stylebox.tres"
 
 [node name="Anchor" type="Control" parent="."]

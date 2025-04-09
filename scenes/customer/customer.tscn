@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://biw3haki8sh78"]
+[gd_scene load_steps=9 format=3 uid="uid://biw3haki8sh78"]
 
 [ext_resource type="Script" path="res://scenes/customer/customer.gd" id="1_62hb1"]
+[ext_resource type="Resource" uid="uid://lkecq8f377fx" path="res://data/customers/father_cornelius/father_cornelius.tres" id="2_nehbf"]
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://assets/shaders/2d_outline_shader.tres" id="3_xdqwp"]
-[ext_resource type="Texture2D" uid="uid://cx1ivjobggp8n" path="res://assets/sprites/rogues.png" id="4_18bms"]
 [ext_resource type="Script" path="res://components/highlighters/outline_highlighter.gd" id="4_a1xyg"]
+[ext_resource type="Texture2D" uid="uid://bw58nkxog80uh" path="res://assets/sprites/animals.png" id="4_oder1"]
 [ext_resource type="Script" path="res://components/labels/debug_label.gd" id="6_wbqqc"]
 [ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="7_y7a6r"]
 
@@ -12,6 +13,7 @@ size = Vector2(40, 39)
 
 [node name="Customer" type="Area2D"]
 script = ExtResource("1_62hb1")
+details = ExtResource("2_nehbf")
 metadata/_edit_group_ = true
 
 [node name="Visuals" type="CanvasGroup" parent="."]
@@ -19,9 +21,9 @@ material = ExtResource("3_xdqwp")
 
 [node name="Skin" type="Sprite2D" parent="Visuals"]
 position = Vector2(16, 8)
-texture = ExtResource("4_18bms")
+texture = ExtResource("4_oder1")
 region_enabled = true
-region_rect = Rect2(0, 0, 32, 32)
+region_rect = Rect2(64, 160, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(15, 9.5)

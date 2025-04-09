@@ -27,10 +27,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 script = ExtResource("1_4mqm3")
-default_button_style = null
-button_corner_radius = null
-button_outline_width = null
-button_outline_color = null
 HistoryItem = ExtResource("2_x1xgk")
 
 [node name="HistoryBox" type="ScrollContainer" parent="."]

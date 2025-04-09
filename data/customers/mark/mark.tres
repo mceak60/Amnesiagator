@@ -6,4 +6,4 @@
 script = ExtResource("1_42mds")
 name = "Mark"
 animal = "Owl"
-skin_coordinates = Vector2i(3, 3)
+skin_coordinates = Vector2i(1, 11)

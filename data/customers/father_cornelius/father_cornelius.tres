@@ -6,4 +6,4 @@
 script = ExtResource("1_g1gwe")
 name = "Father Cornelius"
 animal = "Mink"
-skin_coordinates = Vector2i(1, 2)
+skin_coordinates = Vector2i(2, 5)

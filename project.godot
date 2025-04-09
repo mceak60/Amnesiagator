@@ -24,9 +24,15 @@ DialogueHandler="*res://components/global/dialogue_handler.gd"
 [dialogic]
 
 directories/dch_directory={
-"doug": "res://data/customers/doug/doug.dch"
+"doug": "res://data/customers/doug/doug.dch",
+"father_cornelius": "res://data/customers/father_cornelius/father_cornelius.dch",
+"mark": "res://data/customers/mark/mark.dch",
+"test": "res://data/customers/test/test.dch",
+"ziggy": "res://data/customers/ziggy/ziggy.dch"
 }
 directories/dtl_directory={
+"feedback": "res://data/puzzles/feedback.dtl",
+"order": "res://data/puzzles/order.dtl",
 "puzzle": "res://data/puzzles/puzzle.dtl"
 }
 glossary/default_case_sensitive=true
@@ -34,6 +40,7 @@ layout/style_list=["res://components/styles/test.tres", "res://components/styles
 layout/default_style="res://components/styles/test3.tres"
 variables={
 "current_puzzle": "",
+"customer_name": "",
 "feedback": "",
 "order": "",
 "ordering": false,

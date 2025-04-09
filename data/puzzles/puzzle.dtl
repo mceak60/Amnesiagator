@@ -1,16 +1,10 @@
 if {ordering} == true:
 	# #join doug center [animation="Slide In Left" length="1.0" wait="true"]
-	\doug: {order}
+	jump order/
+
+
 else:
-	
-	# #join doug center [animation="Zoom In" length="0.7" wait="true"]
-	\doug: {feedback}
-	if {result} == 0 or {result} == 1:
-		- ask about something really nice | [if {result} == 0] [else="disable" alt_text="Need a Great Success"]
-			\doug: Secret information
-		- ask about something nice
-			\doug: Normal information
-		- ask about something boring
-			\doug: Boring information
-	# #leave doug [animation="Slide Out Right" length="1.5" wait="true"]
+	jump feedback/
+
+
 [end_timeline]

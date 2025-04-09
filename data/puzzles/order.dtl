@@ -1,0 +1,11 @@
+if {customer_name} == "Doug":
+	\doug: {order}
+elif {customer_name} == "Mark":
+	\mark: {order}
+elif {customer_name} == "Ziggy":
+	\ziggy: {order}
+elif {customer_name} == "Father Cornelius":
+	\father_cornelius: {order}
+else:
+	\test: {order}
+[end_timeline]
