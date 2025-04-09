@@ -6,4 +6,4 @@
 script = ExtResource("1_uukxi")
 name = "Ziggy"
 animal = "Chameleon"
-skin_coordinates = Vector2i(2, 8)
+skin_coordinates = Vector2i(1, 8)

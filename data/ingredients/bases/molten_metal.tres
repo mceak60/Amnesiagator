@@ -11,7 +11,8 @@ gold_cost = 1
 attribute_list = {
 "Metallic": 1
 }
-skin_coordinates = Vector2i(5, 1)
+skin_coordinates = Vector2i(8, 0)
+colors = Array[Color]([Color(0.1755, 0.24165, 0.27, 0.784314), Color(0.892873, 0.809139, 0.609963, 0.784314)])
 pickup_sfx = Array[int]([6, 10])
 drop_sfx = Array[int]([7, 13, 20])
 add_to_drink_sfx = Array[int]([3, 17])

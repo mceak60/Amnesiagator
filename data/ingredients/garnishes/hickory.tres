@@ -11,7 +11,8 @@ gold_cost = 1
 attribute_list = {
 "Earthy": 1
 }
-skin_coordinates = Vector2i(5, 2)
+skin_coordinates = Vector2i(7, 0)
+colors = Array[Color]([Color(0.540147, 0.323692, 0.157081, 0.784314), Color(0.227811, 0.146547, 0.0508852, 0.784314)])
 pickup_sfx = Array[int]([13, 3])
 drop_sfx = Array[int]([20, 6])
 add_to_drink_sfx = Array[int]([13])

@@ -11,7 +11,8 @@ gold_cost = 1
 attribute_list = {
 "Fizzy": 1
 }
-skin_coordinates = Vector2i(4, 1)
+skin_coordinates = Vector2i(9, 0)
+colors = Array[Color]([Color(0.1275, 0.187708, 0.85, 0.784314), Color(0.92207, 0.955783, 0.97712, 0.784314)])
 pickup_sfx = Array[int]([7, 2])
 drop_sfx = Array[int]([20])
 add_to_drink_sfx = Array[int]([7, 2])

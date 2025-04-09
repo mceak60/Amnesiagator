@@ -11,7 +11,8 @@ gold_cost = 1
 attribute_list = {
 "Flora": 1
 }
-skin_coordinates = Vector2i(4, 2)
+skin_coordinates = Vector2i(11, 0)
+colors = Array[Color]([Color(0.4335, 0.85, 0.509858, 0.784314), Color(0.850278, 0.732759, 0.393295, 0.784314)])
 pickup_sfx = Array[int]([17, 4])
 drop_sfx = Array[int]([20])
 add_to_drink_sfx = Array[int]([17, 4])

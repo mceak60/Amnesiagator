@@ -12,7 +12,8 @@ attribute_list = {
 "Boring": 1,
 "Heat": 1
 }
-skin_coordinates = Vector2i(4, 0)
+skin_coordinates = Vector2i(5, 0)
+colors = Array[Color]([Color(0.46, 0.069, 0.069, 0.784314), Color(0.495978, 0.195794, 0.127976, 0.784314)])
 pickup_sfx = Array[int]([14, 5])
 drop_sfx = Array[int]([20])
 add_to_drink_sfx = Array[int]([21, 14])

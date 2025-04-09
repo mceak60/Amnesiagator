@@ -4,7 +4,8 @@ extends Draggable
 
 @export var ingredient_list: Array[Ingredient]
 @export var INCREMENT_SIZE: int
-@export var current_color: Color
+
+var current_color: Color = Color(0,0,0,0)
 
 var attribute_list = Dictionary().merged(Definitions.DEFAULT_ATTRIBUTES)
 
@@ -29,8 +30,10 @@ func set_drink_level(coords: Vector2i) -> void:
 	drink_visual.region_rect.position = Vector2(drink_level) * Bar.CELL_SIZE
 	drink_visual.modulate = current_color
 
-func add_level(ingredient: Ingredient) -> void:
-	current_color = get_random_color()
+func add_level(ingredient: Ingredient) -> void:	
+	var ingred_color: Color = ingredient.details.colors.pick_random()
+	var blended_color := current_color.lerp(ingred_color, 0.75)
+	current_color = blended_color
 	drink_level.x = drink_level.x + INCREMENT_SIZE
 	current_capacity += INCREMENT_SIZE
 	pass
