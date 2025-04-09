@@ -12,6 +12,7 @@ attribute_list = {
 "Cold": 1
 }
 skin_coordinates = Vector2i(4, 0)
+colors = Array[Color]([Color(0.1275, 0.187708, 0.85, 0.784314), Color(0.303597, 0.923369, 0.882523, 0.784314)])
 pickup_sfx = Array[int]([0, 22])
 drop_sfx = Array[int]([5, 20])
 add_to_drink_sfx = Array[int]([9, 16])

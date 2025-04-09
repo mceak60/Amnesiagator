@@ -13,6 +13,7 @@ attribute_list = {
 "Sweet": 1
 }
 skin_coordinates = Vector2i(2, 0)
+colors = Array[Color]([Color(0.935908, 0.66597, 0.962357, 0.784314), Color(0.460717, 0.191879, 0.488153, 0.784314)])
 pickup_sfx = Array[int]([12, 10, 11])
 drop_sfx = Array[int]([20])
 add_to_drink_sfx = Array[int]([12, 10])
