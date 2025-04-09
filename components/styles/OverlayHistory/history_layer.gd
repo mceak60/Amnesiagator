@@ -117,9 +117,17 @@ func _apply_export_overrides() -> void:
 		var normal_style = StyleBoxFlat.new()
 		normal_style.bg_color = button_background_color
 		normal_style.set_corner_radius_all(button_corner_radius)
-		normal_style.set_border_width_all(button_outline_width)
-		normal_style.border_color = button_outline_color
+		#normal_style.set_border_width_all(button_outline_width)
+		#normal_style.border_color = button_outline_color
 		$ShowHistory.add_theme_stylebox_override("normal", normal_style)
+		$HideHistory.add_theme_stylebox_override("normal", normal_style)
+		var hover_style = StyleBoxFlat.new()
+		hover_style.bg_color = button_background_color
+		hover_style.set_corner_radius_all(button_corner_radius)
+		hover_style.set_border_width_all(button_outline_width)
+		hover_style.border_color = button_outline_color
+		$ShowHistory.add_theme_stylebox_override("hover", hover_style)
+		$HideHistory.add_theme_stylebox_override("hover", hover_style)
 		#var style_box = button_theme.get_stylebox(&'normal', &'Button')
 		#style_box.bg_color = button_background_color
 		#style_box.set_corner_radius_all(button_corner_radius)
@@ -131,7 +139,6 @@ func _apply_export_overrides() -> void:
 	
 	$ShowHistory.set(&'theme', button_theme)
 	$HideHistory.set(&'theme', button_theme)
-	
 
 
 

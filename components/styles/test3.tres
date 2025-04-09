@@ -45,8 +45,7 @@ script = ExtResource("2_5q7xs")
 scene = ExtResource("8_alyyy")
 overrides = {
 "boxes_offset": "Vector2(0, -40)",
-"outline_color": "Color(0.0993197, 0.0510559, 0.933594, 1)",
-"outline_thickness": "7.0",
+"outline_thickness": "2.0",
 "text_color_disabled": "Color(0.414063, 0.410828, 0.410828, 1)"
 }
 
@@ -59,7 +58,7 @@ overrides = {}
 script = ExtResource("2_5q7xs")
 scene = ExtResource("10_vwswb")
 overrides = {
-"button_background_color": "Color(0.980469, 0.0574493, 0.0574493, 1)",
+"button_background_color": "Color(0.0507813, 0.0474091, 0.0474091, 1)",
 "button_outline_width": "2.0",
 "default_button_style": "false"
 }
@@ -68,7 +67,9 @@ overrides = {
 script = ExtResource("2_5q7xs")
 scene = ExtResource("6_652ah")
 overrides = {
-"box_size": "Vector2(600, 80)"
+"box_size": "Vector2(600, 80)",
+"name_label_color_mode": "1",
+"name_label_hide_when_no_character": "true"
 }
 
 [resource]
@@ -88,4 +89,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("2_5q7xs")]([])
-metadata/_latest_layer = "18"
+metadata/_latest_layer = "17"

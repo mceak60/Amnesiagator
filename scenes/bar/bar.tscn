@@ -326,6 +326,7 @@ text = "Gold"
 mouse_filter = 2
 
 [node name="Journal" parent="UILayer" instance=ExtResource("31_2tg8q")]
+visible = false
 mouse_filter = 2
 
 [node name="PuzzleHandler" type="Node" parent="." node_paths=PackedStringArray("puzzle_list")]

@@ -56,6 +56,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_1ej5t")
 
 [node name="Customers" type="HBoxContainer" parent="JournalContainer"]
+visible = false
 layout_mode = 2
 
 [node name="LeftPage" type="MarginContainer" parent="JournalContainer/Customers"]
@@ -498,7 +499,6 @@ text = "- ???
 "
 
 [node name="Ingredients" type="HBoxContainer" parent="JournalContainer"]
-visible = false
 layout_mode = 2
 
 [node name="LeftPage" type="MarginContainer" parent="JournalContainer/Ingredients"]
