@@ -122,6 +122,7 @@ func do_process_drink(drink: Drink, current_puzzle: Puzzle, customer: Customer =
 	gold_counter.text = str(int(gold_counter.text) + gold_reward)
 	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.GOLD_ADDED)
 	#textbox.queue_text(current_puzzle.customer_name + ": " + feedback)
+	customer.set_emotion(result)
 	Dialogic.VAR.ordering = false
 	Dialogic.VAR.customer_name = get_current_puzzle().customer_name
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
@@ -130,6 +131,7 @@ func do_process_drink(drink: Drink, current_puzzle: Puzzle, customer: Customer =
 	if (customer != null):
 		SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_FEEDBACK, [customer, result], 1, .5, .25)
 	#feedback_label.text = feedback
+
 
 	print(result_names[result])
 	print(feedback)
