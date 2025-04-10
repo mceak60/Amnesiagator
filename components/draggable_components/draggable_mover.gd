@@ -2,7 +2,7 @@ class_name DraggableMover
 extends Node
 
 @onready var puzzle_handler = %PuzzleHandler
-signal submit_drink(drink: Drink)
+#signal submit_drink(drink: Drink)
 signal submit_drink_to(drink: Drink, customer: Customer)
 @export var draggable_areas: Array[DraggableArea]
 
@@ -75,7 +75,7 @@ func _on_draggable_drag_canceled(starting_position: Vector2, draggable: Draggabl
 	_set_highlighters(false)
 	_reset_draggable_to_starting_position(starting_position, draggable)
 
-
+#SK 4/10/25 - This needs to be refactored at some point - the draggable mover class should not have specific logic for different draggables - should just call the "is_dropped" method for each
 func _on_ingredient_dropped(starting_position: Vector2, ingredient: Ingredient) -> void:
 	var drop_area_index := _get_draggable_area_for_position(ingredient.get_global_mouse_position())
 	if drop_area_index == 0:
@@ -100,6 +100,7 @@ func _on_ingredient_dropped(starting_position: Vector2, ingredient: Ingredient) 
 	
 	_reset_draggable_to_starting_position(starting_position, ingredient)
 
+#SK 4/10/25 - This needs to be refactored at some point - the draggable mover class should not have logic on drink submission
 func _on_drink_dropped(starting_position: Vector2, drink: Drink) -> void:
 	var drop_area_index := _get_draggable_area_for_position(drink.get_global_mouse_position())
 	var customer: Customer = draggable_areas[4].get_child(4)
@@ -114,13 +115,13 @@ func _on_drink_dropped(starting_position: Vector2, drink: Drink) -> void:
 		_reset_draggable_to_starting_position(starting_position, drink)
 		return
 	
-	elif drop_area_index == 3:
-		
-		print("Submitted drink" + str(drink))
-		submit_drink.emit(drink)
-		
-		_reset_draggable_to_starting_position(starting_position, drink)
-		return
+	#elif drop_area_index == 3:
+		#
+		#print("Submitted drink" + str(drink))
+		#submit_drink.emit(drink)
+		#
+		#_reset_draggable_to_starting_position(starting_position, drink)
+		#return
 	
 	#elif drop_area_index == 4:
 		#var tile := draggable_areas[drop_area_index].get_hovered_tile()

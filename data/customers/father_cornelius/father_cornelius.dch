@@ -15,7 +15,7 @@
 "display_name": "Father Cornelius",
 "mirror": true,
 "nicknames": [""],
-"offset": Vector2(0, 0),
+"offset": Vector2(0, 10),
 "portraits": {
 "New portrait": {
 "export_overrides": {
@@ -27,5 +27,5 @@
 "scene": ""
 }
 },
-"scale": 1.0
+"scale": 1.5
 }

@@ -10,14 +10,14 @@
 "style": "",
 "suffix": ""
 },
-"default_portrait": "New portrait",
+"default_portrait": "doug",
 "description": "",
 "display_name": "Doug",
 "mirror": true,
 "nicknames": [""],
-"offset": Vector2(0, 0),
+"offset": Vector2(0, 16),
 "portraits": {
-"New portrait": {
+"doug": {
 "export_overrides": {
 "image": "\"res://assets/sprites/penguin.png\""
 },
@@ -28,5 +28,5 @@
 "scene": ""
 }
 },
-"scale": 1.0
+"scale": 1.4
 }

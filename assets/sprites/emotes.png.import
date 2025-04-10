@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ldmwo1fib2nd"
-path="res://.godot/imported/bar scene.png-727c7702fd15b24d53e17a9da0bfb1a3.ctex"
+uid="uid://bmnt3jdcisrop"
+path="res://.godot/imported/emotes.png-47eb5a2d8ca7c8319b31cfd212a6c34f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/bar scene.png"
-dest_files=["res://.godot/imported/bar scene.png-727c7702fd15b24d53e17a9da0bfb1a3.ctex"]
+source_file="res://assets/sprites/emotes.png"
+dest_files=["res://.godot/imported/emotes.png-47eb5a2d8ca7c8319b31cfd212a6c34f.ctex"]
 
 [params]
 

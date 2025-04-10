@@ -20,11 +20,11 @@ var order_number := 1
 var global_customer: Customer
 
 func _ready():
-	draggable_mover.submit_drink.connect(process_drink)
+	#draggable_mover.submit_drink.connect(process_drink)
 	draggable_mover.submit_drink_to.connect(process_drink_for)
 	current_puzzle_idx = starting_puzzle_idx
 	var current_puzzle = get_current_puzzle()
-	var order = current_puzzle.get_customer_and_order()
+	var _order = current_puzzle.get_customer_and_order()
 	spawn_puzzle_customer(current_puzzle)
 
 func get_current_puzzle() -> Puzzle:
@@ -80,9 +80,8 @@ func spawn_puzzle_customer(puzzle: Puzzle) -> void:
 	customer.customer_clicked.connect(_customer_dialogue)
 
 
-func process_drink(drink: Drink) -> void:
-	do_process_drink(drink, get_current_puzzle())
-
+#func process_drink(drink: Drink) -> void:
+	#do_process_drink(drink, get_current_puzzle())
 
 func process_drink_for(drink: Drink, customer: Customer) -> void:
 	var current_puzzle := get_current_puzzle()
@@ -126,14 +125,16 @@ func do_process_drink(drink: Drink, current_puzzle: Puzzle, customer: Customer =
 	gold_counter.text = str(int(gold_counter.text) + gold_reward)
 	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.GOLD_ADDED)
 	#textbox.queue_text(current_puzzle.customer_name + ": " + feedback)
+	customer.set_emotion(result)
 	Dialogic.VAR.ordering = false
 	Dialogic.VAR.customer_name = get_current_puzzle().customer_name
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	Dialogic.start('puzzle')
 	get_viewport().set_input_as_handled()
-	if(customer != null):
+	if (customer != null):
 		SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_FEEDBACK, [customer, result], 1, .5, .25)
 	#feedback_label.text = feedback
+
 
 	print(result_names[result])
 	print(feedback)
@@ -150,7 +151,7 @@ func _show_customer_dialogue(customer: Customer):
 	textbox.queue_text(puzzle.customer_name + ": " + order)
 	#order_label.text = order
 
-func _customer_dialogue(customer: Customer):
+func _customer_dialogue(_customer: Customer):
 	if Dialogic.current_timeline != null:
 		return
 	Dialogic.VAR.ordering = true
