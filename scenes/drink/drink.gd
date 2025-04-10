@@ -32,7 +32,7 @@ func set_drink_level(coords: Vector2i) -> void:
 
 func add_level(ingredient: Ingredient) -> void:	
 	var ingred_color: Color = ingredient.details.colors.pick_random()
-	var blended_color := current_color.lerp(ingred_color, 0.75)
+	var blended_color := current_color.lerp(ingred_color, 0.9)
 	current_color = blended_color
 	drink_level.x = drink_level.x + INCREMENT_SIZE
 	current_capacity += INCREMENT_SIZE

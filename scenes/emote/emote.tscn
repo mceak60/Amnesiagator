@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://clutulmsq17hu"]
+
+[ext_resource type="Script" path="res://scenes/emote/emote.gd" id="1_qqyul"]
+[ext_resource type="Texture2D" uid="uid://bmnt3jdcisrop" path="res://assets/sprites/emotes.png" id="1_vcap5"]
+
+[node name="Emote" type="Node2D"]
+script = ExtResource("1_qqyul")
+
+[node name="Bubble" type="Sprite2D" parent="."]
+texture = ExtResource("1_vcap5")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 96, 32, 32)

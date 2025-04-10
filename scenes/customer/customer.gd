@@ -6,6 +6,7 @@ signal customer_clicked(customer: Customer)
 
 @export var details: CustomerDetails: set = set_details
 @onready var skin: Sprite2D = $Visuals/Skin
+@onready var emote: Node2D = $Emote
 
 func set_details(value: CustomerDetails) -> void:
 	details = value
@@ -32,6 +33,17 @@ func get_sfx_drink_served(_drink: Drink) -> Array[SFX_Handler.SFX_Categories]:
 func get_sfx_feedback(_feedback: Puzzle.Result) -> Array[SFX_Handler.SFX_Categories]:
 	# Currently static
 	return [SFX_Handler.SFX_Categories.SHAKE, SFX_Handler.SFX_Categories.BURP]
+
+func set_emotion(result: Puzzle.Result) -> void:
+	if result == Puzzle.Result.GREAT_SUCCESS:
+		emote.set_emote(Emote.Emotion.LOVE)
+	elif result == Puzzle.Result.SUCCESS:
+		emote.set_emote(Emote.Emotion.LIKE)
+	elif result == Puzzle.Result.EHHH:
+		emote.set_emote(Emote.Emotion.QUESTION)
+	elif result == Puzzle.Result.FAILURE:
+		emote.set_emote(Emote.Emotion.ANGRY)
+	emote.show()
 
 
 func _on_mouse_entered() -> void:
