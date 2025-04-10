@@ -102,6 +102,7 @@ func _on_ingredient_dropped(starting_position: Vector2, ingredient: Ingredient) 
 
 func _on_drink_dropped(starting_position: Vector2, drink: Drink) -> void:
 	var drop_area_index := _get_draggable_area_for_position(drink.get_global_mouse_position())
+	var customer: Customer = draggable_areas[4].get_child(4)
 	if drop_area_index == 1:
 		SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.DRINK_DROPPED, [drink], 1, .5, .25)
 		on_draggable_dropped(starting_position, drink, drop_area_index)
@@ -121,17 +122,24 @@ func _on_drink_dropped(starting_position: Vector2, drink: Drink) -> void:
 		_reset_draggable_to_starting_position(starting_position, drink)
 		return
 	
-	elif drop_area_index == 4:
-		var tile := draggable_areas[drop_area_index].get_hovered_tile()
-		if draggable_areas[drop_area_index].draggable_grid.is_tile_occupied(tile):
-			var customer: Customer = draggable_areas[drop_area_index].draggable_grid.draggables[tile]
-			print("Gave " + str(customer) + " drink: " + str(drink))
-			submit_drink_to.emit(drink, customer)
-			drink.empty()
+	#elif drop_area_index == 4:
+		#var tile := draggable_areas[drop_area_index].get_hovered_tile()
+		#if draggable_areas[drop_area_index].draggable_grid.is_tile_occupied(tile):
+			#var customer: Customer = draggable_areas[drop_area_index].draggable_grid.draggables[tile]
+			#print("Gave " + str(customer) + " drink: " + str(drink))
+			#submit_drink_to.emit(drink, customer)
+			#drink.empty()
+			#
+		#_reset_draggable_to_starting_position(starting_position, drink)
+		#return
+	
+	elif (customer != null && customer.hovered):
+		print("Gave " + str(customer) + " drink: " + str(drink))
+		submit_drink_to.emit(drink, customer)
+		drink.empty()
 			
 		_reset_draggable_to_starting_position(starting_position, drink)
 		return
-			
 			
 	_reset_draggable_to_starting_position(starting_position, drink)
 

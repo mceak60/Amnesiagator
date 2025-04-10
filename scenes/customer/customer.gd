@@ -6,6 +6,7 @@ signal customer_clicked(customer: Customer)
 
 @export var details: CustomerDetails: set = set_details
 @onready var skin: Sprite2D = $Visuals/Skin
+var hovered: bool = false
 
 func set_details(value: CustomerDetails) -> void:
 	details = value
@@ -36,12 +37,14 @@ func get_sfx_feedback(_feedback: Puzzle.Result) -> Array[SFX_Handler.SFX_Categor
 
 func _on_mouse_entered() -> void:
 	outline_highlighter.highlight()
+	hovered = true
 	z_index = 1
 	show_debug.emit()
 
 
 func _on_mouse_exited() -> void:
 	outline_highlighter.clear_highlight()
+	hovered = false
 	z_index = 0
 	hide_debug.emit()
 

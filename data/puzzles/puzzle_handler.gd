@@ -101,13 +101,16 @@ func process_drink_for(drink: Drink, customer: Customer) -> void:
 func _on_timeline_ended():
 	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
 	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_LEFT, [global_customer], 1, .5, .25)
-	global_customer.queue_free()
+	#global_customer.queue_free()
+	global_customer.get_parent().remove_child(self)
+	global_customer.visible = false
 	increment_puzzle()
 	order_number += 1
 	var new_puzzle = get_current_puzzle()
 	
 	# wait 3 seconds, then spawn the next customer and get the next puzzle
 	await get_tree().create_timer(1.5).timeout
+	global_customer.queue_free()
 	new_puzzle.get_customer_and_order()
 	spawn_puzzle_customer(new_puzzle)
 

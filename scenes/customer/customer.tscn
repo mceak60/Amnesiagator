@@ -8,7 +8,7 @@
 [ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="7_y7a6r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdqai"]
-size = Vector2(89, 94)
+size = Vector2(96, 95)
 
 [node name="Customer" type="Area2D"]
 script = ExtResource("1_62hb1")
@@ -18,7 +18,6 @@ metadata/_edit_group_ = true
 material = ExtResource("3_xdqwp")
 
 [node name="Skin" type="Sprite2D" parent="Visuals"]
-position = Vector2(16, 8)
 scale = Vector2(3, 3)
 texture = ExtResource("3_d4vu3")
 flip_h = true
@@ -26,7 +25,6 @@ region_enabled = true
 region_rect = Rect2(0, 416, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(14.5, 15)
 shape = SubResource("RectangleShape2D_rdqai")
 
 [node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
