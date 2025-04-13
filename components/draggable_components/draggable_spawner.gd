@@ -92,6 +92,7 @@ func spawn_customer(customer: CustomerDetails) -> Customer:
 	#new_customer.global_position = seating.get_global_from_tile(tile) - Bar.HALF_CELL_SIZE
 	seating.add_child(new_customer)
 	new_customer.global_position = Vector2(152, 228)
+	new_customer.enable_collision()
 	new_customer.details = customer
 	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_ENTERED, [new_customer], 1, .5,.25)
 	return new_customer
@@ -104,6 +105,7 @@ func spawn_customer_at(customer: CustomerDetails, position: Vector2i) -> Custome
 	#new_customer.global_position = seating.get_global_from_tile(tile) - Bar.HALF_CELL_SIZE
 	seating.add_child(new_customer)
 	new_customer.global_position = position
+	new_customer.enable_collision()
 	new_customer.details = customer
 	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_ENTERED, [new_customer], 1, .5,.25)
 	return new_customer

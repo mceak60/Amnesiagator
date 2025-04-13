@@ -10,14 +10,15 @@ extends Node
 
 @onready var draggable_mover: DraggableMover = get_parent().get_node("DraggableMover")
 @onready var draggable_spawner: DraggableSpawner = get_parent().get_node("DraggableSpawner")
-@onready var order_label: RichTextLabel = $"../Order"
-@onready var feedback_label: RichTextLabel = $"../Feedback"
+#@onready var order_label: RichTextLabel = $"../Order"
+#@onready var feedback_label: RichTextLabel = $"../Feedback"
 @onready var gold_counter: Label = $"../GoldCounter"
 @onready var textbox: Control = $"../UILayer/Textbox"
 
 var current_puzzle_idx := starting_puzzle_idx
 var order_number := 1
 var global_customer: Customer
+#var past_customers: Array[Customer]
 
 func _ready():
 	#draggable_mover.submit_drink.connect(process_drink)
@@ -101,8 +102,10 @@ func _on_timeline_ended():
 	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
 	SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.CUSTOMER_LEFT, [global_customer], 1, .5, .25)
 	#global_customer.queue_free()
-	global_customer.get_parent().remove_child(self)
+	#global_customer.get_parent().remove_child(self)
 	global_customer.visible = false
+	#global_customer.disable_collision()
+	#past_customers.append(global_customer)
 	increment_puzzle()
 	order_number += 1
 	var new_puzzle = get_current_puzzle()

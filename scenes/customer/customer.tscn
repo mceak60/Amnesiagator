@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://biw3haki8sh78"]
+[gd_scene load_steps=10 format=3 uid="uid://biw3haki8sh78"]
 
 [ext_resource type="Script" path="res://scenes/customer/customer.gd" id="1_62hb1"]
 [ext_resource type="PackedScene" uid="uid://clutulmsq17hu" path="res://scenes/emote/emote.tscn" id="2_kreds"]
+[ext_resource type="Resource" uid="uid://j8smv086g07h" path="res://data/customers/doug/doug.tres" id="2_q6n8y"]
 [ext_resource type="Texture2D" uid="uid://bw58nkxog80uh" path="res://assets/sprites/animals.png" id="3_d4vu3"]
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://assets/shaders/2d_outline_shader.tres" id="3_xdqwp"]
 [ext_resource type="Script" path="res://components/highlighters/outline_highlighter.gd" id="4_a1xyg"]
@@ -13,11 +14,12 @@ size = Vector2(96, 95)
 
 [node name="Customer" type="Area2D"]
 script = ExtResource("1_62hb1")
+details = ExtResource("2_q6n8y")
 metadata/_edit_group_ = true
 
 [node name="Emote" parent="." instance=ExtResource("2_kreds")]
 visible = false
-position = Vector2(-15, -80)
+position = Vector2(-15, -90)
 scale = Vector2(2, 2)
 
 [node name="Visuals" type="CanvasGroup" parent="."]
@@ -32,6 +34,7 @@ region_rect = Rect2(0, 416, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rdqai")
+disabled = true
 
 [node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
 script = ExtResource("4_a1xyg")

@@ -8,6 +8,7 @@ signal customer_clicked(customer: Customer)
 @onready var skin: Sprite2D = $Visuals/Skin
 var hovered: bool = false
 @onready var emote: Node2D = $Emote
+@onready var collision: CollisionShape2D = $CollisionShape2D
 
 func set_details(value: CustomerDetails) -> void:
 	details = value
@@ -65,6 +66,11 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 	if event.is_action_pressed("select"):
 		customer_clicked.emit(self)
 
+func enable_collision():
+	collision.disabled = false
+
+func disable_collision():
+	collision.disabled = true
 
 func _to_string() -> String:
 	return details.name

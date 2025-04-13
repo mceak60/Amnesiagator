@@ -78,22 +78,35 @@ func _on_draggable_drag_canceled(starting_position: Vector2, draggable: Draggabl
 #SK 4/10/25 - This needs to be refactored at some point - the draggable mover class should not have specific logic for different draggables - should just call the "is_dropped" method for each
 func _on_ingredient_dropped(starting_position: Vector2, ingredient: Ingredient) -> void:
 	var drop_area_index := _get_draggable_area_for_position(ingredient.get_global_mouse_position())
+	var drink: Drink = draggable_areas[1].draggable_grid.get_child(0)
 	if drop_area_index == 0:
 		SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.INGREDIENT_DROPPED, [ingredient], 1, .5, .25)
 		on_draggable_dropped(starting_position, ingredient, drop_area_index)
 		return
 		
-	elif drop_area_index == 1:
-		var tile := draggable_areas[drop_area_index].get_hovered_tile()
-		if draggable_areas[drop_area_index].draggable_grid.is_tile_occupied(tile):
-			var drink: Draggable = draggable_areas[drop_area_index].draggable_grid.draggables[tile]
-			if drink.can_add_more():
-				SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.INGREDIENT_ADDED_TO_DRINK, [ingredient, drink], 1, .5, .25)
-				drink.add_level(ingredient)
-				drink.ingredient_list.append(ingredient)
-				drink.debug_label.update_text()
-				for attribute in ingredient.details.attribute_list:
-					drink.attribute_list[attribute] += ingredient.details.attribute_list[attribute]
+	#elif drop_area_index == 1:
+		#var tile := draggable_areas[drop_area_index].get_hovered_tile()
+		#if draggable_areas[drop_area_index].draggable_grid.is_tile_occupied(tile):
+			#var drink: Draggable = draggable_areas[drop_area_index].draggable_grid.draggables[tile]
+			#if drink.can_add_more():
+				#SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.INGREDIENT_ADDED_TO_DRINK, [ingredient, drink], 1, .5, .25)
+				#drink.add_level(ingredient)
+				#drink.ingredient_list.append(ingredient)
+				#drink.debug_label.update_text()
+				#for attribute in ingredient.details.attribute_list:
+					#drink.attribute_list[attribute] += ingredient.details.attribute_list[attribute]
+			#
+		#_reset_draggable_to_starting_position(starting_position, ingredient)
+		#return
+		
+	elif (drink != null && drink.hovered):
+		if drink.can_add_more():
+			SFX_Handler.trigger_sfx_func(SFX_Handler.SFX_Triggers.INGREDIENT_ADDED_TO_DRINK, [ingredient, drink], 1, .5, .25)
+			drink.add_level(ingredient)
+			drink.ingredient_list.append(ingredient)
+			drink.debug_label.update_text()
+			for attribute in ingredient.details.attribute_list:
+				drink.attribute_list[attribute] += ingredient.details.attribute_list[attribute]
 			
 		_reset_draggable_to_starting_position(starting_position, ingredient)
 		return

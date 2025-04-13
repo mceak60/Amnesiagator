@@ -13,6 +13,8 @@ var max_capacity: int = 10
 var current_capacity: int = 0
 var default_drink_level: Vector2i = Vector2i(1,0)
 
+var hovered: bool = false
+
 @onready var skin: Sprite2D = $Visuals/Skin
 @onready var drink_visual: Sprite2D = $Visuals/DrinkLevel
 
@@ -224,6 +226,7 @@ func _on_mouse_entered() -> void:
 		return
 	
 	outline_highlighter.highlight()
+	hovered = true
 	z_index = 3
 	
 	show_debug.emit()
@@ -233,6 +236,7 @@ func _on_mouse_exited() -> void:
 		return
 	
 	outline_highlighter.clear_highlight()
+	hovered = false
 	z_index = 3
 	
 	hide_debug.emit()
